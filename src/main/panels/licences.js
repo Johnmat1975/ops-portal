@@ -5,6 +5,7 @@ const rules = require('./licences-rules');
 const coverage = require('./coverage');
 const identity = require('./identity');
 const perPerson = require('./licences-people');
+const seats = require('./licences-seats');
 
 async function collect(api, env, have = {}) {
   const cov = have.cov ? Promise.resolve(have.cov) : coverage.collect(api, env).catch(e => ({ error: e.message }));
@@ -18,15 +19,18 @@ async function collect(api, env, have = {}) {
     systems[alias] = { systemId: s.systemId, systemDetailId: s.systemDetailId, inspectedOn: s.inspectedOn };
     data[q.key] = await api.evaluate(s.systemDetailId, q.query);
   }
+  // Seats in use (and purchased, where the data has it) for every other inspector this client runs (licences-seats.js).
+  const seatData = await seats.collect(api, sys).catch(() => ({}));
   const dates = Object.values(systems).map(s => s.inspectedOn).filter(Boolean).sort();
-  return { environment: env, inspectedOn: dates[dates.length - 1] || null, systems, data, missing, cov: await cov, id: await id };
+  return { environment: env, inspectedOn: dates[dates.length - 1] || null, systems, data, missing, cov: await cov, id: await id, seatData };
 }
 
 function compute(input) {
-  const m = withPeople(rules.compute(input), input, null);
+  const base = withSeats(rules.compute(input), input);
+  const m = withPeople(base, input, null);
   const cv = input.cov && !input.cov.error ? (() => { try { return coverage.compute({ ...input.cov, pulledOn: input.pulledOn, stack: input.stack, policy: input.coveragePolicy, thresholds: input.thresholds }); } catch { return null; } })() : null;
   if (!cv) return m;
-  const mp = withPeople(m, input, cv);
+  const mp = withPeople(base, input, cv);
   const names = list => (list || []).map(x => x.name || x).filter(Boolean);
   const cell = (k, list) => ({ k: k === 'warn' ? 'warn' : k === 'ok' ? 'ok' : k === 'bad' ? 'bad' : 'none', last: names(list).join(', ') });
   const endpoints = cv.rows.filter(r => (r.kind === 'Server' || r.kind === 'Workstation') && !r.stale);
@@ -43,6 +47,15 @@ function compute(input) {
   const actions = m.actions.filter(a => !/no RMM or EDR/.test(a.b));
   if (notManaged.length) actions.push({ sev: 'warn', a: `Decide what to do with ${notManaged.slice(0, 6).map(r => r.host).join(', ')}${notManaged.length > 6 ? ` and ${notManaged.length - 6} more` : ''}.`, b: 'Liongard sees them, but no RMM or EDR manages them: enrol them or retire them.' });
   return { ...mp, kpis, actions, devices: [...devices, ...phones], unmanaged: notManaged.map(r => ({ name: r.host, id: r.id, os: r.os, seenBy: r.seenBy })), deviceSource: 'coverage' };
+}
+
+// Rows for the client's other inspectors, found automatically, after the ones the licence rules reconcile in detail.
+function withSeats(m, input) {
+  const auto = seats.rows(input.seatData);
+  if (!auto.length) return m;
+  const systems = { ...m.systems };
+  for (const r of auto) if (!systems[r.source]) { const x = (input.seatData || {})[r.systemId] || {}; systems[r.source] = { systemId: r.systemId, systemDetailId: x.systemDetailId, inspectedOn: x.inspectedOn }; }
+  return { ...m, subs: [...m.subs, ...auto], systems };
 }
 
 // Every seat and device product tied to each person (the per-person view). Identity is computed with the same settings
