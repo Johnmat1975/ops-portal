@@ -34,7 +34,7 @@ The home page groups the pages by job.
 |---|---|
 | **Today** | **Overview** (every area for the client, worst first) · **Action plan** (fixes ranked by risk, with owner, effort and ticket text) · **Change pulse** (real configuration changes, routine churn filtered out) · **Inspector health** (failing, stale or unscheduled inspectors) |
 | **Security** | **Identity & access** (admins, MFA gaps, leavers, stale accounts, user access review) · **Stack coverage** (RMM, AV/EDR and backup on every device) · **Email & domains** (SPF, DKIM, DMARC, certificates) · **Cyber security** (exposures and MITRE ATT&CK v20.0 coverage) |
-| **QBR & commercial** | **Compliance** (technical-control evidence for Cyber Essentials, CIS, PCI DSS, HIPAA, NIS2, DORA, NIST CSF, ISO 27001, Essential Eight, POPIA and cyber insurance) · **Licence reconciliation** (seats bought against seats used, licences per person with costs, a true-up for client sign-off) · **Lifecycle & renewals** · **AI usage** |
+| **QBR & commercial** | **Compliance** (technical-control evidence for Cyber Essentials, CIS, PCI DSS, HIPAA, NIS2, DORA, NIST CSF, ISO 27001, Essential Eight, POPIA and cyber insurance) · **Licence reconciliation** (every product the client's inspectors report, found automatically with seats in use and purchased where Liongard has it; licences per person with costs; a true-up for client sign-off) · **Lifecycle & renewals** · **AI usage** |
 | **Estate & tools** | **Network & firmware** · **Customer stack** · **Lookup** (everything about a person, device or domain) · **Wallboard** (for the service-desk screen) |
 
 Also:
