@@ -1,0 +1,224 @@
+/* Liongard portal chrome: the 56px navy top bar, the slate side menu and the first-run setup card.
+   Colours and sizes come from tokens.css. Load order: tokens, fonts, portal, liongard-theme, app
+   (app.css is last so its print and kiosk rules win). */
+
+/* ---------- Top bar: the client cockpit. Client switcher · health ribbon ······ freshness · Powered by · theme ---------- */
+.hero{background:var(--chrome-bar);color:#fff;padding-inline:0;border-bottom:0;box-shadow:0 1px 0 rgba(255,255,255,.06);position:relative;z-index:35}
+.hero-top{height:var(--bar-h);margin:0;max-width:none;padding:0 16px 0 14px;display:flex;align-items:center;justify-content:flex-start;gap:14px;min-width:0}
+.hero-sp{flex:1 1 auto;min-width:0}
+.hero :focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* Client switcher: avatar, name, one meta line; opens the command bar. */
+.switcher{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex:0 1 auto;align-items:center;gap:10px;padding:5px 10px 5px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.18);min-width:0;max-width:min(520px,52vw);color:#fff}
+.switcher:hover{background:rgba(255,255,255,.08)}
+.switcher[disabled]{cursor:default}
+.switcher[disabled]:hover{background:none}
+.switcher[disabled] .sw-chev,.switcher[disabled] .kbd{display:none}
+.switcher .av{flex:none;width:26px;height:26px;border-radius:6px;background:var(--blue-600);display:grid;place-items:center;font:900 12px/1 var(--f-body);color:#fff;letter-spacing:.02em}
+.switcher .sw-t{display:flex;flex-direction:column;min-width:0}
+.hero .hero-client{display:block;margin:0;font:700 15px/1.15 var(--f-body);color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.switcher .meta{display:block;margin-top:2px;font-size:var(--fs-xs);line-height:1.2;color:rgba(255,255,255,.68);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.switcher .meta:empty{display:none}
+.switcher .sw-chev{flex:none;width:14px;height:14px}
+.kbd{flex:none;font:400 11px/1.4 var(--f-mono);padding:1px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8)}
+/* Health ribbon: one segment per Overview area, worst first; hatched = no tool (not covered). */
+.ribbon{display:flex;gap:3px;align-items:center;flex:none}
+.ribbon a{display:block;width:22px;height:8px;border-radius:2px;background:var(--rb);transition:transform .1s}
+.ribbon a[data-s="act"]{height:12px}.ribbon a[data-s="review"]{height:8px}.ribbon a[data-s="ok"]{height:4px}
+.ribbon a[data-s="unknown"]{height:8px;background:transparent;box-shadow:inset 0 0 0 2px var(--rb);outline:1px dotted var(--rb);outline-offset:1px}
+.ribbon a.none{background:repeating-linear-gradient(135deg,rgba(255,255,255,.5) 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+.ribbon a:hover,.ribbon a:focus-visible{transform:scaleY(1.6)}
+/* Freshness: when this page's data was pulled; the dot turns amber after 24 hours. */
+.fresh{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.85);white-space:nowrap}
+.fresh i{width:8px;height:8px;border-radius:50%;background:#86c86e;box-shadow:0 0 0 3px rgba(134,200,110,.25)}
+.fresh.old i{background:#f3b020;box-shadow:0 0 0 3px rgba(243,176,32,.25)}
+/* Present to client */
+.present-btn{all:unset;cursor:pointer;flex:none;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid rgba(255,255,255,.25);border-radius:999px;color:rgba(255,255,255,.9);font:700 12px var(--f-body);white-space:nowrap}
+.present-btn:hover{background:rgba(255,255,255,.08);border-color:#fff}
+.present-btn svg{width:14px;height:14px}
+.present-btn[aria-pressed="true"]{background:#fff;color:var(--navy-900)}
+/* "Powered by Liongard's Data Lake": the text mark that replaces the logo image, right-aligned after a 1px divider. */
+.powered{flex:none;display:flex;flex-direction:column;align-items:flex-end;line-height:1.1;padding-left:14px;border-left:1px solid rgba(255,255,255,.2);white-space:nowrap}
+.powered small{font:700 9.5px/1.2 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.powered span{font:700 13px/1.2 var(--f-body);color:#fff}
+.powered em{font-style:normal;color:var(--brand-gold)}
+/* Light / System / Dark */
+.theme3{flex:none;display:inline-flex;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:2px}
+.theme3 button{all:unset;cursor:pointer;width:26px;height:24px;display:grid;place-items:center;border-radius:999px;color:rgba(255,255,255,.75)}
+.theme3 button:hover{color:#fff}
+.theme3 button[aria-pressed="true"]{background:rgba(255,255,255,.18);color:#fff}
+.theme3 svg{width:14px;height:14px}
+@media (max-width:1180px){.fresh{display:none}}
+@media (max-width:980px){.ribbon,.kbd,.present-btn span{display:none}}
+@media (max-width:640px){
+  .switcher .meta,.powered small{display:none}
+  .powered span{font-size:11.5px}
+  .hero-top{gap:8px;padding-right:10px}
+  .powered{padding-left:8px}
+  .present-btn{display:none}
+  .switcher{flex:1 1 auto}
+  .hero-sp{display:none}
+}
+@media (max-width:480px){.theme3{display:none}}   /* the theme is also in Settings › Appearance */
+
+/* ---------- Command bar: Ctrl/⌘ K. Clients (stay on this page), pages, and free text handed to Lookup ---------- */
+.cmdk{position:fixed;inset:0;background:rgba(5,20,35,.45);display:flex;align-items:flex-start;justify-content:center;padding-top:12vh;z-index:90}
+.cmdk[hidden]{display:none}
+.cmdk .box{width:min(620px,92vw);background:var(--surface-card);color:var(--text);border:1px solid var(--line-frame);border-radius:12px;box-shadow:var(--shadow-pop);overflow:hidden}
+.cmdk input{width:100%;border:0;border-bottom:1px solid var(--line-soft);padding:14px 16px;font:16px var(--f-body);background:transparent;color:var(--text);outline:none}
+.cmdk input:focus-visible{box-shadow:inset 0 -2px 0 var(--focus)}
+.cmdk ul{list-style:none;margin:0;padding:6px;max-height:50vh;overflow:auto}
+.cmdk li{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;font-size:14px;cursor:pointer}
+.cmdk li[aria-selected="true"],.cmdk li.opt:hover{background:var(--action-tint)}
+.cmdk li small{color:var(--text-muted);white-space:nowrap}
+.cmdk li.tone-act small::before,.cmdk li.tone-review small::before{content:"";display:inline-block;width:8px;height:8px;margin-right:6px;vertical-align:1px;background:var(--sev-crit)}
+.cmdk li.tone-act small::before{border-radius:50%}
+.cmdk li.tone-review small::before{background:transparent;border:2px solid var(--sev-warn-ink);border-radius:2px;width:6px;height:6px}
+.cmdk li.grp{font:700 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:8px 10px 2px;cursor:default}
+.cmdk li.none{color:var(--text-muted);cursor:default}
+.cmdk .foot{display:flex;gap:14px;padding:8px 14px;border-top:1px solid var(--line-soft);font-size:var(--fs-xs);color:var(--text-muted)}
+
+/* ---------- Page header: breadcrumb, one title row with the page's actions, a one-line intro ---------- */
+.page-head{display:flex;flex-direction:column;gap:2px}
+.crumb{font-size:var(--fs-sm);color:var(--text-muted);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.crumb a{color:var(--text-muted);text-decoration:none}
+.crumb a:hover{color:var(--action);text-decoration:underline}
+.crumb span:empty,.crumb span:empty+span[aria-hidden]{display:none}
+.phead{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:flex-end;justify-content:space-between}
+.phead-t{min-width:0;flex:1 1 420px}
+.ph-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ph-title h1{font:700 var(--fs-h1)/1.2 var(--f-display);margin:2px 0 4px;color:var(--text);text-wrap:balance}
+.phead p{margin:0;color:var(--text-muted);font-size:var(--fs-body);max-width:90ch}
+.phead p.intro-more{margin-top:6px}
+.page-acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end}
+.page-acts .btn,.page-acts details.menu>summary.btn{height:34px;padding:0 14px}
+.page-acts .btn svg{width:15px;height:15px;flex:none}
+.page-acts .status-line{font-size:var(--fs-sm);max-width:46ch}
+.seg.seg-sm button{padding:4px 10px;font-size:12px}
+.present-flag{display:none}
+body.present .present-flag{display:inline-flex}
+
+/* ---------- S2: one set of state components: All clear, Not covered, Couldn't read, Loading ---------- */
+.state{display:flex;gap:12px;align-items:flex-start}
+.state .st-ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:none;font:700 13px/1 var(--f-body)}
+.state h3,.state h4{margin:2px 0 2px}
+.state p{margin:0}
+.st-ok .st-ic{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.st-none .st-ic{background:var(--sev-none-tint);color:var(--sev-none-ink);border:1px dashed var(--sev-none)}
+.card.st-none{border-style:dashed;box-shadow:none}
+.st-blind .st-ic{background:var(--sev-blind-tint);color:var(--sev-blind)}
+.card.st-blind{border-left:4px solid var(--sev-blind)}
+.skel-wrap{display:grid;gap:10px;padding:22px 4px}
+.skel{height:12px;border-radius:4px;background:linear-gradient(90deg,var(--surface-sunken),var(--line-soft),var(--surface-sunken));background-size:200% 100%;animation:lg-skel 1.4s infinite}
+.skel.tall{height:72px}
+@keyframes lg-skel{to{background-position:-200% 0}}
+@media (prefers-reduced-motion: reduce){.skel{animation:none}}
+
+/* ---------- Side menu: Liongard's slate sidebar with a navy active item. It starts below the top bar. ---------- */
+#sideNav{position:fixed;top:var(--nav-top,0px);left:0;bottom:0;width:var(--nav-w);overflow-y:auto;background:var(--chrome-menu);color:#fff;z-index:30;padding:10px 8px 24px;display:flex;flex-direction:column;gap:4px;transition:top .05s linear;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.22) transparent}
+#sideNav::-webkit-scrollbar{width:6px}
+#sideNav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.22);border-radius:3px}
+#sideNav::-webkit-scrollbar-track{background:transparent}
+body.has-nav{padding-left:var(--nav-w)}
+body.has-nav .hero{margin-left:calc(-1 * var(--nav-w))}
+#sideNav a{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:6px;color:#fff;text-decoration:none;font-size:13px;line-height:1.25}
+#sideNav a:hover{background:rgba(255,255,255,.08)}
+#sideNav a{position:relative}
+#sideNav a.on{background:var(--chrome-menu-on);font-weight:700}
+#sideNav a.on::before{content:"";position:absolute;left:-8px;top:6px;bottom:6px;width:3px;border-radius:0 3px 3px 0;background:#6aa8ee}   /* accent bar on the active page */
+#sideNav a.locked{opacity:.75}
+/* a 7px status dot per page, a count on the Action plan (from the last cached model; never fetched for the menu). */
+#sideNav .nv-dot{margin-left:auto;flex:none;width:8px;height:8px;border-radius:50%;background:var(--rb-act);box-shadow:0 0 0 2px #fff}   /* Act now only; a white ring (7.2:1 on the menu) and screen-reader text */
+#sideNav .nv-cnt{margin-left:auto;flex:none;font:700 11px/1.5 var(--f-body);padding:0 6px;border-radius:999px;background:rgba(255,255,255,.16)}
+body.nav-collapsed #sideNav .nv-cnt{display:none}
+body.nav-collapsed #sideNav .nv-dot{position:absolute;right:6px;top:6px}
+#sideNav svg{width:18px;height:18px;flex:none}
+#sideNav .nav-top{display:flex;align-items:center;gap:4px;margin-bottom:6px}
+#sideNav .nav-home{flex:1}
+#sideNav .nav-toggle{all:unset;cursor:pointer;padding:7px;border-radius:6px;display:grid;place-items:center}
+#sideNav .nav-toggle:hover{background:rgba(255,255,255,.08)}
+#sideNav .nav-h{font:700 10.5px/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:12px 10px 5px}
+body.nav-collapsed{padding-left:var(--nav-w-collapsed)}
+body.nav-collapsed .hero{margin-left:calc(-1 * var(--nav-w-collapsed))}
+body.nav-collapsed #sideNav{width:var(--nav-w-collapsed)}
+body.nav-collapsed #sideNav span:not(.nv-dot):not(.sr-only),body.nav-collapsed #sideNav .nav-home{display:none}
+body.nav-collapsed #sideNav .nav-h{display:block;height:1px;padding:0;margin:8px 6px;background:rgba(255,255,255,.12);font-size:0}
+.nav-open-btn{display:none}
+/* Small windows: the menu slides in, and its button sits over the bar's left edge. */
+@media (max-width:900px){
+  body.has-nav,body.nav-collapsed{padding-left:0}
+  body.has-nav .hero,body.nav-collapsed .hero{margin-left:0}
+  body.has-nav:not(.firstrun) .hero-top{padding-left:60px}
+  #sideNav{top:0;transform:translateX(-100%);transition:transform .2s;width:240px}
+  body.nav-open #sideNav{transform:none}
+  body.nav-collapsed #sideNav span,body.nav-collapsed #sideNav .nav-home{display:initial}
+  #sideNav{z-index:36;top:var(--bar-h)}   /* the open menu sits below the bar, never under it */
+  .nav-open-btn{display:grid;place-items:center;position:fixed;left:10px;top:9px;z-index:36;width:38px;height:38px;border-radius:8px;border:0;background:transparent;color:#fff;cursor:pointer}
+  .nav-open-btn:hover{background:rgba(255,255,255,.1)}
+  .nav-open-btn svg{width:20px;height:20px}
+}
+
+/* ---------- First run: no side menu, no launcher, just the guided setup card ---------- */
+body.firstrun #sideNav,body.firstrun .nav-open-btn{display:none}
+body.firstrun.has-nav,body.firstrun.nav-collapsed{padding-left:0}
+body.firstrun.has-nav .hero,body.firstrun.nav-collapsed .hero{margin-left:0}
+body.firstrun main{padding-top:40px}
+body.firstrun footer{text-align:center}
+
+.panel.setup{max-width:760px;width:100%;margin:0 auto;border-top:4px solid var(--action)}
+.setup .ph{padding:22px 28px 16px;display:block}
+.setup .ph h2{font:700 22px/1.25 var(--f-display);color:var(--text);margin:0 0 6px}
+.setup .ph p{max-width:none;font-size:14.5px}
+.setup .pb{padding:8px 28px 26px;gap:0}
+.settings .lk-field .btn{height:42px}
+.steps{display:flex;flex-direction:column;gap:0;margin:0}
+.step{display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line-soft)}
+.setup .pb>.step:last-child{border-bottom:0;padding-bottom:4px}
+.setup:has(#step3[hidden]) #step2{border-bottom:0;padding-bottom:4px}
+.step-n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--action);color:var(--on-action);font:700 15px/1 var(--f-body)}
+.step-b{display:flex;flex-direction:column;gap:10px;min-width:0}
+.step-b h3{font:700 16px/1.3 var(--f-body);color:var(--text);margin:6px 0 0}
+.step-b .sub{margin:0;font-size:13.5px;line-height:1.5}
+.step-fields{display:flex;flex-direction:column;gap:10px}
+.setup .lk-field label{font:700 12px/1 var(--f-body);letter-spacing:.02em;text-transform:none;color:var(--text-muted)}
+.setup .lk-field input{font:15px var(--f-body);border-radius:var(--radius-control);border-color:var(--line-frame)}
+.setup .lk-field input:focus{outline:2px solid var(--focus);outline-offset:0}
+.inst{display:flex;align-items:stretch;max-width:420px}
+.setup .inst input{border-top-right-radius:0;border-bottom-right-radius:0;flex:1 1 auto}
+.inst-suffix{display:flex;align-items:center;padding:0 12px;border:1px solid var(--line-frame);border-left:0;border-radius:0 4px 4px 0;background:var(--surface-sunken);color:var(--text-muted);font-size:14.5px;white-space:nowrap}
+.key-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:620px){.key-grid{grid-template-columns:1fr}.setup .ph{padding:18px 18px 12px}.setup .pb{padding:4px 18px 20px}.step{grid-template-columns:28px minmax(0,1fr);gap:12px}.step-n{width:28px;height:28px;font-size:13px}}
+.sub.safe{display:flex;gap:8px;align-items:flex-start}
+.sub.safe svg{flex:none;width:16px;height:16px;margin-top:2px;fill:none;stroke:var(--sev-ok-ink);stroke-width:2;stroke-linecap:round}
+.step-go{padding-top:4px}
+.step-go .btn{padding:11px 22px;font-size:14px}
+#keyStatus:empty{display:none}
+.step .row-actions:not(:has(button:not([hidden]))){display:none}
+.step-done-text{display:none;margin:0;font-size:14px;color:var(--text)}
+/* Connected: steps 1 and 2 shrink to a tick and a one-line summary; step 3 becomes the obvious next thing. */
+.setup.connected .step-fields{display:none}
+.setup.connected .step-done-text{display:block}
+.setup.connected #step1 .step-n,.setup.connected #step2 .step-n{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.setup.connected #step1 .step-n b,.setup.connected #step2 .step-n b{font-size:0}
+.setup.connected #step1 .step-n b::before,.setup.connected #step2 .step-n b::before{content:"✓";font-size:16px}
+.setup.connected #step1,.setup.connected #step2{padding:12px 0}
+.setup.connected .step-b h3{margin-top:5px;font-size:14px;color:var(--text-muted)}
+.setup.connected #step1 .step-b,.setup.connected #step2 .step-b{gap:2px}
+.setup:not(.connected):not(.editing) #step3:not([hidden]) .step-n{background:var(--sev-none-tint);color:var(--text-muted)}
+body.firstrun #step3 h3{color:var(--text-muted)}
+body.pickenv #step3{background:var(--action-tint);margin:6px -28px -26px;padding:20px 28px 24px;border-radius:0 0 8px 8px;border-bottom:0}
+@media (max-width:620px){body.pickenv #step3{margin-inline:-18px;padding-inline:18px}}
+body.pickenv #step3 h3{font-size:18px}
+#envSlot:empty{display:none}
+#envSlot .env-pick{display:flex;font-size:0;gap:0}
+#envSlot .env-pick select{font:16px var(--f-body);padding:11px 12px;max-width:440px;width:100%;border:2px solid var(--action);border-radius:var(--radius-control);background:var(--surface-card);color:var(--text);cursor:pointer}
+#envSlot .env-pick select:focus{outline:3px solid var(--action-tint);outline-offset:0}
+body.pickenv #launcherNote{margin-top:6px}
+
+/* Inspector discovery after connecting: an indeterminate bar, not just a line of text. */
+.progress{display:flex;flex-direction:column;gap:10px}
+.progress-bar{height:6px;border-radius:3px;background:var(--action-tint);overflow:hidden;position:relative}
+.progress-bar i{position:absolute;inset:0 auto 0 0;width:35%;border-radius:3px;background:var(--action);animation:lg-indet 1.3s ease-in-out infinite}
+@keyframes lg-indet{0%{left:-35%}100%{left:100%}}
+@media (prefers-reduced-motion: reduce){.progress-bar i{animation:none;width:100%;opacity:.5}}
+.progress .sub{margin:0}

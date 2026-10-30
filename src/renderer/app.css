@@ -1,0 +1,626 @@
+/* App components on top of portal.css: buttons, toolbar, drawer, per-page tiles, wallboard and print.
+   Colours come from tokens.css only. */
+
+[hidden]{display:none!important}
+.err{color:var(--sev-crit);font-weight:700}
+.loading{padding:40px 20px;text-align:center;color:var(--text-muted)}
+.missing{border-left:4px solid var(--sev-warn)}
+.mini{margin:0 0 6px;font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+.age{margin-bottom:14px}
+
+/* ---------- Buttons: Liongard blue, sentence case, 4px corners ---------- */
+.btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 14px;border:1px solid var(--action);border-radius:var(--radius-control);background:var(--action);color:var(--on-action);font:700 13px/1 var(--f-body);white-space:nowrap}
+.btn:hover{background:var(--action-hover);border-color:var(--action-hover)}
+.btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.btn[disabled]{opacity:.55;cursor:progress}
+.btn.ghost{background:var(--surface-card);color:var(--action);border-color:var(--action)}
+.btn.ghost:hover{background:var(--action-tint)}
+.btn.danger{color:var(--sev-crit)}
+.btn.sm{padding:3px 10px;font-size:12px;min-height:32px}   /* a 32px target */
+.row-actions{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ---------- Toolbar ---------- */
+.bar-actions{display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:space-between;align-items:center}
+.status-line{color:var(--text-muted);font-size:13.5px}
+.env-pick{display:inline-flex;gap:8px;align-items:center;font:700 var(--fs-sm) var(--f-body);color:var(--text-muted)}
+.env-pick select{font:var(--fs-body) var(--f-body);padding:6px 10px;border:1px solid var(--line-input);border-radius:6px;background:var(--surface-sunken);color:var(--text);max-width:260px}
+.tzsel{font-size:var(--fs-sm);color:var(--text-muted);display:inline-flex;gap:6px;align-items:center}
+.tzsel select{font:inherit;padding:4px 6px;border:1px solid var(--line-input);border-radius:4px;background:var(--surface-card);color:var(--text)}
+details.menu{position:relative}
+details.menu>summary{list-style:none;cursor:pointer}
+details.menu>summary::-webkit-details-marker{display:none}
+.menu-list{position:absolute;right:0;top:calc(100% + 6px);z-index:20;background:var(--surface-card);border:1px solid var(--line-soft);border-radius:6px;box-shadow:var(--shadow-pop);padding:6px;display:flex;flex-direction:column;min-width:240px}
+.menu-list button{all:unset;cursor:pointer;padding:8px 10px;border-radius:4px;font-size:13.5px}
+.menu-list button:hover{background:var(--surface-sunken)}
+.menu-list .sub{padding:6px 10px 4px;font-size:12px}
+.menu-sep{display:block;height:1px;background:var(--line-soft);margin:6px 4px}
+body.page-wallboard #howBuiltBtn,body.page-wallboard .menu-sep{display:none}
+#howBuiltBox summary{font-weight:700}
+.csvbar{display:flex;justify-content:flex-end;margin:0 0 6px}
+
+/* ---------- Launcher card states ---------- */
+/* never faded. No tool feeds it, not in the app yet, or locked until connected: dashed frame, page background,
+   full-contrast text. */
+.lc.soon,.lc.locked,.lc.nofeed{border-style:dashed;box-shadow:none;background:var(--surface-page)}
+.lc.soon .ic,.lc.locked .ic,.lc.nofeed .ic{background:var(--sev-none-tint);color:var(--sev-none)}
+.lc.soon{cursor:default}
+.lc.locked{cursor:not-allowed}
+.lc.soon:hover,.lc.locked:hover{transform:none;box-shadow:none;border-color:var(--line-frame)}
+#launcherNote{margin:4px 0 0;font-weight:700}
+
+/* ---------- Links ---------- */
+a.lg,a.xp{color:var(--link);text-decoration:none}
+a.lg:hover,a.xp:hover{text-decoration:underline}
+a.lg .ext{width:11px;height:11px;margin-left:3px;vertical-align:baseline;opacity:.55}
+.linkrow{display:flex;gap:10px;flex-wrap:wrap;font-size:var(--fs-sm)}
+
+/* ---------- KPI tiles: clickable ones open the side drawer ---------- */
+/* a clickable tile reads as a control: chevron, blue border and lift on hover. */
+.kpi.clickable{cursor:pointer;transition:box-shadow .15s,border-color .15s}
+.kpi.clickable:hover,.kpi.clickable:focus-visible{border-color:var(--action);box-shadow:var(--shadow-hover);outline:none}
+.kpi.clickable:focus-visible{box-shadow:0 0 0 2px var(--action)}
+.kpi.clickable .k::after{content:"\00a0›";font-size:15px;line-height:1;opacity:.7}   /* no-break space: the chevron stays on the title's last line */
+/* No evidence: the data failed or is missing, so the number is unknown, not zero. Grey number, dashed frame. */
+.kpi.no-evidence{--sev:var(--sev-none);border-style:dashed}
+.kpi.no-evidence .v{color:var(--sev-none);font-style:italic}
+.kpi.no-evidence .s::before{content:"No evidence · ";font-weight:700;color:var(--text-muted)}
+
+/* ---------- Side drawer ---------- */
+#drawer .dr-back{position:fixed;inset:0;background:rgba(5,12,20,.45);z-index:40}
+#drawer .dr{position:fixed;top:0;right:0;bottom:0;width:min(560px,100vw);background:var(--surface-card);color:var(--text);z-index:41;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.25)}
+#drawer .dr-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 18px 10px;border-bottom:1px solid var(--line-soft)}
+#drawer .dr-h h3{margin:0}
+#drawer .dr-tools{display:flex;gap:8px;padding:10px 18px}
+#drawer .dr-tools input{flex:1;font:inherit;font-size:var(--fs-body);padding:7px 10px;border:1px solid var(--line-input);border-radius:var(--radius-control);background:var(--surface-sunken);color:var(--text)}
+#drawer .dr-tools input:focus{outline:2px solid var(--focus);outline-offset:0}
+#drawer .dr-list{flex:1;overflow:auto;padding:4px 18px 18px;margin:0}
+#drawer .dr-list li{padding:8px 0 8px 10px;border-bottom:1px solid var(--line-soft);font-size:var(--fs-body);border-left:3px solid transparent}
+#drawer .dr-list li.dr-bad{border-left-color:var(--sev-crit)}
+#drawer .dr-list li.dr-warn{border-left-color:var(--sev-warn)}
+#drawer .dr-list li.dr-ok{border-left-color:var(--sev-ok)}
+#drawer .dr-list li.dr-none,#drawer .dr-list li.dr-info{border-left-color:var(--sev-none)}
+
+/* ---------- "Other inspectors" section ---------- */
+.more{margin-top:22px}
+.more h4{margin:10px 0 2px;font:700 var(--fs-body)/1.3 var(--f-body)}
+div.kv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);font-size:13px;width:100%}
+div.kv>span{padding:4px 0;border-top:1px solid var(--line-soft);overflow-wrap:anywhere}
+div.kv>span:nth-child(even){text-align:right;padding-left:12px;max-width:22ch}
+
+/* ---------- Tiles in a grid (exposure, capability, mail tools): framed, severity edge on the left,
+   every row the same height. Exposure tiles open their detail in a pop-out over the page (.pt-pop),
+   so the grid never reflows. ---------- */
+.ptgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(var(--pt-min-w),100%),1fr));grid-auto-rows:1fr;gap:10px;align-items:stretch}
+.capgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));grid-auto-rows:1fr;gap:var(--gap-grid)}
+.pt,.cap,.ag{background:var(--surface-card);border:1px solid var(--line-frame);border-left:4px solid var(--sev,var(--line-frame));border-radius:var(--radius-card);box-shadow:var(--shadow-lift);min-width:0}
+.ptgrid>.pt{position:relative;display:flex;flex-direction:column}
+.ptgrid>div.pt{height:100%}
+.pt>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;padding:10px 12px;height:100%;min-height:var(--pt-min-h);align-content:center}
+.pt>summary::-webkit-details-marker{display:none}
+.pt-n{grid-row:span 2;font:900 26px/1 var(--f-head);color:var(--sev-text,var(--sev));min-width:28px;text-align:center;align-self:center}
+.pt-t{font:700 var(--fs-body)/1.3 var(--f-body);color:var(--text);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.pt-d{font-size:var(--fs-sm);color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+details.pt[open]{z-index:30;outline:2px solid var(--action);outline-offset:-1px}
+.pt-pop{position:absolute;top:calc(100% + 6px);left:-1px;width:max(100%,340px);max-width:min(520px,calc(100vw - 48px));z-index:30;background:var(--surface-card);border:1px solid var(--line-frame);border-left:4px solid var(--sev);border-radius:var(--radius-card);box-shadow:var(--shadow-pop);padding:10px 0 4px}
+.pt-pop.flip{left:auto;right:-1px}
+.pt-pop .pt-full{margin:0 12px 8px;font-size:13px;color:var(--text)}
+.pt-list{margin:0;padding:0 12px 4px;max-height:320px;overflow:auto}
+.pt-list li{font-size:13px;overflow-wrap:anywhere;padding-left:4px}
+.pt .linkrow{padding:4px 12px 10px}
+/* No evidence: the source failed or is missing, so the count is unknown. Grey, dashed edge, number in italics. */
+.pt.no-evidence,.pt[style*="--sev:var(--none)"],.pt[style*="--sev: var(--none)"]{--sev:var(--sev-none);border-left-style:dashed}
+.pt.no-evidence .pt-n{color:var(--sev-none);font-style:italic;font-weight:400}
+.pt.no-evidence .pt-d{font-style:italic}
+.cap.no-evidence{--sev:var(--sev-none);border-left-style:dashed}
+
+/* ---------- Cyber: change windows and filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:6px 0 12px}
+.win{margin-top:14px}
+.win-h{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.win.flash{box-shadow:0 0 0 3px var(--action)}
+.triage{display:inline-flex;gap:6px}
+.triage select,.triage input{font:inherit;font-size:var(--fs-sm);padding:3px 6px;border:1px solid var(--line-input);border-radius:4px;background:var(--surface-card);color:var(--text)}
+.triage input{width:150px}
+/* Cyber: ATT&CK coverage grouped by tactic */
+#atTable tr.tac-h th{background:var(--surface-sunken);border-top:2px solid var(--line-soft);padding-top:8px;padding-bottom:6px;text-align:left;font-weight:400;text-transform:none;letter-spacing:0;color:var(--text);font-size:inherit}
+#atTable tbody:first-of-type tr.tac-h th{border-top:0}
+.dl{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.dl span{font:12px/1.5 var(--f-mono);padding:0 6px;border-radius:3px}
+.dl.add span{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.dl.rem span{background:var(--sev-crit-tint);color:var(--sev-crit)}
+.dl.chg span{background:var(--surface-sunken);color:var(--text)}
+.dl.chg del{color:var(--sev-crit)} .dl.chg ins{color:var(--sev-ok-ink);text-decoration:none}
+
+/* ---------- Stack ---------- */
+.cap{padding:10px 12px;display:flex;flex-direction:column;gap:4px;cursor:pointer}
+.cap:hover,.cap:focus-visible{box-shadow:0 0 0 2px var(--action)}
+.cap h4{margin:0;font:700 var(--fs-body)/1.3 var(--f-body);color:var(--text)}
+.cap .tools{font-size:var(--fs-sm);color:var(--text-muted);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.stackbar{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+
+/* ---------- Coverage ---------- */
+.catrow{display:flex;flex-direction:column;gap:2px;padding:6px 0;border-top:1px solid var(--line-soft)}
+.cbar{display:grid;grid-template-columns:100px 1fr 44px;gap:8px;align-items:center;font-size:var(--fs-sm);color:var(--text-muted)}
+.cbar .track{height:8px;background:var(--surface-sunken);border-radius:4px;overflow:hidden}
+.cbar .track>div{height:100%}
+.policy{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.policy fieldset{border:1px solid var(--line-soft);border-radius:6px;padding:6px 10px;display:flex;flex-direction:column;gap:4px;font-size:13px}
+.policy legend{font-weight:700;font-size:var(--fs-sm)}
+.chipwrap{display:flex;flex-wrap:wrap;gap:6px}
+.prod{display:inline-block;font-size:var(--fs-sm);margin:2px 4px 0 0}
+#cvGap,#cvTool,#idStatus,#idSys{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line-soft);border-radius:4px;background:var(--surface-card);color:var(--text)}
+.bignum{font:900 22px/1 var(--f-head);margin-right:4px}
+
+/* ---------- Identity ---------- */
+.ags{display:flex;flex-direction:column;gap:8px}
+.ag>summary{list-style:none;cursor:pointer;display:flex;gap:12px;align-items:center;padding:10px 12px}
+.ag>summary::-webkit-details-marker{display:none}
+.ag .plain{padding:0 12px 10px 52px;margin:0}
+.ag .plain li{font-size:13.5px}
+.fld{display:flex;flex-direction:column;gap:3px;font-size:var(--fs-sm);color:var(--text-muted)}
+.fld input{font:inherit;font-size:13.5px;padding:6px 8px;border:1px solid var(--line-input);border-radius:var(--radius-control);background:var(--surface-card);color:var(--text)}
+.fld input:focus{outline:2px solid var(--focus);outline-offset:0}
+/* User access review (printed for client sign-off) */
+.review-only{display:none}
+table.review{width:100%;border-collapse:collapse;font-size:10.5px}
+table.review th,table.review td{border:1px solid var(--line-print);padding:4px 6px;vertical-align:top;white-space:normal}
+table.review td.box{text-align:center;font-size:var(--fs-body);width:44px}
+.signoff{display:grid;grid-template-columns:2fr 1fr 2fr;gap:18px;margin-top:22px;font-size:12px}
+
+/* ---------- Compliance ---------- */
+.fwcard{font:inherit;color:inherit;gap:6px}
+/* The score is already coloured; the view's inline 4px top border made six identical red bars. Keep the plain frame
+   (!important only to beat that inline style; drop it once compliance.js stops setting border-top). */
+/* (framework cards: no coloured top edge; the score colour says it) */
+.fwcard.picked{outline:3px solid var(--action);outline-offset:-1px}
+
+/* ---------- Network cards: one fixed size; long values cut to two lines, the full card opens in the side drawer ---------- */
+dl.kv{grid-template-columns:minmax(8ch,1.3fr) minmax(14ch,1fr)}
+dl.kv dd .chip{display:inline-block;max-width:100%;overflow-wrap:normal;word-break:normal;white-space:normal;text-align:left}
+.nwcard{display:flex;flex-direction:column}
+.nwcard .nw-more{margin-top:auto;align-self:flex-start;padding-top:8px}
+#nwCards{grid-auto-rows:var(--nwcard-h)}
+#nwCards .nwcard{overflow:hidden;min-height:0}
+#nwCards .nwcard>div:first-child .sub{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+#nwCards dl.kv{flex:1;min-height:0;overflow:hidden;align-content:start}
+#nwCards dl.kv dt,#nwCards dl.kv dd{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#nwCards dl.kv dd .chip{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top}
+
+/* ---------- Wallboard ---------- */
+.wall .kpi .v{font-size:46px}
+.wall .kpi .k{font-size:13px}
+.wall table{font-size:15px}
+#wbAuto{font:inherit;padding:3px 6px;border:1px solid var(--line-soft);border-radius:4px;background:var(--surface-card);color:var(--text)}
+.wb-bar{margin:0 0 10px}
+.wb-kpis{margin-bottom:14px}
+.wb-kpis .kpi{padding:10px 14px}
+.wb-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;min-height:320px}
+.wb-col{display:flex;flex-direction:column;min-height:0;border:1px solid var(--line-frame);border-radius:var(--radius-card);box-shadow:var(--shadow-lift);background:var(--surface-card);padding:12px 14px}
+.wb-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+.wb-h h3{margin:0}
+.wb-list{flex:1;min-height:0;overflow:hidden;margin:0}
+.wb-list>li{display:flex;gap:10px;align-items:flex-start;padding:8px 0 8px 8px;border-bottom:1px solid var(--line-soft);border-left:3px solid transparent}
+.wb-list>li.wb-bad{border-left-color:var(--sev-crit)} .wb-list>li.wb-warn{border-left-color:var(--sev-warn)}
+.wb-list>li .tick{flex:none;width:20px;height:20px;font-size:10px}
+.wb-list>li .chip{flex:none}
+.wb-list .sub{margin:0}
+.wb-more{min-height:18px;padding-top:6px}
+@media (max-width:1000px){.wb-grid{grid-template-columns:1fr;height:auto!important}.wb-list{overflow:visible}}   /* !important: beats the height the view sets inline */
+/* The wallboard page drops the portal header, intro and footer so the board fits one screen. */
+body.page-wallboard .hero,body.page-wallboard .crumb,body.page-wallboard .ph-title,body.page-wallboard #panelIntro,body.page-wallboard .intro-more,body.page-wallboard details.pf,body.page-wallboard footer{display:none}
+body.page-wallboard main{padding:12px 20px 48px}
+body.page-wallboard .panel{border:0;background:transparent;box-shadow:none}
+body.page-wallboard .pb{padding:0}
+body.page-wallboard .page-head{margin-bottom:-8px}
+/* Kiosk (full screen) */
+body.kiosk .hero,body.kiosk .page-head,body.kiosk details.pf,body.kiosk footer,body.kiosk .age,body.kiosk #sideNav,body.kiosk .nav-open-btn{display:none}
+body.kiosk{padding-left:0}
+body.kiosk main{max-width:none;padding:12px 18px}
+body.kiosk .wall{font-size:18px}
+body.kiosk .wb-kpis .v{font-size:40px}
+/* kiosk type sizes for a desk TV, and a calm All clear in an empty column. */
+body.kiosk .wb-h h3{font-size:20px}
+body.kiosk .wb-list>li{font-size:16px}
+.wb-list>li.wb-clear{border-bottom:0;padding:14px 0 8px 8px}
+.wb-clear .state b{font-size:15px}
+body.kiosk .wb-clear .st-ic{width:40px;height:40px;font-size:18px}
+body.kiosk .wb-clear .state b{font-size:22px}
+body.kiosk .wb-bar{position:fixed;right:14px;top:10px;z-index:5;opacity:.25;transition:opacity .2s} body.kiosk .wb-bar:hover{opacity:1}
+
+/* ---------- Print / PDF (reports always print light: shared.js sets data-theme="light") ---------- */
+.print-cover{display:none}
+html:has(body.printing),body.printing{background:#fff}
+body.printing{padding-left:0}
+/* On-screen-only things: chrome, controls, click hints and the "data pulled X ago, click Refresh" banner.
+   !important so they also beat any inline display a view sets. */
+body.printing .hero,body.printing .page-acts,body.printing .crumb,body.printing .csvbar,body.printing .no-print,body.printing footer,
+body.printing .search,body.printing .quick,body.printing .filters,body.printing details.pf,body.printing .triage,
+body.printing .age,body.printing .win-h .chip.tri,body.printing .ph-title,body.printing .intro-more,body.printing #panelIntro .linkbtn,body.printing #cmdk{display:none!important}
+body.print-exec .tech,body.print-exec .more,body.print-exec .tw,body.print-exec .no-print-exec,
+body.print-exec .pt-list,body.print-exec .pt .linkrow,body.print-exec #cyLanes{display:none!important}
+body.print-exec .psec.print-skip{display:none!important}
+body.printing .print-cover{display:block;padding:8px 0 14px;border-bottom:3px solid var(--navy-900);margin-bottom:10px}
+body.printing .print-cover.has-logo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 18px;align-items:center}
+body.printing .print-cover .pc-logo{grid-column:2;grid-row:1/4;max-height:48px;max-width:180px;object-fit:contain}   /* the MSP's logo from Settings */
+body.printing .print-cover .pc-by{margin:6px 0 0;font:700 10px/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
+body.printing .print-cover .pc-by em{font-style:normal;color:#8a5f00}
+body.printing .print-cover h1{margin:2px 0;font:900 26px/1.2 var(--f-head);color:var(--navy-900)}
+body.printing .print-cover .pc-k{font:700 var(--fs-xs)/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+body.printing .print-cover p{margin:4px 0 0;color:var(--text-muted);font-size:12px}
+body.printing main{padding:0;max-width:none}
+body.printing .panel{border:0;box-shadow:none}
+body.printing .kpi{box-shadow:none;border:1px solid var(--line-soft)}
+body.printing .kpi.clickable .k::after{content:none}
+body.printing .kpi.clickable .s{display:block;overflow:visible}
+body.printing .card,body.printing .kpi,body.printing .cap,body.printing .pt,body.printing tr{break-inside:avoid}
+body.printing .win,body.printing .card.win{break-inside:auto}
+/* Long blocks may split across pages, so a tall tile or table card never leaves a near-empty page behind it.
+   The tile head and the table header still stay with what follows. */
+body.printing .pt,body.printing .card:has(.tw),body.printing .card:has(table){break-inside:auto}
+body.printing .pt>summary,body.printing .card>h3,body.printing thead{break-inside:avoid;break-after:avoid}
+/* Tables: cells wrap, but only at spaces (no "SIGN- / IN"), and keep a readable width. */
+body.printing .tw{overflow:visible;max-height:none}
+body.printing .tw th{position:static}
+body.printing td,body.printing th{white-space:normal;padding:5px 6px}
+body.printing td{min-width:0!important;max-width:none!important}   /* !important: beats the on-screen min-widths views set inline */
+body.printing th{word-break:keep-all;overflow-wrap:normal;hyphens:manual;min-width:7ch;letter-spacing:.02em}
+body.printing td .sub{font-size:1em}   /* name and email the same size */
+body.print-full table{font-size:10.5px}
+body.print-full .chip{font-size:10px;padding:1px 6px}
+body.print-full tr.detail[hidden]:not(.screen-only){display:table-row!important}
+body.printing .screen-only,body.printing .screen-only[hidden]{display:none!important}   /* e.g. Customer stack facts rows: on screen only, never in a PDF */
+/* Tiles take their natural height (equal rows would leave empty framed space); the pop-out sits under its tile. */
+body.printing .ptgrid{grid-template-columns:1fr;align-items:start}
+body.printing .ptgrid,body.printing .capgrid,body.printing .two.even,body.printing #nwCards{grid-auto-rows:auto;align-items:start}
+body.printing .ptgrid>.pt,body.printing details.pt>summary{height:auto;min-height:0}
+body.printing details.pt[open]{outline:0}
+body.printing .pt-pop{position:static;width:auto;max-width:none;box-shadow:none;border:0;padding:0}
+body.printing .pt-list{max-height:none;overflow:visible}
+body.printing #nwCards .nwcard{overflow:visible}
+/* User access review */
+body.print-review .review-only{display:block}
+body.print-review #panelBody>:not(.review-only),body.print-review .page-head,body.print-review details.pf{display:none!important}
+body.print-review .review-only h3{margin:16px 0 6px}
+table.review th{text-transform:none;letter-spacing:0;font-size:10.5px;color:var(--text);background:var(--surface-sunken)}
+table.review th:nth-child(1){width:26%}
+table.review th{white-space:nowrap}   /* short one- or two-word headers: never split, least of all at the hyphen in "sign-in" */
+table.review th:last-child{width:14%}   /* room to write notes */
+table.review td .sub{font-size:1em;color:var(--text-muted)}
+/* Print: a tile's full description prints once (in the detail), not again cut short in its head. */
+body.printing details.pt>summary .pt-d{display:none}
+/* Tool icons (as in Liongard's Asset Inventory), next to tool and inspector names. */
+.ti{width:16px;height:16px;vertical-align:-3px;margin-right:5px;border-radius:3px;object-fit:contain;flex:none}
+.tn{white-space:nowrap}
+.tis .ti{margin-right:3px}
+/* Agent checks: the agent's icon + the check, tinted by result (instead of ticks). */
+.acs{display:inline-flex;flex-wrap:wrap;gap:4px;max-width:230px}
+.ac{display:inline-flex;align-items:center;gap:2px;padding:2px 7px 2px 4px;border-radius:999px;font-size:11.5px;font-weight:700;border:1px solid transparent;white-space:nowrap}
+.ac .ti{width:14px;height:14px;margin-right:3px}
+.ac-ok{background:var(--ok-tint);color:var(--ok-ink);border-color:color-mix(in srgb,var(--ok) 35%,transparent)}
+.ac-bad{background:var(--crit-tint);color:var(--sev-crit-ink);border-color:color-mix(in srgb,var(--crit) 35%,transparent)}
+.ac-warn{background:var(--warn-tint);color:var(--warn-ink);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+.ac-none{background:var(--none-tint);color:var(--sev-none-ink);border-color:var(--line)}
+.ac-none .ti{opacity:.45;filter:grayscale(1)}
+/* Agents column: one icon per agent, ringed by check-in status. */
+.ags-i{display:inline-flex;flex-wrap:wrap;gap:6px;max-width:170px}
+.ag-i{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--surface);border:2px solid var(--line);box-sizing:border-box}
+.ag-i .ti{width:16px;height:16px;margin:0;vertical-align:0}
+.ag-ok{border-color:var(--ok)} .ag-warn{border-color:var(--warn)} .ag-bad{border-color:var(--crit);background:var(--crit-tint)} .ag-listed{border-color:var(--none);border-style:dashed}
+.ag-txt{font-size:9.5px;font-weight:900;color:var(--muted)}
+/* The agent icon itself opens the tool in Liongard; no extra link arrow. */
+.ags-i a.lg{text-decoration:none} .ags-i .ext{display:none}
+/* Windows health: labelled ticks. */
+.wh{display:inline-flex;align-items:center;gap:4px;margin:0 8px 3px 0;font-size:12px;white-space:nowrap}
+.wh .tick{width:18px;height:18px;font-size:var(--fs-xs)}
+/* "On this page" bar: sticks to the top while scrolling; chips jump to (and open) a section. */
+.onpage{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:4px 0 14px;padding:8px 10px;background:var(--surface);border:1px solid var(--frame);border-radius:8px;box-shadow:var(--lift)}
+.onpage-h{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-right:4px}
+.onpage-c{font:700 var(--fs-sm)/1 var(--f-body);padding:6px 10px;border-radius:999px;border:1px solid var(--frame);background:var(--surface-2);color:var(--ink);cursor:pointer}
+.onpage-c:hover{border-color:var(--blue);color:var(--blue)}
+.onpage-sp{flex:1}
+.onpage .linkbtn{font-size:var(--fs-sm)}
+/* Foldable sections */
+.psec{scroll-margin-top:64px}
+.psec-h{cursor:pointer;display:flex;align-items:center;gap:8px;margin:22px 0 10px;user-select:none}
+.psec:first-of-type .psec-h{margin-top:8px}
+.psec-arrow{width:0;height:0;border-left:6px solid var(--muted);border-top:5px solid transparent;border-bottom:5px solid transparent;transform:rotate(90deg);transition:transform .12s ease;flex:none}
+.psec.folded .psec-arrow{transform:rotate(0)}
+.psec.folded .psec-body{display:none}
+.psec.folded .psec-h::after{content:'Show';margin-left:6px;font:700 11.5px/1 var(--f-body);color:var(--blue)}
+.psec-h:hover .psec-arrow{border-left-color:var(--blue)}
+body.printing .psec.folded .psec-body{display:block}
+body.printing .psec-arrow,body.printing .psec.folded .psec-h::after{display:none}
+/* Stack coverage: notes cut to two lines (full text on hover and in the CSV), so rows stay short. */
+td.notes .clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+body.printing td.notes .clamp{display:block;-webkit-line-clamp:unset}
+/* Long tables page 50 rows at a time; paged rows still export and print. */
+tr.paged{display:none}
+body.printing tr.paged{display:table-row}
+/* Action plan */
+ol.ac-fix{margin:0;padding-left:18px;font-size:13px} ol.ac-fix li{margin:2px 0}
+ul.ac-aff{margin:6px 0 0;max-height:220px;overflow:auto} ul.ac-aff li{font-size:var(--fs-sm)}
+.ac-refs{font-size:var(--fs-xs);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+body.printing ul.ac-aff{max-height:none}
+/* Action plan status */
+td.ac-st{min-width:130px}
+td.ac-st select{font:var(--fs-sm) var(--f-body);padding:3px 6px;border:1px solid var(--frame);border-radius:4px;background:var(--surface);color:var(--ink);margin-top:4px;max-width:130px}
+.ac-done{display:flex;align-items:center;gap:6px;font-size:var(--fs-sm);font-weight:700;cursor:pointer}
+.ac-done input{width:16px;height:16px;accent-color:var(--ok)}
+tr.ac-closed td:not(.ac-st){color:var(--text-muted)} tr.ac-closed td b{text-decoration:line-through}
+.ac-reopen{color:var(--crit);font-weight:700}
+.lane-link text{cursor:pointer} .lane-link:hover text{text-decoration:underline}
+/* Change pulse: room for the system name (with its icon and link) beside each bar. */
+.bars.sys .bar{grid-template-columns:300px 1fr 38px;min-height:20px}   /* lines up with the Changes by system chart above */
+.bars.sys .bar .mono{text-align:right}
+.bars.sys .bar > span .ext{display:none}
+
+/* Change pulse: date range and heat legend */
+.ch-range{align-items:center;gap:10px 14px;margin:8px 0 6px}
+.fld-inline{display:inline-flex;align-items:center;gap:6px;font:400 13px var(--f-body);color:var(--muted)}
+.fld-inline input[type=date]{font:13px var(--f-body);padding:4px 6px;border:1px solid var(--line-input);border-radius:var(--radius-control);background:var(--surface-card);color:var(--text);color-scheme:light dark}
+.heat-legend{display:inline-flex;align-items:center;gap:8px;margin-left:auto;font-size:12px;color:var(--muted)}
+.heat-legend span{display:inline-flex;align-items:center;gap:4px}
+.heat-legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+body.printing .heat-legend{display:inline-flex}
+
+/* ---------- Compliance: profile, posture, scope, marks, quarterly review ---------- */
+.cp-profile{border-left:4px solid var(--action);margin-bottom:var(--gap-grid)}
+.cp-profile>summary{cursor:pointer;list-style:none}
+.cp-plabel{font:700 var(--fs-xs) var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--action);margin-right:6px}
+.cp-profile>summary::-webkit-details-marker{display:none}
+.cp-form{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:flex-end;margin-top:12px}
+.cp-form label{display:flex;flex-direction:column;gap:4px;font:700 var(--fs-sm) var(--f-body);color:var(--text-muted)}
+.cp-form label.ck{flex-direction:row;align-items:center;gap:6px;font-weight:400;color:var(--text);padding-bottom:8px}
+.cp-form select,.cp-form input[type=text]{font:var(--fs-body) var(--f-body);height:var(--input-h);padding:0 10px;border:1px solid var(--line-input);border-radius:var(--radius-control);background:var(--surface-sunken);color:var(--text);min-width:200px}
+.cp-form input[type=file]{font:13px var(--f-body);color:var(--text)}
+.cp-brand{margin-top:16px;padding-top:12px;border-top:1px solid var(--line-soft)}
+.cp-ask{margin:10px 0 0;padding:10px 12px;border-radius:8px;background:var(--action-tint);color:var(--text)}
+#brandPrev{max-height:40px;max-width:160px;border:1px solid var(--line-soft);border-radius:4px;background:#fff;padding:2px}
+.cp-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap-grid)}
+@media (max-width:1000px){.cp-two{grid-template-columns:1fr}}
+.cp-score{display:flex;flex-direction:row;flex-wrap:wrap;gap:22px;align-items:center}
+@media (max-width:640px){.cp-score{flex-direction:column;align-items:stretch}}
+.cp-ring{width:132px;height:132px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--line-soft) 0);align-self:center}
+.cp-ring>div{width:106px;height:106px;border-radius:50%;background:var(--surface-card);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.cp-ring b{font:700 34px/1 var(--f-display)}
+.cp-ring small{color:var(--text-muted);font-size:11.5px}
+.cp-delta{font:700 var(--fs-sm) var(--f-body);white-space:nowrap}
+.cp-delta.up{color:var(--sev-ok-ink)}.cp-delta.down{color:var(--sev-crit-ink)}
+.cp-areas{flex:1;display:grid;gap:8px;min-width:260px}
+.cp-area{display:grid;grid-template-columns:90px 1fr 74px;gap:10px;align-items:center;font-size:13px}
+.cp-area>b{text-align:right}
+.cp-track{position:relative;height:10px;border-radius:5px;background:var(--surface-sunken);overflow:visible}
+.cp-track i{position:absolute;inset:0 auto 0 0;border-radius:5px}
+.cp-track em{position:absolute;top:-3px;bottom:-3px;width:2px;margin-left:-1px;background:var(--text);opacity:.55}
+.cp-trend{width:100%;height:auto;display:block;margin-top:8px}
+.cp-trend .gl{stroke:var(--line-soft)}
+.cp-trend .ax{fill:var(--text-muted);font:var(--fs-xs) var(--f-body)}
+.cp-trend .ln{fill:none;stroke:var(--action);stroke-width:2.5}
+.cp-trend .pt{fill:var(--action);stroke:var(--surface-card);stroke-width:1.5}
+.cp-fwh{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.cp-x{all:unset;cursor:pointer;color:var(--text-muted);font-size:18px;line-height:1;padding:0 4px;border-radius:4px}
+.cp-x:hover,.cp-x:focus-visible{color:var(--sev-crit);background:var(--surface-sunken)}
+.fwcard .cp-track{height:6px}
+.cp-out{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 0}
+.chip-btn{font:13px var(--f-body);padding:4px 10px;border-radius:14px;border:1px dashed var(--line-frame);background:var(--surface-card);color:var(--action);cursor:pointer}
+.chip-btn:hover{border-style:solid;border-color:var(--action);background:var(--action-tint)}
+.cp-gain{margin-top:var(--gap-grid);border-left:4px solid var(--action)}
+.cp-gain ul{margin:6px 0 0}
+.cp-tag{display:inline-block;margin-top:4px;font:700 10.5px var(--f-body);letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:9px}
+.cp-tag.t-ok{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.cp-tag.t-warn{background:var(--sev-warn-tint);color:var(--sev-warn-ink)}
+.cp-tag.t-bad{background:var(--sev-crit-tint);color:var(--sev-crit-ink)}
+.cp-tag.t-info{background:var(--action-tint);color:var(--action-hover)}
+.cp-tag.t-none{background:var(--sev-none-tint);color:var(--sev-none-ink)}
+.cp-src{margin-top:4px;font-size:12px;color:var(--text-muted)}
+.cp-src .tn{margin-right:4px}
+.cp-stale{color:var(--sev-warn-ink)}
+.cp-acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.cp-ans{display:inline-flex}
+.cp-ans button{font:13px var(--f-body);padding:4px 10px;border:1px solid var(--line-soft);background:var(--surface-card);color:var(--text);cursor:pointer}
+.cp-ans button:first-child{border-radius:4px 0 0 4px}.cp-ans button:last-child{border-radius:0 4px 4px 0}
+.cp-ans button+button{border-left:0}
+.cp-ans button[aria-pressed="true"]{background:var(--action);border-color:var(--action);color:var(--on-action)}
+.linkish{all:unset;cursor:pointer;color:var(--link);font-size:var(--fs-sm)}
+.linkish:hover{text-decoration:underline}
+.cp-dlg{border:1px solid var(--line-frame);border-radius:var(--radius-card);background:var(--surface-card);color:var(--text);box-shadow:var(--shadow-pop);width:min(480px,92vw);padding:18px}
+.cp-dlg::backdrop{background:rgba(5,12,20,.45)}
+.cp-dlg h3{margin:0 0 4px}
+.cp-dlg form{display:flex;flex-direction:column;gap:10px}
+.cp-dlg label{display:flex;flex-direction:column;gap:4px;font:700 var(--fs-sm) var(--f-body);color:var(--text-muted)}
+.cp-dlg label[hidden]{display:none}
+.cp-dlg textarea,.cp-dlg input{font:var(--fs-body) var(--f-body);padding:8px 10px;border:1px solid var(--line-input);border-radius:var(--radius-control);background:var(--surface-sunken);color:var(--text)}
+/* Quarterly review print: only that pack; the evidence pack prints on its own export. */
+body.print-qbr #evPack{display:none!important}
+body.print-review:not(.print-qbr) #qbrPack{display:none!important}
+.qbr-hd{display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:3px solid var(--navy-900);padding-bottom:10px;margin-bottom:12px}
+.qbr-logo{max-height:48px;max-width:180px}
+.qbr-ba{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.qbr-ba>div{background:var(--surface-sunken);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;font-size:12px}
+.qbr-ba b{font-size:18px}
+
+/* ---------- Compliance: heat maps, radar, matrix, remediation, drill-down ---------- */
+/* One red → green ramp for scores out of 10. The number is always printed, so colour is never the only cue. */
+.cp-cell{border:0;border-radius:4px;min-height:38px;display:grid;place-items:center;font:700 13px var(--f-body);color:var(--on-heat);cursor:pointer;transition:transform .08s,box-shadow .08s}
+button.cp-cell:hover,button.cp-cell:focus-visible{transform:scale(1.04);box-shadow:0 0 0 2px var(--surface-card),0 0 0 4px var(--action);outline:none}
+.cp-cell.h0{background:var(--score-0)}.cp-cell.h1{background:var(--score-1)}.cp-cell.h2{background:var(--score-2);color:#2a1500}.cp-cell.h3{background:var(--score-3);color:#2a2200}.cp-cell.h4{background:var(--score-4);color:#13250a}.cp-cell.h5{background:var(--score-5)}
+.cp-cell.na{background:var(--surface-sunken);color:var(--text-muted);font-weight:400;cursor:default}
+.cp-cell.under{outline:2px dashed var(--text);outline-offset:-4px}
+.cp-heat,.cp-mx,.cp-strip{display:grid;gap:3px;font-size:var(--fs-sm);min-width:560px}
+.cp-heat .ch,.cp-mx .ch{font:700 11.5px var(--f-body);color:var(--text-muted);text-align:center;align-self:end;padding:4px 2px}
+.cp-heat .rh{font-weight:700;display:flex;align-items:center;padding-right:8px}
+.cp-hleg{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--text-muted);margin-top:10px}
+.cp-hleg i.cp-cell,.cp-hleg .sq{display:inline-block;width:26px;min-height:12px;height:12px;border-radius:2px;font-size:9px;line-height:12px;text-align:center}
+.cp-hleg i.pv,.cp-hleg i.pd,.cp-hleg i.pp,.cp-hleg i.po{display:inline-block;width:22px;height:10px;border-radius:2px}
+.cp-radar{width:100%;max-width:440px;height:auto;display:block;margin:4px auto 0}
+.cp-radar .gr{fill:none;stroke:var(--line-soft)}.cp-radar .sp{stroke:var(--line-soft)}
+.cp-radar .vl{fill:var(--text-muted);font:var(--fs-xs) var(--f-body)}
+.cp-radar .lb{fill:var(--text);font:700 12px var(--f-body);cursor:pointer}.cp-radar .lb:hover,.cp-radar .lb:focus{fill:var(--action);outline:none}
+.cp-radar .tg{fill:var(--sev-ok-tint);fill-opacity:.6;stroke:var(--sev-ok);stroke-width:2;stroke-dasharray:5 4}
+.cp-radar .cu{fill:var(--action);fill-opacity:.22;stroke:var(--action);stroke-width:2.5}
+.cp-radar .dt{fill:var(--action);stroke:var(--surface-card);stroke-width:1.5}.cp-radar .dt.under{fill:var(--sev-crit)}
+.cp-rleg{display:flex;gap:14px;justify-content:center;font-size:var(--fs-sm);color:var(--text-muted)}
+.cp-rleg span::before{content:"";display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.cp-rleg .c::before{background:var(--action);opacity:.6}.cp-rleg .t::before{border:2px dashed var(--sev-ok);background:var(--sev-ok-tint)}
+.cp-alink{font-size:13px;color:var(--text)}.cp-alink:hover{color:var(--link)}
+.cp-strip .c{min-height:26px;border-radius:3px;display:grid;place-items:center;font:700 var(--fs-xs) var(--f-body);color:var(--on-heat)}
+.cp-strip .c.h0{background:var(--score-0)}.cp-strip .c.h1{background:var(--score-1)}.cp-strip .c.h2{background:#e88a1a;color:#2a1500}.cp-strip .c.h3{background:#d7b21c;color:#2a2200}.cp-strip .c.h4{background:#8fbc4e;color:#13250a}.cp-strip .c.h5{background:var(--score-5)}
+.cp-strip .c.na{background:var(--surface-sunken);color:var(--text-muted);font-weight:400}
+.cp-strip .rl{all:unset;cursor:pointer;font-weight:700;display:flex;align-items:center}.cp-strip .rl:hover{color:var(--link)}
+.cp-mx .rh{all:unset;cursor:pointer;display:flex;flex-direction:column;justify-content:center;padding:3px 8px 3px 0;border-radius:4px}
+.cp-mx .rh .n{font-weight:700}.cp-mx .rh:hover .n,.cp-mx .rh:focus-visible .n{color:var(--link)}
+.cp-mx .sq,.cp-hleg .sq{border-radius:4px;min-height:30px;display:grid;place-items:center;font:700 12px var(--f-body)}
+.sq.s-pass{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}.sq.s-partial{background:var(--sev-warn-tint);color:var(--sev-warn-ink)}
+.sq.s-fail{background:var(--sev-crit);color:var(--on-sev-solid)}.sq.s-none{background:var(--sev-none-tint);color:var(--sev-none-ink)}.sq.s-blank{background:transparent;border:1px dashed var(--line-soft)}
+.cp-mx .gn{display:flex;align-items:center;font:700 12px var(--f-body);color:var(--action);white-space:nowrap}
+.cp-prog{gap:10px}
+.cp-prog .pr{all:unset;box-sizing:border-box;display:grid;grid-template-columns:80px 1fr 150px;gap:12px;align-items:center;font-size:13px;cursor:pointer;padding:4px 6px;border-radius:4px}
+.cp-prog .pr:hover:not([disabled]),.cp-prog .pr:focus-visible{background:var(--surface-sunken)}
+.cp-prog .pr[disabled]{cursor:default;opacity:.65}
+.cp-prog .stk{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--surface-sunken)}
+.cp-prog .stk i{display:block;height:100%}
+.pv{background:var(--sev-ok)}.pd{background:#9cc98a}.pp{background:var(--sev-warn)}.po{background:var(--line-frame)}
+.cp-kind{display:inline-block;font:700 10px var(--f-body);letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:3px 6px;background:var(--surface-sunken);color:var(--text-muted);min-width:62px;text-align:center}
+.rem-t td:first-child{min-width:220px;max-width:340px}
+.rem-t select,.rem-t input{font:var(--fs-sm) var(--f-body);padding:4px 6px;border:1px solid var(--line-input);border-radius:4px;background:var(--surface-card);color:var(--text);max-width:130px}
+#cpDr .dr-back{position:fixed;inset:0;background:rgba(5,12,20,.45);z-index:40}
+.cp-dr{position:fixed;top:0;right:0;bottom:0;width:min(640px,100vw);background:var(--surface-card);color:var(--text);z-index:41;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.25)}
+.cp-dr.wide{width:min(1000px,100vw)}
+.cp-dr-h{position:relative;padding:16px 48px 10px 18px;border-bottom:1px solid var(--line-soft)}
+.cp-dr-h h3{margin:6px 0 2px;font-size:18px}
+.cp-dr-x{all:unset;position:absolute;top:10px;right:12px;cursor:pointer;font-size:22px;color:var(--text-muted);padding:2px 9px;border-radius:4px}
+.cp-dr-x:hover,.cp-dr-x:focus-visible{background:var(--surface-sunken);color:var(--text)}
+.cp-crumbs{font-size:var(--fs-sm);color:var(--text-muted);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.cp-crumbs button{all:unset;cursor:pointer;color:var(--link)}.cp-crumbs button:hover{text-decoration:underline}
+.cp-dr-b{padding:12px 18px;overflow:auto;flex:1}
+.cp-dr-f{padding:12px 18px;border-top:1px solid var(--line-soft);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cp-li{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 6px;border-bottom:1px solid var(--line-soft);cursor:pointer}
+.cp-li:hover,.cp-li:focus-visible{background:var(--surface-sunken)}
+.cp-li[data-empty]{cursor:default}.cp-li[data-empty]:hover{background:none}
+.cp-li.static{cursor:default}.cp-li.static:hover{background:none}
+.cp-fixbox{background:var(--surface-sunken);border-radius:6px;padding:10px 12px;font-size:13px;margin:0 0 10px}
+
+/* ---------- Overview ---------- */
+.ov-first{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.ov-first li{display:grid;grid-template-columns:150px 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.ov-first li:first-child{border-top:0}
+.ov-chips{display:flex;gap:6px;flex-wrap:wrap;align-self:start}
+.ov-first .xp{white-space:nowrap}
+@media (max-width:600px){.ov-first li{grid-template-columns:1fr}.ov-grid{grid-template-columns:1fr}}
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.ov-card{border-left:4px solid var(--ov);margin:0;gap:6px}
+.ov-card.st-none{border-left:4px dashed var(--sev-none);border-style:dashed;box-shadow:none;background:var(--surface-page)}   /* not covered: neutral, dashed */
+.ov-card.st-blind{border-left-color:var(--sev-blind)}
+.ov-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ov-h h3{margin:0}
+.ov-n{margin:0;font-size:var(--fs-body)}
+.ov-n .crit{color:var(--crit)}
+.ov-n .warn{color:var(--warn-ink)}
+.ov-head{margin:0;font-weight:700}
+.ov-top{margin:0;font-size:13px}
+.ov-go{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:6px;font-size:13.5px}
+
+/* ---------- Settings ---------- */
+.st-wrap{display:grid;grid-template-columns:200px minmax(0,1fr);gap:22px;align-items:start}
+.st-toc{position:sticky;top:16px;display:flex;flex-direction:column;gap:2px}
+.st-toc a{padding:7px 10px;border-radius:6px;text-decoration:none;color:var(--text);font-size:13.5px}
+.st-toc a.on{background:var(--action-tint);color:var(--action);font-weight:700}
+.st-toc .n{float:right;color:var(--text-muted);font-size:12px}
+.st-card{margin:0 0 16px;scroll-margin-top:16px;min-width:0;display:block}
+.st-card>h3{margin:0 0 2px}.st-card>.sub{margin:0 0 10px}
+.st-row{display:grid;grid-template-columns:220px minmax(0,1fr) auto;gap:16px;align-items:center;padding:12px 0;border-top:1px solid var(--line-soft)}
+.st-card>.sub+.st-row,.st-card>h3+.st-row{border-top:0}
+.st-row .k{font-weight:700}.st-row .k .sub{display:block;font-weight:400;margin:0}
+.st-row .acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.st-row input[type=text],.st-row input[type=number],.st-row select,.st-add input{height:34px;border:1px solid var(--line-input);border-radius:var(--radius-control);padding:0 10px;font:inherit;background:var(--surface);color:var(--text)}
+.st-row input[type=text]{min-width:min(240px,100%)}
+.st-logo{width:160px;height:56px;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;background:var(--surface-sunken);overflow:hidden}
+.st-logo img{max-width:150px;max-height:48px}
+.st-tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.st-tbl th{text-align:left;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--line)}
+.st-tbl td{padding:7px 8px;border-bottom:1px solid var(--line-soft)}
+.st-add{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tags .tag{background:var(--surface-sunken);border:1px solid var(--line-soft);border-radius:6px;padding:2px 8px;font-size:13px}
+.tags .tag button{border:0;background:none;color:var(--text-muted);cursor:pointer;padding:0 0 0 4px;font:inherit}
+.tags input{height:28px;min-width:160px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--radius-control);overflow:hidden}
+.seg button{border:0;background:var(--surface);color:var(--text);padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed=true]{background:var(--action);color:var(--on-action);font-weight:700}
+.page-settings .safe{display:flex;gap:8px;align-items:flex-start}
+.page-settings .safe svg{flex:none;width:16px;height:16px;stroke:var(--ok);fill:none;stroke-width:2;margin-top:2px}
+@media (max-width:900px){.st-wrap{grid-template-columns:1fr}.st-toc{position:static;flex-direction:row;flex-wrap:wrap}.st-row{grid-template-columns:1fr}.st-row .acts{justify-content:flex-start}}
+.st-tbl td,.st-tbl th{white-space:normal}
+.st-card{overflow-x:auto}
+
+/* ---------- Compliance: coverage cards and the control-by-control evidence pack ---------- */
+.c-blue{background:var(--blue-tint);color:var(--blue-ink)}
+.cp-stk{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--surface-sunken);margin:6px 0}
+.cp-stk i{display:block}
+.cp-evbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.cp-evbar .seg{display:inline-flex;border:1px solid var(--line);border-radius:var(--radius-control);overflow:hidden}
+.cp-evbar .seg button{border:0;background:var(--surface);color:var(--text);padding:6px 11px;font:inherit;font-size:13px;cursor:pointer}
+.cp-evbar .seg button+button{border-left:1px solid var(--line)}
+.cp-evbar .seg button[aria-pressed=true]{background:var(--action);color:var(--on-action);font-weight:700}
+.cp-cover{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;background:var(--surface-card);border:1px solid var(--line-frame);border-radius:var(--radius-card);padding:16px 20px;margin-bottom:12px}
+.cp-evcov{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.cp-evcov .card{margin:0;gap:2px}
+.cp-big{font:900 28px/1.2 var(--f-display)}
+.cp-scope{border-left:4px solid var(--navy);background:var(--surface-sunken);padding:12px 16px;border-radius:6px;font-size:13.5px;margin-bottom:8px}
+.cp-scope p{margin:0 0 6px}
+h3.cp-grp{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:22px 0 8px}
+.cp-ctl{background:var(--surface-card);border:1px solid var(--line-frame);border-left:4px solid var(--st);border-radius:8px;margin-bottom:8px}
+.cp-ctl>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:150px 1fr auto;gap:14px;align-items:center;padding:10px 14px}
+.cp-ctl>summary::-webkit-details-marker{display:none}
+.cp-id{font-family:var(--f-mono);font-size:var(--fs-sm);font-weight:500;word-break:break-word}
+.cp-nm{font-weight:700}.cp-nm .sub{display:block;font-weight:400;margin:1px 0 0}
+.cp-cb{padding:4px 14px 14px 178px;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;font-size:13.5px}
+.cp-cb .f{grid-column:1/-1}
+.cp-cb h4{margin:6px 0 3px;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted)}
+.cp-cb p{margin:0}
+.cp-pop{display:flex;gap:14px;font-family:var(--f-mono);font-size:13px}
+.cp-rec{background:var(--blue-tint);border-radius:6px;padding:8px 12px}
+.cp-rec.risk{background:var(--crit-tint)}
+.cp-rec h4{margin-top:0}
+.cp-cite{font-size:12px;color:var(--text-muted)}
+.cp-restricted{border:2px solid var(--crit);border-radius:var(--radius-card);padding:14px 18px;margin-top:22px;background:var(--surface-card)}
+.cp-restricted h3{color:var(--crit)}
+.cp-dlg textarea,.cp-dlg select{width:100%}
+@media (max-width:900px){.cp-evcov{grid-template-columns:1fr 1fr}.cp-ctl>summary{grid-template-columns:1fr auto}.cp-id{grid-column:1/-1}.cp-cb{padding:4px 14px 14px;grid-template-columns:1fr}}
+@media print{.cp-ctl{break-inside:avoid}}
+.cp-evcov .cp-hleg span{display:inline-flex;gap:5px;align-items:center;margin-right:10px}.cp-evcov .cp-hleg i{display:inline-block;width:10px;height:10px;border-radius:2px}
+@media print{h3.cp-grp{break-after:avoid;page-break-after:avoid}.cp-cover,.cp-evcov{break-inside:avoid}}
+
+/* ---------- X3: present to client. Hides the menu and tech controls; bigger numbers and titles. Esc exits. ---------- */
+body.present{--fs-kpi:40px;--fs-h1:30px}
+body.present #sideNav,body.present .nav-open-btn,body.present .page-acts,body.present .csvbar,body.present .tech,body.present details.pf,
+body.present .onpage .linkbtn,body.present .theme3,body.present .switcher .kbd,body.present .switcher .sw-chev,body.present .mi-look,
+body.present #launcher .ft,body.present #launcher a.lc:not([data-client]),body.present #sourceText,body.present #stackCard,body.present .bar-actions,body.present .age,body.present .intro-more,body.present #panelIntro .linkbtn{display:none!important}
+body.present.has-nav,body.present.nav-collapsed{padding-left:0}
+body.present.has-nav .hero,body.present.nav-collapsed .hero{margin-left:0}
+body.present .switcher{cursor:default;pointer-events:none}
+/* Client-safe Present: internal MSP controls (.msp) and cross-page links (.xp-go) are hidden,
+   the health ribbon goes (the Overview tiles carry it), and .present-only shows read-only text in their place. */
+body:not(.present) .present-only{display:none!important}
+body.present .msp,body.present a.xp-go,body.present #ribbon,body.present .cp-acts,body.present .cp-ans,body.present .cp-x,body.present .cp-out,
+body.present .cp-profile,body.present [data-rdel],body.present .ov-chips .c-ok{display:none!important}
+body.present a.xp,body.present a.lg{pointer-events:none;color:inherit;text-decoration:none}
+body.present a.lg .ext{display:none}
+body.present .present-btn{display:inline-flex!important}
+body.present main{font-size:15.5px}
+body.present .kpi .k{font-size:var(--fs-body)}
+body.present .phead p{font-size:15.5px}
+.ac-tk{display:block;width:120px;margin-top:4px}
+
+/* skip link, visible when focused. */
+.skip{position:absolute;left:8px;top:-60px;z-index:100;padding:8px 14px;border-radius:6px;background:var(--surface-card);color:var(--link);font:700 14px var(--f-body);box-shadow:var(--shadow-pop)}
+.skip:focus{top:8px}
+main:focus{outline:none}
+/* the fold control inside each section heading. */
+.psec-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:inherit;color:inherit;border-radius:4px}
+.psec-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.psec-btn:hover .psec-arrow{border-left-color:var(--blue)}
+/* below 640px the "On this page" bar scrolls with the page, so it never covers the focused element. */
+@media (max-width:640px){.onpage{position:static}}

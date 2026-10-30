@@ -1,0 +1,131 @@
+/* Design tokens: the one source of truth for colour, type and size. Loaded first.
+   Three layers: primitives (raw palette) -> semantic tokens (what a colour means) -> component sizes.
+   Every colour token is written once as light-dark(light, dark); the theme switch below only flips
+   color-scheme, so dark mode is defined in exactly one place.
+   Older variable names (--crit, --warn, --navy-2, --gold ...) are kept as aliases at the bottom so
+   inline styles in the views keep working. New code should use the semantic names. */
+
+/* ---------- Theme switch: OS preference unless the user picked one (data-theme on <html>) ---------- */
+:root{color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark}}
+:root[data-theme="dark"]{color-scheme:dark}
+
+:root{
+  /* ---------- Primitives: Liongard portal palette (app.liongard.com, Oct 2026) ---------- */
+  --navy-900:#052c48;   /* top bar */
+  --slate-600:#3f5a73;  /* side menu */
+  --blue-600:#2f6fb8;   /* actions and links (AA on white) */
+  --blue-700:#245a96;
+  --blue-100:#eaf3fc;
+  --grey-50:#f5f7f9; --grey-100:#eef0f2; --grey-150:#eef1f4; --grey-200:#e1e5ea; --grey-300:#cfd6de;
+  --grey-500:#7b8c9f; --grey-600:#595959; --grey-800:#333333;
+  --red-600:#d52801; --red-100:#fbe9e5; --red-900:#8e2a12;
+  --amber-500:#e09a0b; --amber-700:#b57a00; --amber-100:#fdf4df;
+  --green-500:#70b558; --green-700:#4f8f3a; --green-100:#f1f8ee;
+
+  /* ---------- Semantic: surfaces, text, lines ---------- */
+  --surface-page:  light-dark(var(--grey-100), #0b1a28);
+  --surface-card:  light-dark(#ffffff, #12253a);
+  --surface-sunken:light-dark(var(--grey-50), #173049);   /* table heads, inputs, hover */
+  --text:          light-dark(var(--grey-800), #e6ecf2);
+  --text-muted:    light-dark(var(--grey-600), #a5b3c2);
+  --line-soft:     light-dark(var(--grey-200), #24405a);  /* rules inside a card */
+  --line-frame:    light-dark(var(--grey-300), #2f4a63);  /* the visible frame round a card */
+  --shadow-lift:   0 1px 3px light-dark(rgba(5,44,72,.10), rgba(0,0,0,.35)), 0 1px 1px light-dark(rgba(5,44,72,.04), transparent);
+  --shadow-pop:    0 10px 30px light-dark(rgba(5,44,72,.22), rgba(0,0,0,.5));
+
+  /* ---------- Semantic: chrome ---------- */
+  --chrome-bar:    var(--navy-900);                         /* same in both themes, like Liongard */
+  --chrome-menu:   light-dark(var(--slate-600), #0e1f30);   /* dark: menu sits darker than the content */
+  --chrome-menu-on:light-dark(var(--navy-900), #1d3b5b);
+
+  /* ---------- Semantic: actions ---------- */
+  --action:        light-dark(var(--blue-600), #6aa8ee);
+  --action-hover:  light-dark(var(--blue-700), #8cbcf2);
+  --action-tint:   light-dark(var(--blue-100), #16314d);
+  --on-action:     light-dark(#ffffff, #06233a);            /* text on a filled blue button */
+  --link:          light-dark(var(--blue-700), #6aa8ee);   /* blue-700 passes on the grey page too (6.17) */
+  --focus:         var(--action);
+  --line-input:    light-dark(var(--grey-500), #6b86a3);    /* input and select borders (≥3:1 on card and sunken) */
+
+  /* ---------- Semantic: severity contract ----------
+     crit  = red    something is wrong and needs action
+     warn  = amber  needs review soon (never for plain counts, volume or "context")
+     ok    = green  checked and fine
+     none  = slate  neutral count, unknown, or no evidence
+     blind = deep red  an inspector is not returning data
+     -edge is for borders and dots, -ink for numbers and text, -tint for chip and row backgrounds. */
+  /* Change heat: cool blue (1 change a day) to red (10+). Change pulse only. */
+  --heat-1: light-dark(#5b9bd5, #78b0e3); --heat-2: light-dark(#d9b51c, #e8c84a); --heat-3: light-dark(var(--amber-500), #f3b020);
+  --heat-4: light-dark(#e8650c, #f58a3a); --heat-5: light-dark(var(--red-600), #f0603f);
+  --sev-crit:      light-dark(var(--red-600), #f0603f);
+  --sev-crit-ink:  light-dark(#b02200, #ff7a5c);          /* chip and badge text on the tints (≥4.5:1 both themes) */
+  --sev-crit-tint: light-dark(var(--red-100), #3d1d16);
+  --sev-warn:      light-dark(var(--amber-500), #f3b020);
+  --sev-warn-ink:  light-dark(#8a5f00, #f3b020);
+  --sev-warn-tint: light-dark(var(--amber-100), #3a2c10);
+  --sev-ok:        light-dark(var(--green-500), #86c86e);
+  --sev-ok-ink:    light-dark(#3a7229, #86c86e);
+  --sev-ok-tint:   light-dark(var(--green-100), #183324);
+  --sev-none:      light-dark(var(--grey-500), #93a4b6);
+  --sev-none-tint: light-dark(var(--grey-150), #1b2f43);
+  --sev-none-ink:  light-dark(#5c6b7c, #93a4b6);          /* slate text on the none tint */
+  --sev-blind:     light-dark(var(--red-900), #d57896);     /* dark: crimson-pink, readable on its tint and the card */
+  --sev-blind-tint:light-dark(#f6e4de, #3a1a26);
+  /* Neutral data series for charts (volume, spend, "later" dates): blue-slate, never amber. */
+  --data:          light-dark(#5b84b1, #7fa6d1);
+
+  /* ---------- Type ---------- */
+  --f-body:"Lato","Helvetica Neue",Arial,sans-serif;
+  --f-display:var(--f-body);
+  --f-head:var(--f-body);
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+
+  /* ---------- Component sizes ---------- */
+  --bar-h:56px;          /* top bar */
+  --nav-w:232px;         /* side menu */
+  --nav-w-collapsed:58px;
+  --radius-card:8px;
+  --radius-control:4px;
+  --gap-grid:12px;       /* between tiles in a strip or grid */
+  --kpi-min-w:155px;
+  --kpi-num:var(--fs-kpi); /* KPI number (32px; 40px in present mode) */
+  --pt-min-w:240px;
+  --pt-min-h:96px;       /* exposure tile */
+  --nwcard-h:270px;      /* network device card */
+  --input-h:36px;
+
+  /* ---------- Aliases: old names, kept so inline styles in the views keep working ---------- */
+  --bg:var(--surface-page); --surface:var(--surface-card); --surface-2:var(--surface-sunken);
+  --ink:var(--text); --muted:var(--text-muted); --line:var(--line-soft); --frame:var(--line-frame); --lift:var(--shadow-lift);
+  --navy:var(--navy-900); --navy-1:var(--navy-900); --navy-2:light-dark(var(--slate-600), #4a6788); --bar:var(--chrome-bar);
+  --blue:var(--action); --blue-ink:var(--action-hover); --blue-tint:var(--action-tint);
+  --crit:var(--sev-crit); --crit-tint:var(--sev-crit-tint);
+  --warn:var(--sev-warn); --warn-ink:var(--sev-warn-ink); --warn-tint:var(--sev-warn-tint);
+  --ok:var(--sev-ok); --ok-ink:var(--sev-ok-ink); --ok-tint:var(--sev-ok-tint);
+  --none:var(--sev-none); --none-tint:var(--sev-none-tint);
+  --blind:var(--sev-blind);
+  /* Gold was the old portal accent. Liongard's portal has no gold, and the views use it for chart
+     series that are context, not warnings, so it now maps to the neutral data colour / blue. */
+  --gold:var(--data); --gold-ink:var(--action-hover); --gold-tint:var(--action-tint);
+}
+
+/* ---------- 2026 redesign ---------- */
+:root{
+  /* Type scale: every font size maps onto one of these. Lato ships 400/700/900 only. */
+  --fs-xs:11px; --fs-sm:12.5px; --fs-body:14px; --fs-lead:16px; --fs-h3:16px; --fs-h1:24px; --fs-kpi:32px;
+  --row-pad:8px;                         /* table rows: comfortable; body.compact makes them 5px */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
+  /* One risk scale: Critical solid red, High red tint, Medium amber, Low grey. Never blue. */
+  --risk-high-tint:light-dark(#fde3dc, #4a1f17);
+  --on-sev-solid:  light-dark(#ffffff, #1b0a05);          /* text on a solid severity fill (light red in dark mode) */
+  --on-heat:       #ffffff;                                /* text on the fixed score-ramp cells */
+  /* Score ramp (fixed in both themes). h1 and h5 darkened so white text passes 4.5:1. */
+  --score-0:#b8321d; --score-1:#c2461a; --score-2:#e88a1a; --score-3:#d7b21c; --score-4:#8fbc4e; --score-5:#3f7a2e;
+  /* Health ribbon on the navy bar, fixed in both themes: each ≥3:1 on navy. */
+  --rb-act:#f0603f; --rb-review:#f3b020; --rb-ok:#86c86e; --rb-blind:#e07aa0;
+  --line-print:    light-dark(#c9ced6, var(--line-frame)); /* printed review tables */
+  --shadow-hover:  0 8px 20px light-dark(rgba(5,44,72,.12), rgba(0,0,0,.45));   /* replaces the light-only card hover */
+  --brand-gold:    #e8b53a;                                /* "Data Lake" in the top-bar text mark only */
+}
+body.compact{--row-pad:5px}

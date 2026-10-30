@@ -1,0 +1,238 @@
+/* Base layout and shared components, in Liongard's portal look. Colours and sizes come from tokens.css
+   (loaded first); this file never defines a colour of its own. Order: tokens.css, fonts.css, portal.css,
+   liongard-theme.css (top bar, side menu, first-run setup), app.css (components, print). */
+
+*{box-sizing:border-box}
+html{scrollbar-gutter:stable}
+body{background:var(--surface-page);color:var(--text);font:var(--fs-body)/1.5 var(--f-body);margin:0}
+@view-transition{navigation:auto}   /* pages cross-fade instead of flashing white */
+@media (prefers-reduced-motion: reduce){@view-transition{navigation:none}}
+select{font:inherit;font-size:13px;color:var(--text);background:var(--surface-card);border:1px solid var(--line-frame);border-radius:var(--radius-control);padding:4px 8px}
+select:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+a{color:var(--link)} a:hover{color:var(--action-hover)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+h3{font:700 15.5px/1.3 var(--f-body);margin:0;color:var(--text)}
+.sub{color:var(--text-muted);font-size:13.5px;margin:2px 0 0}
+
+main{margin:0 auto;padding:22px 28px 48px;display:flex;flex-direction:column;gap:28px}
+footer{margin:0 auto;padding:0 28px 40px;color:var(--text-muted);font-size:var(--fs-sm)}
+@media (max-width:520px){main,footer{padding-inline:16px}}
+
+/* ---------- KPI strip ----------
+   Every tile in a row is the same height, and the title, number and note line up across the row:
+   each tile is a 3-row subgrid of the strip, so the tallest title in a row sets that row's title height.
+   Titles clamp to two lines; the "›" is glued to the last word so it never sits alone on a line. */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(var(--kpi-min-w),1fr));grid-auto-rows:auto;gap:var(--gap-grid)}
+.kpi{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:4px;align-content:start;min-width:0;
+  background:var(--surface-card);border:1px solid var(--line-frame);border-radius:var(--radius-card);box-shadow:var(--shadow-lift);
+  padding:14px 16px;text-decoration:none;color:inherit}
+/* 12.5px bold label with a status dot, a 32px bold tabular number, one-line note; no rule under the label. */
+.kpi .k{align-self:stretch;font:700 var(--fs-sm)/1.3 var(--f-body);color:var(--text-muted);margin-bottom:2px;
+  overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow-wrap:anywhere}
+.kpi .k::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sev,var(--sev-none));margin-right:6px;vertical-align:1px}
+.kpi .v{font:700 var(--fs-kpi)/1.1 var(--f-display);font-variant-numeric:tabular-nums;color:var(--sev,var(--sev-none));overflow-wrap:anywhere}
+.kpi .v small{font:400 15px var(--f-body);color:var(--text-muted)}
+.kpi .s{font-size:var(--fs-sm);color:var(--text-muted)}
+/* Not covered (no tool of that kind): neutral slate, dashed frame, never amber. */
+.kpi.dashed{border-style:dashed;box-shadow:none}
+.kpi.dashed .v{color:var(--sev-none)}
+/* Delta chip: change since the last different snapshot of this page (Overview). */
+.kpi .delta{display:inline-block;vertical-align:middle;margin-left:8px;font:700 var(--fs-xs)/1.6 var(--f-body);font-style:normal;padding:0 7px;border-radius:999px;background:var(--surface-sunken);color:var(--text-muted);white-space:nowrap}
+.kpi .delta.worse{background:var(--sev-crit-tint);color:var(--sev-crit-ink)}
+.kpi .delta.better{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.kpi.clickable .s{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}   /* the drawer shows the full note */
+
+/* ---------- Panels ---------- */
+section.panel{background:var(--surface-card);border:0;border-radius:var(--radius-card);box-shadow:var(--shadow-lift);scroll-margin-top:60px}
+.ph{padding:18px 20px 14px;border-bottom:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;justify-content:space-between}
+.ph h2{font:700 var(--fs-h1)/1.2 var(--f-display);margin:0;color:var(--text);text-wrap:balance}
+.ph p{margin:0;color:var(--text-muted);font-size:var(--fs-body);max-width:62ch}
+.pb{padding:18px 20px;display:flex;flex-direction:column;gap:18px}
+.pf{border-top:1px dashed var(--line-soft);padding:10px 20px 12px}
+.pf summary{cursor:pointer;font:700 var(--fs-sm) var(--f-body);color:var(--text-muted);letter-spacing:.02em}
+.pf code{font:var(--fs-sm)/1.6 var(--f-mono);display:block;white-space:pre-wrap;color:var(--text);background:var(--surface-sunken);border-radius:4px;padding:10px 12px;margin-top:8px}
+@media (max-width:520px){.ph{padding:16px}.pb{padding:16px}}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:18px}
+.two>*{min-width:0}
+.two.even{grid-auto-rows:1fr}
+
+/* ---------- Cards: white, framed, 8px ---------- */
+.card{border:1px solid var(--line-frame);border-radius:var(--radius-card);box-shadow:var(--shadow-lift);padding:14px 16px;background:var(--surface-card);display:flex;flex-direction:column;gap:10px;min-width:0}
+.card.flag{border-left:4px solid var(--sev-crit)}
+.card.flag.warn{border-left-color:var(--sev-warn)}
+.card.flag.info,.card.summary{border-left:4px solid var(--action)}
+.card.summary{margin-bottom:16px}
+.card.summary li{font-size:14.5px}
+.card.summary ul,p.sub{max-width:140ch}
+.card.older summary{cursor:pointer;list-style-position:outside} .card.older ul{margin-top:10px}
+
+/* ---------- Tables ---------- */
+/* density from --row-pad (Settings › Appearance), header row sticks while a long table scrolls, text cells wrap,
+   numbers and counts stay on one line. */
+.tw{overflow:auto;max-height:72vh;border:1px solid var(--line-frame);border-radius:var(--radius-card)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:var(--row-pad) 10px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+th{white-space:nowrap;font:700 11.5px/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);background:var(--surface-sunken)}
+.tw th{position:sticky;top:0;z-index:2}
+td.c,td.num,td.mono,td.r,td .chip,td .btn{white-space:nowrap}
+td.r,th.r{text-align:right}
+tbody tr:hover>td{background:var(--surface-sunken)}
+tbody tr:last-child td{border-bottom:0}
+td.c,th.c{text-align:center}
+td.wrap{white-space:normal;min-width:220px}
+tr.dim td{color:var(--text-muted)}   /* dimmed by colour, not opacity, so muted notes keep 4.5:1 */
+tr.clickrow{cursor:pointer}
+tr.clickrow:hover td{background:var(--surface-sunken)}
+
+/* ---------- Status ticks and chips (severity contract: see tokens.css) ---------- */
+.tick{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;font:700 13px/1 var(--f-body)}
+.t-ok{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.t-bad{background:var(--sev-crit-tint);color:var(--sev-crit-ink)}
+.t-warn{background:var(--sev-warn-tint);color:var(--sev-warn-ink)}
+.t-none{background:var(--sev-none-tint);color:var(--sev-none-ink)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:2px 9px;border-radius:999px;font:700 12px/1.6 var(--f-body);white-space:nowrap}
+.chip small{font-size:10.5px;opacity:.8;margin-left:2px}
+.c-ok{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.c-crit{background:var(--sev-crit-tint);color:var(--sev-crit-ink)}
+.c-warn{background:var(--sev-warn-tint);color:var(--sev-warn-ink)}
+.c-none{background:var(--sev-none-tint);color:var(--text-muted)}
+.c-gold{background:var(--action-tint);color:var(--action-hover)}   /* "info" chip: blue, not amber. Never for risk (use riskChip) */
+.c-blind{background:var(--sev-blind-tint);color:var(--sev-blind)}   /* couldn't read */
+.c-nc{background:var(--sev-none-tint);color:var(--text-muted);border:1px dashed var(--sev-none);padding:1px 8px}   /* not covered: dashed slate */
+/* the one risk scale, used wherever Critical / High / Medium / Low appear (RISK_CHIP in shared.js). */
+.r-critical{background:var(--sev-crit);color:var(--on-sev-solid)}
+.r-high{background:var(--risk-high-tint);color:var(--sev-crit-ink);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sev-crit) 35%,transparent)}
+.r-medium{background:var(--sev-warn-tint);color:var(--sev-warn-ink)}
+.r-low{background:var(--sev-none-tint);color:var(--text-muted)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:var(--fs-sm);color:var(--text-muted);align-items:center}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend .tick{width:18px;height:18px;font-size:10px}
+
+/* ---------- Bars ---------- */
+.bar{display:grid;grid-template-columns:minmax(110px,150px) 1fr auto;gap:10px;align-items:center;font-size:13.5px}
+.bar .track{height:12px;background:var(--surface-sunken);border-radius:3px;overflow:hidden;border:1px solid var(--line-soft)}
+.fill{height:100%;background:var(--action)}
+.fill.gold{background:var(--data)}
+.bars{display:flex;flex-direction:column;gap:8px}
+
+/* ---------- Lists ---------- */
+ul.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+ul.plain li{display:flex;gap:10px;align-items:flex-start;font-size:var(--fs-body)}
+.diff{font:var(--fs-sm) var(--f-mono)}
+.diff del{color:var(--sev-crit);text-decoration:line-through} .diff ins{color:var(--sev-ok-ink);text-decoration:none}
+
+/* ---------- Swimlanes and toggles ---------- */
+.lane-wrap{overflow-x:auto}
+.lane-wrap svg{display:block;min-width:680px;width:100%;height:auto}
+.lane-wrap .lc-dot,.lane-wrap .ch-dot{cursor:pointer}
+.lane-wrap .ch-dot:hover,.lane-wrap .ch-dot:focus-visible{outline:none;stroke:var(--ink);stroke-width:2}
+.ch-sum{min-width:200px;max-width:320px;font-size:13px}
+.lane-wrap .lc-dot{cursor:pointer;transition:r .12s}
+.lane-wrap .lc-dot:hover,.lane-wrap .lc-dot:focus-visible{r:9;outline:none;stroke:var(--ink);stroke-width:2}
+.toggle{display:inline-flex;gap:8px;align-items:center;font-size:13.5px;cursor:pointer;user-select:none}
+.toggle input{accent-color:var(--action);width:16px;height:16px}
+
+/* ---------- Search, filters, lookup ---------- */
+.search{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search input{flex:1 1 260px;font:15px var(--f-body);padding:10px 12px;border:1px solid var(--line-input);border-radius:var(--radius-control);background:var(--surface-sunken);color:var(--text);min-width:0}
+.search input:focus{outline:2px solid var(--focus);outline-offset:0}
+.quick{display:flex;flex-wrap:wrap;gap:6px}
+.quick button{font:400 13px var(--f-body);padding:5px 10px;border-radius:var(--radius-control);border:1px solid var(--line-soft);background:var(--surface-card);color:var(--text);cursor:pointer}
+.quick button:hover{border-color:var(--action)}
+.quick button[aria-pressed="true"]{background:var(--action);border-color:var(--action);color:var(--on-action)}
+.profile{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px}
+.src{border:1px solid var(--line-soft);border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.src h4{margin:0;font:700 12px/1.2 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px}
+.kv dt{color:var(--text-muted)} .kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.answer{background:var(--action-tint);border-radius:6px;padding:12px 14px;font-size:14.5px}
+.answer b{color:var(--action-hover)}
+.lk-controls{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:12px;align-items:end}
+@media (max-width:860px){.lk-controls{grid-template-columns:1fr 1fr}.lk-search{grid-column:1/-1}}
+@media (max-width:480px){.lk-controls{grid-template-columns:1fr}}
+.lk-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.lk-field label{font:700 11.5px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+.lk-field input,.lk-field select{font:15px var(--f-body);padding:10px 12px;border:1px solid var(--line-input);border-radius:6px;background:var(--surface-sunken);color:var(--text);width:100%;min-width:0}
+.lk-field input:focus,.lk-field select:focus{outline:2px solid var(--focus);outline-offset:1px}
+.combo{position:relative}
+.sugg{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 4px);margin:0;padding:4px;list-style:none;background:var(--surface-card);border:1px solid var(--line-soft);border-radius:8px;box-shadow:var(--shadow-pop);max-height:320px;overflow:auto}
+.sugg li{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:5px;cursor:pointer;font-size:var(--fs-body)}
+.sugg li[aria-selected="true"],.sugg li:hover{background:var(--action-tint)}
+.sugg li small{color:var(--text-muted);font-size:12px;white-space:nowrap}
+.sugg li.none{cursor:default;color:var(--text-muted)}
+.sugg li.none:hover{background:none}
+
+/* ---------- ATT&CK tactic chain ---------- */
+.chain{display:flex;flex-wrap:wrap;gap:4px}
+.chain .tac{font:700 var(--fs-xs)/1 var(--f-body);padding:6px 7px;border-radius:4px;border:1px solid var(--line-soft);color:var(--text-muted);background:var(--surface-sunken)}
+.chain .tac.on{background:var(--sev-crit);border-color:var(--sev-crit);color:var(--on-sev-solid)}
+.chain .tac.weak{border-color:var(--sev-warn);color:var(--sev-warn-ink);border-style:dashed}
+
+/* ---------- Launcher (Cobalt-style cards) ---------- */
+.linkbtn{all:unset;cursor:pointer;color:var(--link);text-decoration:underline;text-underline-offset:2px}
+.linkbtn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.ctx{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;align-items:center;background:var(--surface-card);border:1px solid var(--line-soft);border-radius:8px;padding:12px 16px;font-size:13.5px;color:var(--text-muted)}
+.ctx b{color:var(--text);font-weight:700}
+/* Launcher heading: the client's name, how it's connected, and Settings. */
+.hello{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px}
+.hello h1{font:700 var(--fs-h1)/1.2 var(--f-display);margin:0;color:var(--text)}
+.hello h1:empty{display:none}
+.hello p{margin:4px 0 0;color:var(--text-muted);font-size:13.5px}
+.hello p b{color:var(--text)}
+.ctx a{font-weight:700}
+.group{display:flex;flex-direction:column;gap:10px;min-width:0}
+.group h2{font:700 11.5px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:8px 0 0}
+/* Launcher, Option B: fixed tiles. Every tile is --lc-w × --lc-h at every window width, so resizing or
+   maximising never changes their shape. Columns change only at set widths (1 → 2 → 4, never 3), the grid is centred,
+   and on very wide screens two groups sit side by side, so a full screen shows more tiles, not bigger ones. */
+#launcher{--lc-w:264px;--lc-h:144px;--lc-g2:calc(2 * var(--lc-w) + var(--gap-grid));--lc-g4:calc(4 * var(--lc-w) + 3 * var(--gap-grid));container:launcher/inline-size;display:flex;flex-direction:column;gap:24px}
+.lw{--cols:1;width:100%;margin-inline:auto;display:flex;flex-direction:column;gap:24px}
+.cards{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--gap-grid)}
+@container launcher (min-width:540px){.lw{--cols:2;width:var(--lc-g2)}.cards{grid-template-columns:repeat(var(--cols),var(--lc-w))}}
+@container launcher (min-width:1092px){.lw{--cols:4;width:var(--lc-g4)}}
+@container launcher (min-width:2232px){.lw{display:grid;grid-template-columns:repeat(2,var(--lc-g4));column-gap:48px;row-gap:24px;width:auto}}
+#launcher > .stackline{width:100%;max-width:var(--lc-g4);margin-inline:auto;box-sizing:border-box}
+@container launcher (min-width:2232px){#launcher > .stackline{max-width:calc(2 * var(--lc-g4) + 48px)}}
+.lc{all:unset;box-sizing:border-box;cursor:pointer;min-height:var(--lc-h);min-width:0;display:grid;grid-template-columns:32px minmax(0,1fr);grid-template-rows:32px 1fr 24px;gap:10px 12px;background:var(--surface-card);border:1px solid var(--line-frame);border-radius:var(--radius-card);box-shadow:var(--shadow-lift);padding:14px 16px;transition:box-shadow .12s ease,border-color .12s ease;color:var(--text)}
+a.lc{text-decoration:none}
+.lc:hover{box-shadow:var(--shadow-hover);border-color:var(--action)}
+.lc:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.lc .ic{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;background:var(--action-tint);color:var(--action)}
+.lc .ic svg{width:18px;height:18px}
+.lc h3{align-self:center;font:700 15.5px/1.25 var(--f-display);margin:0;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lc p{grid-column:1/-1;margin:0;color:var(--text-muted);font-size:13px;line-height:1.45;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.lc .ft{grid-column:1/-1;display:flex;align-items:center;gap:8px;min-width:0;font-size:var(--fs-xs);color:var(--text-muted)}
+.lc .feeds{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lc .go{flex:none;margin-left:auto;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:var(--text-muted)}
+.lc .go svg{width:16px;height:16px}
+.lc:hover .go{color:var(--action);background:var(--action-tint)}
+.lc.soon .go,.lc.locked .go{display:none}
+.badge{flex:0 1 auto;min-width:0;font:700 11.5px/1.6 var(--f-body);padding:0 8px;border-radius:999px;white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis}
+.badge.b-act{background:var(--sev-crit-tint);color:var(--sev-crit-ink)}
+.badge.b-review{background:var(--sev-warn-tint);color:var(--sev-warn-ink)}
+.badge.b-ok{background:var(--sev-ok-tint);color:var(--sev-ok-ink)}
+.badge.b-blind{background:var(--sev-blind-tint);color:var(--sev-blind)}
+.badge.b-none{background:var(--sev-none-tint);color:var(--text-muted);border:1px dashed var(--sev-none)}
+.lc .tag{grid-column:1/-1;margin-top:8px;font:700 var(--fs-sm) var(--f-body);color:var(--text);display:flex;gap:6px;align-items:center}
+.lc .tag i{width:8px;height:8px;border-radius:50%;background:var(--dot,var(--text-muted));display:block}
+/* Your Liongard stack: one line under the cards; the full list opens below it. */
+.stackline{display:block}
+.stackline .sl-row{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:13px;color:var(--text-muted)}
+.stackline .sl-row b{color:var(--text)}
+.stackline details{margin-top:6px}
+.stack{display:flex;height:14px;border-radius:3px;overflow:hidden;width:100%}
+
+/* ---------- Back links and crumbs ---------- */
+.back,button.back{all:unset;cursor:pointer;font:700 13.5px var(--f-body);color:var(--link);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.back:hover{text-decoration:underline}
+.back:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}.lc:hover{transform:none}}
+
+/* Visually hidden, still read by screen readers. */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* every text field and select has a visible boundary (≥3:1 on card and sunken fills). */
+input[type=text],input[type=number],input[type=date],input[type=search],input:not([type]),select,textarea{border-color:var(--line-input)}
