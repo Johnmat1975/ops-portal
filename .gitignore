@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+.env*
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
+*.provisionprofile
+*.mobileprovision

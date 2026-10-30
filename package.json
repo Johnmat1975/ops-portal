@@ -1,0 +1,75 @@
+{
+  "name": "liongard-ops-portal",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Liongard Ops Portal: a desktop app for MSPs that builds operations, security, compliance and licence views from the Liongard API.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist": "electron-builder --mac --win"
+  },
+  "devDependencies": {
+    "electron": "44.4.5",
+    "electron-builder": "26.16.1"
+  },
+  "productName": "Liongard Ops Portal",
+  "author": "John O Mahony, Liongard",
+  "build": {
+    "appId": "com.liongard.opsportal",
+    "productName": "Liongard Ops Portal",
+    "copyright": "Liongard, Inc.",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "electronFuses": {
+      "runAsNode": false,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableEmbeddedAsarIntegrityValidation": true,
+      "onlyLoadAppFromAsar": true,
+      "enableCookieEncryption": true,
+      "resetAdHocDarwinSignature": true
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "category": "public.app-category.business",
+      "icon": "build/icon.png",
+      "identity": null
+    },
+    "dmg": {
+      "title": "Liongard Ops Portal"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Liongard Ops Portal"
+    }
+  }
+}
