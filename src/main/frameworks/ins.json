@@ -1,0 +1,231 @@
+[
+  {
+    "id": "INS-01",
+    "name": "MFA on email and cloud apps for all users",
+    "framework_text_summary": "Is MFA enforced for all users on email and cloud applications?",
+    "rating": "partial",
+    "checks": [
+      "mfa"
+    ],
+    "tested": "Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "Registration, not enforcement; insurers ask about enforcement.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "condAccess"
+    ]
+  },
+  {
+    "id": "INS-02",
+    "name": "MFA on all remote access (VPN, RDP, remote tools)",
+    "framework_text_summary": "Is MFA required for all remote network access?",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page maps user and admin MFA to this, but neither tests VPN or remote access tools.",
+    "gap": "VPN MFA on some firewall vendors; RDP exposure on Windows (\"Is RDP Enabled?\").",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "vpnMfa",
+      "rdpExposed"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "INS-03",
+    "name": "MFA on privileged and admin accounts",
+    "framework_text_summary": "Is MFA required for all privileged accounts?",
+    "rating": "partial",
+    "checks": [
+      "privMfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off).",
+    "gap": "Network-device admins not included.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "fwAdminMfa"
+    ]
+  },
+  {
+    "id": "INS-04",
+    "name": "EDR on every endpoint",
+    "framework_text_summary": "Is EDR deployed on all endpoints and servers?",
+    "rating": "partial",
+    "checks": [
+      "edrAll"
+    ],
+    "tested": "Managed endpoints with a non-Defender EDR product reported. Devices whose EDR tool does not list devices are \"to confirm\".",
+    "gap": "Managed Windows endpoints; \"to confirm\" devices are not proof. 24x7 monitoring (MDR) is a separate question.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-05",
+    "name": "Anti-malware on every endpoint",
+    "framework_text_summary": "Is anti-virus/anti-malware active on all endpoints?",
+    "rating": "full",
+    "checks": [
+      "malware"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Windows managed endpoints only.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-06",
+    "name": "Backups: regular, monitored, segregated/offline, restore tested",
+    "framework_text_summary": "Are backups regular, encrypted, offline or immutable, and restore-tested?",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Monitoring only; offline/immutable copies and restore tests are attested.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "backupOffsite",
+      "backupRecency"
+    ]
+  },
+  {
+    "id": "INS-07",
+    "name": "Patching within a defined window (critical within 14-30 days)",
+    "framework_text_summary": "Are critical patches applied within a defined timeframe?",
+    "rating": "partial",
+    "checks": [
+      "patch"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware.",
+    "gap": "No age, so the window cannot be evidenced.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "critPatch14d"
+    ]
+  },
+  {
+    "id": "INS-08",
+    "name": "No end-of-life software",
+    "framework_text_summary": "Is any end-of-life or unsupported software in use?",
+    "rating": "partial",
+    "checks": [
+      "os"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "Operating systems only.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-09",
+    "name": "Email authentication (SPF, DKIM, DMARC)",
+    "framework_text_summary": "Are SPF, DKIM and DMARC configured?",
+    "rating": "full",
+    "checks": [
+      "dmarc"
+    ],
+    "tested": "Inspected domains that are spoofable (no enforcing DMARC or failing SPF for sending domains; no reject policy and -all SPF for non-sending domains).",
+    "gap": "Only domains with an Internet Domain/DNS inspector.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-10",
+    "name": "Security awareness training and phishing simulation",
+    "framework_text_summary": "Is training and phishing simulation run for all staff?",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "Phishing simulation results are collected (KnowBe4) but unused.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "phishSim"
+    ]
+  },
+  {
+    "id": "INS-11",
+    "name": "Separate admin accounts / privileged access management",
+    "framework_text_summary": "Are admin accounts separate from day-to-day accounts?",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Top-level roles only.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-12",
+    "name": "Disk encryption on laptops",
+    "framework_text_summary": "Are laptops and portable devices encrypted?",
+    "rating": "partial",
+    "checks": [
+      "encrypt"
+    ],
+    "tested": "Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Alert-based.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "encryptStatus"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "INS-13",
+    "name": "Boundary firewall in place and supported",
+    "framework_text_summary": "Is a firewall in place at every site?",
+    "rating": "partial",
+    "checks": [
+      "boundary"
+    ],
+    "tested": "Firewall inspectors that could be read, failed if any row is \"bad\" (for example support or security subscription expired, HA not configured, health errors, warranty ended). It does not read rules, admin exposure or admin credentials.",
+    "gap": "Presence and support state; rules not tested.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-14",
+    "name": "Leavers removed and dormant accounts disabled",
+    "framework_text_summary": "Are accounts removed promptly when staff leave?",
+    "rating": "partial",
+    "checks": [
+      "leavers",
+      "stale"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web). Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "Leaver dates unknown. Not mapped to insurance on the page today.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-15",
+    "name": "Incident response plan",
+    "framework_text_summary": "Is there a written, tested incident response plan?",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "Document.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form."
+  },
+  {
+    "id": "INS-16",
+    "name": "Logging and 24x7 monitoring (SIEM/MDR/SOC)",
+    "framework_text_summary": "Is there 24x7 security monitoring?",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "SIEM/MDR inspector health where present.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "siemHealth"
+    ]
+  },
+  {
+    "id": "INS-17",
+    "name": "Third-party / vendor access controlled",
+    "framework_text_summary": "How is vendor and MSP remote access controlled?",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "MSP accounts without MFA are found on Identity & access but not used here.",
+    "source": "No single standard. Items reflect controls commonly asked in SMB cyber insurance applications and broker guidance (for example Marsh McLennan, \"Cyber hygiene: 12 key controls\"). Insurer wording varies; Unverified against any specific carrier form.",
+    "proposed_checks": [
+      "mspMfa"
+    ],
+    "rating_with_proposed": "partial"
+  }
+]

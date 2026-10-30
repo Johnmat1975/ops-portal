@@ -1,0 +1,757 @@
+[
+  {
+    "id": "GV.OC",
+    "name": "Organizational Context",
+    "framework_text_summary": "Organizational Context (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), GV.OC category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category",
+    "note": "Govern, Respond and Recover are listed at category level (the page's technical checks do not reach them); Identify, Protect and Detect at subcategory level. Subcategory wording is from CSF 2.0 core as recalled and should be checked against the NIST CSF 2.0 Reference Tool (Unverified verbatim)."
+  },
+  {
+    "id": "GV.RM",
+    "name": "Risk Management Strategy",
+    "framework_text_summary": "Risk Management Strategy (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), GV.RM category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "GV.RR",
+    "name": "Roles, Responsibilities, and Authorities",
+    "framework_text_summary": "Roles, Responsibilities, and Authorities (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), GV.RR category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "GV.PO",
+    "name": "Policy",
+    "framework_text_summary": "Policy (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy questions on the page where mapped (GV.PO-01 security policy).",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), GV.PO category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "GV.OV",
+    "name": "Oversight",
+    "framework_text_summary": "Oversight (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), GV.OV category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "GV.SC",
+    "name": "Cybersecurity Supply Chain Risk Management",
+    "framework_text_summary": "Cybersecurity Supply Chain Risk Management (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy questions on the page where mapped (GV.SC-07 suppliers).",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), GV.SC category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "RS.MA",
+    "name": "Incident Management",
+    "framework_text_summary": "Incident Management (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy questions on the page where mapped (RS.MA-01 incident response plan).",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), RS.MA category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "RS.AN",
+    "name": "Incident Analysis",
+    "framework_text_summary": "Incident Analysis (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), RS.AN category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "RS.CO",
+    "name": "Incident Response Reporting and Communication",
+    "framework_text_summary": "Incident Response Reporting and Communication (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), RS.CO category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "RS.MI",
+    "name": "Incident Mitigation",
+    "framework_text_summary": "Incident Mitigation (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), RS.MI category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "RC.RP",
+    "name": "Incident Recovery Plan Execution",
+    "framework_text_summary": "Incident Recovery Plan Execution (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), RC.RP category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "RC.CO",
+    "name": "Incident Recovery Communication",
+    "framework_text_summary": "Incident Recovery Communication (category; subcategories not listed).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), RC.CO category. https://doi.org/10.6028/NIST.CSWP.29",
+    "level": "category"
+  },
+  {
+    "id": "ID.AM-01",
+    "name": "Inventories of hardware managed by the organization are maintained",
+    "framework_text_summary": "Hardware inventories are maintained.",
+    "rating": "partial",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "Unmanaged-device detection, not inventory maintenance.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.AM-01. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "assetInventory"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "ID.AM-02",
+    "name": "Inventories of software, services, and systems managed by the organization are maintained",
+    "framework_text_summary": "Software, services and systems inventories are maintained.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Software lists and the launchpoint list exist but are not used.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.AM-02. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "swInventory",
+      "cloudInventory"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "ID.AM-03",
+    "name": "Representations of authorized network communication and data flows are maintained",
+    "framework_text_summary": "Representations of authorized network communication and data flows are maintained.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Documentation; network topology tools only partly help.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.AM-03. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.AM-04",
+    "name": "Inventories of services provided by suppliers are maintained",
+    "framework_text_summary": "Inventories of services provided by suppliers are maintained.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.AM-04. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.AM-05",
+    "name": "Assets are prioritized based on classification, criticality, resources, and impact on the mission",
+    "framework_text_summary": "Assets are prioritized based on classification, criticality, resources, and impact on the mission.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.AM-05. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.AM-07",
+    "name": "Inventories of data and corresponding metadata for designated data types are maintained",
+    "framework_text_summary": "Inventories of data and corresponding metadata for designated data types are maintained.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.AM-07. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.AM-08",
+    "name": "Systems, hardware, software, services, and data are managed throughout their life cycles",
+    "framework_text_summary": "Life-cycle management of systems and software.",
+    "rating": "partial",
+    "checks": [
+      "os"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "OS end-of-support only; hardware warranty data exists (Lifecycle & renewals page) but is not scored here.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.AM-08. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "hwLifecycle"
+    ]
+  },
+  {
+    "id": "ID.RA-01",
+    "name": "Vulnerabilities in assets are identified, validated, and recorded",
+    "framework_text_summary": "Vulnerabilities are identified, validated and recorded.",
+    "rating": "partial",
+    "checks": [
+      "os",
+      "patch"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date. Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware.",
+    "gap": "Missing patches and unsupported OS are vulnerability indicators; no CVE scanning. The page maps the risk-assessment question to ID.RA-01, which is the wrong subcategory for a risk assessment (closer to ID.RA-05).",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-01. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-02",
+    "name": "Cyber threat intelligence is received from information sharing forums and sources",
+    "framework_text_summary": "Cyber threat intelligence is received from information sharing forums and sources.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-03",
+    "name": "Internal and external threats to the organization are identified and recorded",
+    "framework_text_summary": "Internal and external threats to the organization are identified and recorded.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-03. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-04",
+    "name": "Potential impacts and likelihoods of threats exploiting vulnerabilities are identified and recorded",
+    "framework_text_summary": "Potential impacts and likelihoods of threats exploiting vulnerabilities are identified and recorded.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-04. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-05",
+    "name": "Threats, vulnerabilities, likelihoods, and impacts are used to understand inherent risk and inform risk response prioritization",
+    "framework_text_summary": "Threats, vulnerabilities, likelihoods, and impacts are used to understand inherent risk and inform risk response prioritization.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-05. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-06",
+    "name": "Risk responses are chosen, prioritized, planned, tracked, and communicated",
+    "framework_text_summary": "Risk responses are chosen, prioritized, planned, tracked, and communicated.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-06. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-07",
+    "name": "Changes and exceptions are managed, assessed for risk impact, recorded, and tracked",
+    "framework_text_summary": "Changes and exceptions are managed, assessed for risk impact, recorded, and tracked.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-07. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-08",
+    "name": "Processes for receiving, analyzing, and responding to vulnerability disclosures are established",
+    "framework_text_summary": "Processes for receiving, analyzing, and responding to vulnerability disclosures are established.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-08. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-09",
+    "name": "The authenticity and integrity of hardware and software are assessed prior to acquisition and use",
+    "framework_text_summary": "The authenticity and integrity of hardware and software are assessed prior to acquisition and use.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-09. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.RA-10",
+    "name": "Critical suppliers are assessed prior to acquisition",
+    "framework_text_summary": "Critical suppliers are assessed prior to acquisition.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.RA-10. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.IM-01",
+    "name": "Improvements are identified from evaluations",
+    "framework_text_summary": "Improvements are identified from evaluations.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.IM-01. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.IM-02",
+    "name": "Improvements are identified from security tests and exercises",
+    "framework_text_summary": "Improvements are identified from security tests and exercises.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.IM-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.IM-03",
+    "name": "Improvements are identified from execution of operational processes, procedures, and activities",
+    "framework_text_summary": "Improvements are identified from execution of operational processes, procedures, and activities.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.IM-03. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "ID.IM-04",
+    "name": "Incident response plans and other cybersecurity plans that affect operations are established, communicated, maintained, and improved",
+    "framework_text_summary": "Incident response plans and other cybersecurity plans that affect operations are established, communicated, maintained, and improved.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), ID.IM-04. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.AA-01",
+    "name": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
+    "framework_text_summary": "Identity and credential management.",
+    "rating": "partial",
+    "checks": [
+      "leavers",
+      "stale"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web). Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "Lifecycle hygiene only; authorisation is not visible.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AA-01. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.AA-02",
+    "name": "Identities are proofed and bound to credentials based on the context of interactions",
+    "framework_text_summary": "Identities are proofed and bound to credentials based on the context of interactions.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AA-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.AA-03",
+    "name": "Users, services, and hardware are authenticated",
+    "framework_text_summary": "Authentication of users, services and hardware.",
+    "rating": "partial",
+    "checks": [
+      "privMfa",
+      "mfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "MFA registration; services and hardware authentication not tested.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AA-03. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "condAccess"
+    ]
+  },
+  {
+    "id": "PR.AA-04",
+    "name": "Identity assertions are protected, conveyed, and verified",
+    "framework_text_summary": "Identity assertions are protected, conveyed, and verified.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Not tested by the page.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AA-04. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.AA-05",
+    "name": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate least privilege and separation of duties",
+    "framework_text_summary": "Least privilege and separation of duties.",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Top-level admin placement only; policy and review attested.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AA-05. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "privReview"
+    ]
+  },
+  {
+    "id": "PR.AA-06",
+    "name": "Physical access to assets is managed, monitored, and enforced commensurate with risk",
+    "framework_text_summary": "Physical access to assets is managed, monitored, and enforced commensurate with risk.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AA-06. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.AT-01",
+    "name": "Personnel are provided with awareness and training so that they possess the knowledge and skills to perform general tasks with cybersecurity risks in mind",
+    "framework_text_summary": "General awareness and training.",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "Enrolment, not completion.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AT-01. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "trainingCompletion",
+      "phishSim"
+    ]
+  },
+  {
+    "id": "PR.AT-02",
+    "name": "Individuals in specialized roles are provided with awareness and training",
+    "framework_text_summary": "Individuals in specialized roles are provided with awareness and training.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process; answered by the client or MSP.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.AT-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.DS-01",
+    "name": "The confidentiality, integrity, and availability of data-at-rest are protected",
+    "framework_text_summary": "Data-at-rest protection.",
+    "rating": "partial",
+    "checks": [
+      "encrypt"
+    ],
+    "tested": "Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Endpoint disk encryption, alert-based.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.DS-01. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "encryptStatus"
+    ]
+  },
+  {
+    "id": "PR.DS-02",
+    "name": "The confidentiality, integrity, and availability of data-in-transit are protected",
+    "framework_text_summary": "The confidentiality, integrity, and availability of data-in-transit are protected.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "The page maps DMARC here; DMARC prevents spoofing of the sender domain and does not protect data in transit. TLS/SSL inspector findings would be partial evidence.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.DS-02. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "tlsWeak"
+    ]
+  },
+  {
+    "id": "PR.DS-10",
+    "name": "The confidentiality, integrity, and availability of data-in-use are protected",
+    "framework_text_summary": "The confidentiality, integrity, and availability of data-in-use are protected.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Not tested by the page.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.DS-10. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.DS-11",
+    "name": "Backups of data are created, protected, maintained, and tested",
+    "framework_text_summary": "Backups created, protected, maintained and tested.",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Created/maintained only; protection and testing not evidenced.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.DS-11. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "backupRecency",
+      "backupProtect"
+    ]
+  },
+  {
+    "id": "PR.PS-01",
+    "name": "Configuration management practices are established and applied",
+    "framework_text_summary": "Configuration management practices are established and applied.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Hardening baseline (Senteon), guest/default accounts and auto-update settings are collectable.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.PS-01. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "hardeningBaseline",
+      "guestAcct",
+      "autoUpdate"
+    ]
+  },
+  {
+    "id": "PR.PS-02",
+    "name": "Software is maintained, replaced, and removed commensurate with risk",
+    "framework_text_summary": "Software maintenance and replacement.",
+    "rating": "partial",
+    "checks": [
+      "patch",
+      "os"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware. Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "Windows OS updates and OS support only.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.PS-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.PS-03",
+    "name": "Hardware is maintained, replaced, and removed commensurate with risk",
+    "framework_text_summary": "Hardware is maintained, replaced, and removed commensurate with risk.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Warranty and end-of-life data exist on Lifecycle & renewals but are not scored.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.PS-03. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "hwLifecycle"
+    ]
+  },
+  {
+    "id": "PR.PS-04",
+    "name": "Log records are generated and made available for continuous monitoring",
+    "framework_text_summary": "Log records are generated and made available for continuous monitoring.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "SIEM connector health where present.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.PS-04. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "siemHealth"
+    ]
+  },
+  {
+    "id": "PR.PS-05",
+    "name": "Installation and execution of unauthorized software are prevented",
+    "framework_text_summary": "Installation and execution of unauthorized software are prevented.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Application control (ThreatLocker) where present.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.PS-05. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "appControl"
+    ]
+  },
+  {
+    "id": "PR.PS-06",
+    "name": "Secure software development practices are integrated, and their performance is monitored throughout the software development life cycle",
+    "framework_text_summary": "Secure software development practices are integrated, and their performance is monitored throughout the software development life cycle.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Out of Liongard scope.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.PS-06. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.IR-01",
+    "name": "Networks and environments are protected from unauthorized logical access and usage",
+    "framework_text_summary": "Network protection.",
+    "rating": "partial",
+    "checks": [
+      "hostFw",
+      "boundary"
+    ],
+    "tested": "Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints. Firewall inspectors that could be read, failed if any row is \"bad\" (for example support or security subscription expired, HA not configured, health errors, warranty ended). It does not read rules, admin exposure or admin credentials.",
+    "gap": "Firewall presence and support status; rules, segmentation and admin exposure not tested.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.IR-01. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "fwAdminExposure"
+    ]
+  },
+  {
+    "id": "PR.IR-02",
+    "name": "The organization's technology assets are protected from environmental threats",
+    "framework_text_summary": "The organization's technology assets are protected from environmental threats.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.IR-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.IR-03",
+    "name": "Mechanisms are implemented to achieve resilience requirements in normal and adverse situations",
+    "framework_text_summary": "Mechanisms are implemented to achieve resilience requirements in normal and adverse situations.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Firewall HA state is read by Network & firmware but not scored here.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.IR-03. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "PR.IR-04",
+    "name": "Adequate resource capacity to ensure availability is maintained",
+    "framework_text_summary": "Adequate resource capacity to ensure availability is maintained.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Disk free-space metrics exist; not a compliance check.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), PR.IR-04. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.CM-01",
+    "name": "Networks and network services are monitored to find potentially adverse events",
+    "framework_text_summary": "Networks and network services are monitored to find potentially adverse events.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "The page maps Liongard inspector freshness here; that is configuration monitoring by the MSP, not network event monitoring. SIEM/NDR where present.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.CM-01. https://doi.org/10.6028/NIST.CSWP.29",
+    "proposed_checks": [
+      "siemHealth"
+    ]
+  },
+  {
+    "id": "DE.CM-02",
+    "name": "The physical environment is monitored to find potentially adverse events",
+    "framework_text_summary": "The physical environment is monitored to find potentially adverse events.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.CM-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.CM-03",
+    "name": "Personnel activity and technology usage are monitored to find potentially adverse events",
+    "framework_text_summary": "Personnel activity and technology usage are monitored to find potentially adverse events.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Identity risk detections where collected.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.CM-03. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.CM-06",
+    "name": "External service provider activities and services are monitored to find potentially adverse events",
+    "framework_text_summary": "External service provider activities and services are monitored to find potentially adverse events.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Not tested by the page.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.CM-06. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.CM-09",
+    "name": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+    "framework_text_summary": "Endpoint monitoring for adverse events.",
+    "rating": "partial",
+    "checks": [
+      "malware",
+      "edrAll"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent. Managed endpoints with a non-Defender EDR product reported. Devices whose EDR tool does not list devices are \"to confirm\".",
+    "gap": "Agent presence, not that alerts are reviewed.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.CM-09. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.AE-02",
+    "name": "Potentially adverse events are analyzed to better understand associated activities",
+    "framework_text_summary": "Potentially adverse events are analyzed to better understand associated activities.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Analysis of events happens in the EDR/SIEM/SOC, not in Liongard.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.AE-02. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.AE-03",
+    "name": "Information is correlated from multiple sources",
+    "framework_text_summary": "Information is correlated from multiple sources.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Analysis of events happens in the EDR/SIEM/SOC, not in Liongard.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.AE-03. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.AE-04",
+    "name": "The estimated impact and scope of adverse events are understood",
+    "framework_text_summary": "The estimated impact and scope of adverse events are understood.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Analysis of events happens in the EDR/SIEM/SOC, not in Liongard.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.AE-04. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.AE-06",
+    "name": "Information on adverse events is provided to authorized staff and tools",
+    "framework_text_summary": "Information on adverse events is provided to authorized staff and tools.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Analysis of events happens in the EDR/SIEM/SOC, not in Liongard.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.AE-06. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.AE-07",
+    "name": "Cyber threat intelligence and other contextual information are integrated into the analysis",
+    "framework_text_summary": "Cyber threat intelligence and other contextual information are integrated into the analysis.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Analysis of events happens in the EDR/SIEM/SOC, not in Liongard.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.AE-07. https://doi.org/10.6028/NIST.CSWP.29"
+  },
+  {
+    "id": "DE.AE-08",
+    "name": "Incidents are declared when adverse events meet the defined incident criteria",
+    "framework_text_summary": "Incidents are declared when adverse events meet the defined incident criteria.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Analysis of events happens in the EDR/SIEM/SOC, not in Liongard.",
+    "source": "NIST Cybersecurity Framework 2.0 (NIST CSWP 29, February 2024), DE.AE-08. https://doi.org/10.6028/NIST.CSWP.29"
+  }
+]

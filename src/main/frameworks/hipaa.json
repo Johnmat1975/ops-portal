@@ -1,0 +1,508 @@
+[
+  {
+    "id": "164.308(a)(1)(ii)(A)",
+    "name": "Risk analysis",
+    "framework_text_summary": "Risk analysis (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "A documented risk analysis; no configuration reading substitutes for it.",
+    "source": "45 CFR 164.308(a)(1)(ii)(A). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R",
+    "note": "HHS proposed a Security Rule update in January 2025 (removing the addressable distinction and requiring MFA and encryption). Its final status as of October 2026 is Unverified; this catalogue follows the rule in force at 45 CFR 164 Subpart C."
+  },
+  {
+    "id": "164.308(a)(1)(ii)(B)",
+    "name": "Risk management",
+    "framework_text_summary": "Risk management (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "The remediation list supports it but does not prove it.",
+    "source": "45 CFR 164.308(a)(1)(ii)(B). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(1)(ii)(C)",
+    "name": "Sanction policy",
+    "framework_text_summary": "Sanction policy (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "HR policy.",
+    "source": "45 CFR 164.308(a)(1)(ii)(C). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(1)(ii)(D)",
+    "name": "Information system activity review",
+    "framework_text_summary": "Information system activity review (Required).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page maps Liongard's own inspector freshness here; that is not a review of ePHI system activity.",
+    "gap": "With a SIEM inspector, connector health is partial evidence.",
+    "source": "45 CFR 164.308(a)(1)(ii)(D). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(2)",
+    "name": "Assigned security responsibility",
+    "framework_text_summary": "Assigned security responsibility (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "A named security official.",
+    "source": "45 CFR 164.308(a)(2). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(3)(ii)(A)",
+    "name": "Authorization and/or supervision",
+    "framework_text_summary": "Authorization and/or supervision (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "HR process.",
+    "source": "45 CFR 164.308(a)(3)(ii)(A). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(3)(ii)(B)",
+    "name": "Workforce clearance procedure",
+    "framework_text_summary": "Workforce clearance procedure (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Vetting process.",
+    "source": "45 CFR 164.308(a)(3)(ii)(B). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(3)(ii)(C)",
+    "name": "Termination procedures",
+    "framework_text_summary": "Termination procedures (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "leavers"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web).",
+    "gap": "Evidences the technical consequence of termination, not the procedure or its timeliness.",
+    "source": "45 CFR 164.308(a)(3)(ii)(C). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(4)(ii)(A)",
+    "name": "Isolating health care clearinghouse functions",
+    "framework_text_summary": "Isolating health care clearinghouse functions (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Applies only to clearinghouses.",
+    "source": "45 CFR 164.308(a)(4)(ii)(A). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(4)(ii)(B)",
+    "name": "Access authorization",
+    "framework_text_summary": "Access authorization (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Shows current elevated access, not the authorisation workflow.",
+    "source": "45 CFR 164.308(a)(4)(ii)(B). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(4)(ii)(C)",
+    "name": "Access establishment and modification",
+    "framework_text_summary": "Access establishment and modification (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "stale"
+    ],
+    "tested": "Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "Current state only; no change history without a SIEM.",
+    "source": "45 CFR 164.308(a)(4)(ii)(C). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(5)(ii)(A)",
+    "name": "Security reminders",
+    "framework_text_summary": "Security reminders (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "KnowBe4 enrolment, not reminders actually sent.",
+    "source": "45 CFR 164.308(a)(5)(ii)(A). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(5)(ii)(B)",
+    "name": "Protection from malicious software",
+    "framework_text_summary": "Protection from malicious software (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "malware"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Detects deployment; the \"procedures for guarding against, detecting and reporting\" are attested. The page also maps patching here (over-claim).",
+    "source": "45 CFR 164.308(a)(5)(ii)(B). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(5)(ii)(C)",
+    "name": "Log-in monitoring",
+    "framework_text_summary": "Log-in monitoring (Addressable).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD lockout threshold and brute-force alerts are collected but unused.",
+    "source": "45 CFR 164.308(a)(5)(ii)(C). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(5)(ii)(D)",
+    "name": "Password management",
+    "framework_text_summary": "Password management (Addressable).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD password policy is collected but unused.",
+    "source": "45 CFR 164.308(a)(5)(ii)(D). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(6)(ii)",
+    "name": "Response and reporting",
+    "framework_text_summary": "Response and reporting (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page (incident response plan).",
+    "gap": "Process.",
+    "source": "45 CFR 164.308(a)(6)(ii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(7)(ii)(A)",
+    "name": "Data backup plan",
+    "framework_text_summary": "Data backup plan (Required).",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Shows backups are monitored; per-job recency and coverage of ePHI systems are not tested; the plan is a document.",
+    "source": "45 CFR 164.308(a)(7)(ii)(A). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(7)(ii)(B)",
+    "name": "Disaster recovery plan",
+    "framework_text_summary": "Disaster recovery plan (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Document.",
+    "source": "45 CFR 164.308(a)(7)(ii)(B). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(7)(ii)(C)",
+    "name": "Emergency mode operation plan",
+    "framework_text_summary": "Emergency mode operation plan (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Document.",
+    "source": "45 CFR 164.308(a)(7)(ii)(C). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(a)(7)(ii)(D)",
+    "name": "Testing and revision procedures",
+    "framework_text_summary": "Testing and revision procedures (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page (restore tested).",
+    "gap": "Backup verification results (Axcient autoverify, Veeam SureBackup) could support it where present.",
+    "source": "45 CFR 164.308(a)(7)(ii)(D). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(7)(ii)(E)",
+    "name": "Applications and data criticality analysis",
+    "framework_text_summary": "Applications and data criticality analysis (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Business impact analysis.",
+    "source": "45 CFR 164.308(a)(7)(ii)(E). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.308(a)(8)",
+    "name": "Evaluation",
+    "framework_text_summary": "Evaluation (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "This report supports, but is not, the periodic evaluation.",
+    "source": "45 CFR 164.308(a)(8). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.308(b)(1)",
+    "name": "Business associate contracts and other arrangements",
+    "framework_text_summary": "Business associate contracts and other arrangements (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page (suppliers).",
+    "gap": "Contracts.",
+    "source": "45 CFR 164.308(b)(1). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.310(a)(2)(i)",
+    "name": "Contingency operations",
+    "framework_text_summary": "Contingency operations (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "45 CFR 164.310(a)(2)(i). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.310(a)(2)(ii)",
+    "name": "Facility security plan",
+    "framework_text_summary": "Facility security plan (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "45 CFR 164.310(a)(2)(ii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.310(a)(2)(iii)",
+    "name": "Access control and validation procedures",
+    "framework_text_summary": "Access control and validation procedures (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "45 CFR 164.310(a)(2)(iii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.310(a)(2)(iv)",
+    "name": "Maintenance records",
+    "framework_text_summary": "Maintenance records (Addressable).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "45 CFR 164.310(a)(2)(iv). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.310(b)",
+    "name": "Workstation use",
+    "framework_text_summary": "Workstation use (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Usage policy.",
+    "source": "45 CFR 164.310(b). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.310(c)",
+    "name": "Workstation security",
+    "framework_text_summary": "Workstation security (Required).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Screen-lock policy where collected is a technical proxy.",
+    "source": "45 CFR 164.310(c). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.310(d)(2)(i)",
+    "name": "Disposal",
+    "framework_text_summary": "Disposal (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "45 CFR 164.310(d)(2)(i). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.310(d)(2)(ii)",
+    "name": "Media re-use",
+    "framework_text_summary": "Media re-use (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical.",
+    "source": "45 CFR 164.310(d)(2)(ii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.310(d)(2)(iii)",
+    "name": "Accountability",
+    "framework_text_summary": "Accountability (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "Device tracking, not hardware movement records. Not mapped on the page today.",
+    "source": "45 CFR 164.310(d)(2)(iii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.310(d)(2)(iv)",
+    "name": "Data backup and storage",
+    "framework_text_summary": "Data backup and storage (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Reuses the 164.308(a)(7)(ii)(A) reading; do not score twice.",
+    "gap": "Same limits as the backup plan.",
+    "source": "45 CFR 164.310(d)(2)(iv). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.312(a)(2)(i)",
+    "name": "Unique user identification",
+    "framework_text_summary": "Unique user identification (Required).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Identity inventory exists on Identity & access; shared accounts partly visible.",
+    "source": "45 CFR 164.312(a)(2)(i). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.312(a)(2)(ii)",
+    "name": "Emergency access procedure",
+    "framework_text_summary": "Emergency access procedure (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Break-glass procedure.",
+    "source": "45 CFR 164.312(a)(2)(ii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.312(a)(2)(iii)",
+    "name": "Automatic logoff",
+    "framework_text_summary": "Automatic logoff (Addressable).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Session-lock policy where collected.",
+    "source": "45 CFR 164.312(a)(2)(iii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.312(a)(2)(iv)",
+    "name": "Encryption and decryption",
+    "framework_text_summary": "Encryption and decryption (Addressable).",
+    "rating": "partial",
+    "checks": [
+      "encrypt"
+    ],
+    "tested": "Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Alert-based; no alert counts as encrypted. BitlockerStatus / FileVault state would make it a direct reading.",
+    "source": "45 CFR 164.312(a)(2)(iv). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.312(b)",
+    "name": "Audit controls",
+    "framework_text_summary": "Audit controls (Required).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "SIEM where present.",
+    "source": "45 CFR 164.312(b). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.312(c)(2)",
+    "name": "Mechanism to authenticate electronic protected health information",
+    "framework_text_summary": "Mechanism to authenticate electronic protected health information (Addressable).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "File integrity monitoring is rare in SMB stacks.",
+    "source": "45 CFR 164.312(c)(2). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.312(d)",
+    "name": "Person or entity authentication",
+    "framework_text_summary": "Person or entity authentication (Required).",
+    "rating": "partial",
+    "checks": [
+      "privMfa",
+      "mfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "Registration, not enforcement; only systems with an identity inspector.",
+    "source": "45 CFR 164.312(d). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.312(e)(2)(i)",
+    "name": "Integrity controls (transmission)",
+    "framework_text_summary": "Integrity controls (transmission) (Addressable).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page maps boundary firewall health to 164.312(e)(1); it does not test transmission security.",
+    "gap": "TLS/SSL inspector protocol findings would be partial evidence.",
+    "source": "45 CFR 164.312(e)(2)(i). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.312(e)(2)(ii)",
+    "name": "Encryption (transmission)",
+    "framework_text_summary": "Encryption (transmission) (Addressable).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "TLS/SSL inspector; email TLS not read.",
+    "source": "45 CFR 164.312(e)(2)(ii). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "A"
+  },
+  {
+    "id": "164.316(a)",
+    "name": "Policies and procedures",
+    "framework_text_summary": "Policies and procedures (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "Document.",
+    "source": "45 CFR 164.316(a). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  },
+  {
+    "id": "164.316(b)(1)",
+    "name": "Documentation (retain 6 years, review periodically)",
+    "framework_text_summary": "Documentation (retain 6 years, review periodically) (Required).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Records management.",
+    "source": "45 CFR 164.316(b)(1). https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C",
+    "required_or_addressable": "R"
+  }
+]

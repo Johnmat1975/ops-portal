@@ -1,0 +1,1064 @@
+[
+  {
+    "id": "5.1",
+    "name": "Policies for information security",
+    "framework_text_summary": "Organizational control: Policies for information security.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.1 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.2",
+    "name": "Information security roles and responsibilities",
+    "framework_text_summary": "Organizational control: Information security roles and responsibilities.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.2 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.3",
+    "name": "Segregation of duties",
+    "framework_text_summary": "Organizational control: Segregation of duties.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.3 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.4",
+    "name": "Management responsibilities",
+    "framework_text_summary": "Organizational control: Management responsibilities.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.4 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.5",
+    "name": "Contact with authorities",
+    "framework_text_summary": "Organizational control: Contact with authorities.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.5 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.6",
+    "name": "Contact with special interest groups",
+    "framework_text_summary": "Organizational control: Contact with special interest groups.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.6 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.7",
+    "name": "Threat intelligence",
+    "framework_text_summary": "Organizational control: Threat intelligence.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.7 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.8",
+    "name": "Information security in project management",
+    "framework_text_summary": "Organizational control: Information security in project management.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.8 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.9",
+    "name": "Inventory of information and other associated assets",
+    "framework_text_summary": "Organizational control: Inventory of information and other associated assets.",
+    "rating": "partial",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "Unmanaged-device detection, not the inventory or ownership.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.9 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.10",
+    "name": "Acceptable use of information and other associated assets",
+    "framework_text_summary": "Organizational control: Acceptable use of information and other associated assets.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.10 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.11",
+    "name": "Return of assets",
+    "framework_text_summary": "Organizational control: Return of assets.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.11 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.12",
+    "name": "Classification of information",
+    "framework_text_summary": "Organizational control: Classification of information.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.12 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.13",
+    "name": "Labelling of information",
+    "framework_text_summary": "Organizational control: Labelling of information.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.13 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.14",
+    "name": "Information transfer",
+    "framework_text_summary": "Organizational control: Information transfer.",
+    "rating": "partial",
+    "checks": [
+      "dmarc"
+    ],
+    "tested": "Inspected domains that are spoofable (no enforcing DMARC or failing SPF for sending domains; no reject policy and -all SPF for non-sending domains).",
+    "gap": "Anti-spoofing for email is one technical element of information-transfer rules; the rules are a document.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.14 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.15",
+    "name": "Access control",
+    "framework_text_summary": "Organizational control: Access control.",
+    "rating": "partial",
+    "checks": [
+      "adminAcct",
+      "leavers"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account. Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web).",
+    "gap": "Policy is a document.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.15 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.16",
+    "name": "Identity management",
+    "framework_text_summary": "Organizational control: Identity management.",
+    "rating": "partial",
+    "checks": [
+      "stale",
+      "leavers"
+    ],
+    "tested": "Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed. Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web).",
+    "gap": "Identity lifecycle hygiene only.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.16 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.17",
+    "name": "Authentication information",
+    "framework_text_summary": "Organizational control: Authentication information.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Password policy (AD) collectable; unused.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.17 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.18",
+    "name": "Access rights",
+    "framework_text_summary": "Organizational control: Access rights.",
+    "rating": "partial",
+    "checks": [
+      "leavers",
+      "stale"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web). Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "Provisioning approval and reviews are attested.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.18 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.19",
+    "name": "Information security in supplier relationships",
+    "framework_text_summary": "Organizational control: Information security in supplier relationships.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.19 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.20",
+    "name": "Addressing information security within supplier agreements",
+    "framework_text_summary": "Organizational control: Addressing information security within supplier agreements.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.20 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.21",
+    "name": "Managing information security in the ICT supply chain",
+    "framework_text_summary": "Organizational control: Managing information security in the ICT supply chain.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.21 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.22",
+    "name": "Monitoring, review and change management of supplier services",
+    "framework_text_summary": "Organizational control: Monitoring, review and change management of supplier services.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.22 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.23",
+    "name": "Information security for use of cloud services",
+    "framework_text_summary": "Organizational control: Information security for use of cloud services.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Cloud service list from launchpoints can support it.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.23 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.24",
+    "name": "Information security incident management planning and preparation",
+    "framework_text_summary": "Organizational control: Information security incident management planning and preparation.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.24 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.25",
+    "name": "Assessment and decision on information security events",
+    "framework_text_summary": "Organizational control: Assessment and decision on information security events.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.25 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.26",
+    "name": "Response to information security incidents",
+    "framework_text_summary": "Organizational control: Response to information security incidents.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.26 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.27",
+    "name": "Learning from information security incidents",
+    "framework_text_summary": "Organizational control: Learning from information security incidents.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.27 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.28",
+    "name": "Collection of evidence",
+    "framework_text_summary": "Organizational control: Collection of evidence.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.28 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.29",
+    "name": "Information security during disruption",
+    "framework_text_summary": "Organizational control: Information security during disruption.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.29 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.30",
+    "name": "ICT readiness for business continuity",
+    "framework_text_summary": "Organizational control: ICT readiness for business continuity.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.30 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.31",
+    "name": "Legal, statutory, regulatory and contractual requirements",
+    "framework_text_summary": "Organizational control: Legal, statutory, regulatory and contractual requirements.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.31 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.32",
+    "name": "Intellectual property rights",
+    "framework_text_summary": "Organizational control: Intellectual property rights.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.32 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.33",
+    "name": "Protection of records",
+    "framework_text_summary": "Organizational control: Protection of records.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.33 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.34",
+    "name": "Privacy and protection of PII",
+    "framework_text_summary": "Organizational control: Privacy and protection of PII.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.34 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.35",
+    "name": "Independent review of information security",
+    "framework_text_summary": "Organizational control: Independent review of information security.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.35 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.36",
+    "name": "Compliance with policies, rules and standards for information security",
+    "framework_text_summary": "Organizational control: Compliance with policies, rules and standards for information security.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.36 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "5.37",
+    "name": "Documented operating procedures",
+    "framework_text_summary": "Organizational control: Documented operating procedures.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 5.37 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Organizational"
+  },
+  {
+    "id": "6.1",
+    "name": "Screening",
+    "framework_text_summary": "People control: Screening.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.1 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "6.2",
+    "name": "Terms and conditions of employment",
+    "framework_text_summary": "People control: Terms and conditions of employment.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.2 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "6.3",
+    "name": "Information security awareness, education and training",
+    "framework_text_summary": "People control: Information security awareness, education and training.",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "Enrolment, not completion.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.3 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "6.4",
+    "name": "Disciplinary process",
+    "framework_text_summary": "People control: Disciplinary process.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.4 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "6.5",
+    "name": "Responsibilities after termination or change of employment",
+    "framework_text_summary": "People control: Responsibilities after termination or change of employment.",
+    "rating": "partial",
+    "checks": [
+      "leavers"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web).",
+    "gap": "Shows access removal after leaving; responsibilities are contractual.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.5 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "6.6",
+    "name": "Confidentiality or non-disclosure agreements",
+    "framework_text_summary": "People control: Confidentiality or non-disclosure agreements.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.6 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "6.7",
+    "name": "Remote working",
+    "framework_text_summary": "People control: Remote working.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.7 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "6.8",
+    "name": "Information security event reporting",
+    "framework_text_summary": "People control: Information security event reporting.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 6.8 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "People"
+  },
+  {
+    "id": "7.1",
+    "name": "Physical security perimeters",
+    "framework_text_summary": "Physical control: Physical security perimeters.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.1 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.2",
+    "name": "Physical entry",
+    "framework_text_summary": "Physical control: Physical entry.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.2 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.3",
+    "name": "Securing offices, rooms and facilities",
+    "framework_text_summary": "Physical control: Securing offices, rooms and facilities.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.3 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.4",
+    "name": "Physical security monitoring",
+    "framework_text_summary": "Physical control: Physical security monitoring.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.4 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.5",
+    "name": "Protecting against physical and environmental threats",
+    "framework_text_summary": "Physical control: Protecting against physical and environmental threats.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.5 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.6",
+    "name": "Working in secure areas",
+    "framework_text_summary": "Physical control: Working in secure areas.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.6 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.7",
+    "name": "Clear desk and clear screen",
+    "framework_text_summary": "Physical control: Clear desk and clear screen.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.7 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.8",
+    "name": "Equipment siting and protection",
+    "framework_text_summary": "Physical control: Equipment siting and protection.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.8 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.9",
+    "name": "Security of assets off-premises",
+    "framework_text_summary": "Physical control: Security of assets off-premises.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.9 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.10",
+    "name": "Storage media",
+    "framework_text_summary": "Physical control: Storage media.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.10 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.11",
+    "name": "Supporting utilities",
+    "framework_text_summary": "Physical control: Supporting utilities.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.11 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.12",
+    "name": "Cabling security",
+    "framework_text_summary": "Physical control: Cabling security.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.12 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.13",
+    "name": "Equipment maintenance",
+    "framework_text_summary": "Physical control: Equipment maintenance.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.13 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "7.14",
+    "name": "Secure disposal or re-use of equipment",
+    "framework_text_summary": "Physical control: Secure disposal or re-use of equipment.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Policy, people or physical control: the client attests.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 7.14 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Physical"
+  },
+  {
+    "id": "8.1",
+    "name": "User endpoint devices",
+    "framework_text_summary": "Technological control: User endpoint devices.",
+    "rating": "partial",
+    "checks": [
+      "malware",
+      "hostFw",
+      "encrypt"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent. Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints. Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Not mapped on the page today; endpoint protection, firewall and encryption are the core of user endpoint device security.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.1 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.2",
+    "name": "Privileged access rights",
+    "framework_text_summary": "Technological control: Privileged access rights.",
+    "rating": "partial",
+    "checks": [
+      "adminAcct",
+      "privMfa"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account. Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off).",
+    "gap": "Top-level roles only.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.2 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.3",
+    "name": "Information access restriction",
+    "framework_text_summary": "Technological control: Information access restriction.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.3 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.4",
+    "name": "Access to source code",
+    "framework_text_summary": "Technological control: Access to source code.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.4 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.5",
+    "name": "Secure authentication",
+    "framework_text_summary": "Technological control: Secure authentication.",
+    "rating": "partial",
+    "checks": [
+      "privMfa",
+      "mfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "Registration, not enforcement.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.5 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.6",
+    "name": "Capacity management",
+    "framework_text_summary": "Technological control: Capacity management.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.6 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.7",
+    "name": "Protection against malware",
+    "framework_text_summary": "Technological control: Protection against malware.",
+    "rating": "partial",
+    "checks": [
+      "malware"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Windows managed endpoints only. The page also maps edrAll here; ISO does not require EDR specifically.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.7 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.8",
+    "name": "Management of technical vulnerabilities",
+    "framework_text_summary": "Technological control: Management of technical vulnerabilities.",
+    "rating": "partial",
+    "checks": [
+      "patch",
+      "os"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware. Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "No severity, age or CVE data.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.8 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.9",
+    "name": "Configuration management",
+    "framework_text_summary": "Technological control: Configuration management.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Hardening baselines, guest/default accounts and auto-update settings are collectable.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.9 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.10",
+    "name": "Information deletion",
+    "framework_text_summary": "Technological control: Information deletion.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.10 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.11",
+    "name": "Data masking",
+    "framework_text_summary": "Technological control: Data masking.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.11 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.12",
+    "name": "Data leakage prevention",
+    "framework_text_summary": "Technological control: Data leakage prevention.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.12 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.13",
+    "name": "Information backup",
+    "framework_text_summary": "Technological control: Information backup.",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Monitoring only; restore tests attested.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.13 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.14",
+    "name": "Redundancy of information processing facilities",
+    "framework_text_summary": "Technological control: Redundancy of information processing facilities.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.14 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.15",
+    "name": "Logging",
+    "framework_text_summary": "Technological control: Logging.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "SIEM where present.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.15 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.16",
+    "name": "Monitoring activities",
+    "framework_text_summary": "Technological control: Monitoring activities.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page maps Liongard inspector freshness here; that is not monitoring of networks and systems for anomalous behaviour.",
+    "gap": "SIEM/EDR alert handling where present.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.16 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.17",
+    "name": "Clock synchronization",
+    "framework_text_summary": "Technological control: Clock synchronization.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.17 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.18",
+    "name": "Use of privileged utility programs",
+    "framework_text_summary": "Technological control: Use of privileged utility programs.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.18 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.19",
+    "name": "Installation of software on operational systems",
+    "framework_text_summary": "Technological control: Installation of software on operational systems.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Application control where present.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.19 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.20",
+    "name": "Networks security",
+    "framework_text_summary": "Technological control: Networks security.",
+    "rating": "partial",
+    "checks": [
+      "boundary",
+      "hostFw"
+    ],
+    "tested": "Firewall inspectors that could be read, failed if any row is \"bad\" (for example support or security subscription expired, HA not configured, health errors, warranty ended). It does not read rules, admin exposure or admin credentials. Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints.",
+    "gap": "Presence and support status only.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.20 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.21",
+    "name": "Security of network services",
+    "framework_text_summary": "Technological control: Security of network services.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.21 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.22",
+    "name": "Segregation of networks",
+    "framework_text_summary": "Technological control: Segregation of networks.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.22 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.23",
+    "name": "Web filtering",
+    "framework_text_summary": "Technological control: Web filtering.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "DNS filter clients (Umbrella, Webroot) where present.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.23 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.24",
+    "name": "Use of cryptography",
+    "framework_text_summary": "Technological control: Use of cryptography.",
+    "rating": "partial",
+    "checks": [
+      "encrypt"
+    ],
+    "tested": "Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Disk encryption, alert-based; key management not seen.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.24 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.25",
+    "name": "Secure development life cycle",
+    "framework_text_summary": "Technological control: Secure development life cycle.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.25 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.26",
+    "name": "Application security requirements",
+    "framework_text_summary": "Technological control: Application security requirements.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.26 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.27",
+    "name": "Secure system architecture and engineering principles",
+    "framework_text_summary": "Technological control: Secure system architecture and engineering principles.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.27 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.28",
+    "name": "Secure coding",
+    "framework_text_summary": "Technological control: Secure coding.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.28 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.29",
+    "name": "Security testing in development and acceptance",
+    "framework_text_summary": "Technological control: Security testing in development and acceptance.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.29 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.30",
+    "name": "Outsourced development",
+    "framework_text_summary": "Technological control: Outsourced development.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.30 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.31",
+    "name": "Separation of development, test and production environments",
+    "framework_text_summary": "Technological control: Separation of development, test and production environments.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.31 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.32",
+    "name": "Change management",
+    "framework_text_summary": "Technological control: Change management.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.32 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.33",
+    "name": "Test information",
+    "framework_text_summary": "Technological control: Test information.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.33 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  },
+  {
+    "id": "8.34",
+    "name": "Protection of information systems during audit testing",
+    "framework_text_summary": "Technological control: Protection of information systems during audit testing.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Technological control the page does not test.",
+    "source": "ISO/IEC 27001:2022 Annex A, control 8.34 (titles as in ISO/IEC 27002:2022). https://www.iso.org/standard/27001 ; licensed text not reproduced, titles Unverified against a licensed copy.",
+    "theme": "Technological"
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "E8-PA",
+    "name": "Patch applications",
+    "framework_text_summary": "ML1: asset discovery and vulnerability scanning; patches for internet-facing services within 2 weeks (48 hours if exploited); office productivity suites, browsers, email clients, PDF software and security products within 2 weeks; unsupported online services and those applications removed.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page (\"Applications are patched within a month\" - note ML1 says 2 weeks for these application classes).",
+    "gap": "Third-party application patch state is not read; browser versions could be checked from the software inventory.",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"Patch applications\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text.",
+    "proposed_checks": [
+      "browserSupport",
+      "appPatch"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "E8-PO",
+    "name": "Patch operating systems",
+    "framework_text_summary": "ML1: OS patches on internet-facing services within 2 weeks (48 hours if exploited); on workstations, servers and network devices within one month; unsupported OS replaced.",
+    "rating": "partial",
+    "checks": [
+      "patch",
+      "os"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware. Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "Patch age is not measured, so the 2-week / one-month windows cannot be applied; network device firmware not tested; vulnerability scanning not evidenced.",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"Patch operating systems\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text.",
+    "proposed_checks": [
+      "critPatch14d",
+      "fwFirmwareCurrent"
+    ]
+  },
+  {
+    "id": "E8-MFA",
+    "name": "Multi-factor authentication",
+    "framework_text_summary": "ML1: MFA for online services that hold sensitive data (organisation and third-party) and for customers where offered.",
+    "rating": "partial",
+    "checks": [
+      "privMfa",
+      "mfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "Registration not enforcement; online services without an inspector unseen.",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"Multi-factor authentication\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text.",
+    "proposed_checks": [
+      "condAccess"
+    ]
+  },
+  {
+    "id": "E8-RAP",
+    "name": "Restrict administrative privileges",
+    "framework_text_summary": "ML1: privileged access validated on request; privileged accounts (except privileged service accounts) cannot access the internet, email and web services; privileged users use separate privileged and unprivileged environments.",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Separate admin accounts only; internet/email access by admin accounts not tested (a licensed mailbox on an admin account is a usable proxy).",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"Restrict administrative privileges\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text.",
+    "proposed_checks": [
+      "adminMailbox",
+      "privReview"
+    ]
+  },
+  {
+    "id": "E8-AC",
+    "name": "Application control",
+    "framework_text_summary": "ML1: application control on workstations restricting execution of executables, libraries, scripts, installers, compiled HTML, HTA and control panel applets to an approved set in user profiles and temporary folders.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "ThreatLocker (computers[].mode == Secure) would evidence it where deployed.",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"Application control\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text.",
+    "proposed_checks": [
+      "appControl"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "E8-MAC",
+    "name": "Restrict Microsoft Office macros",
+    "framework_text_summary": "ML1: macros disabled for users without a business requirement; internet-sourced macros blocked; macro antivirus scanning enabled; users cannot change macro settings.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page (labelled with the pre-2023 strategy name \"Configure Microsoft Office macro settings\").",
+    "gap": "Office macro policy is not in any verified dataprint.",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"Restrict Microsoft Office macros\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text. Strategy name verified: https://blueprint.asd.gov.au/security-and-governance/essential-eight/restrict-microsoft-office-macros/"
+  },
+  {
+    "id": "E8-UAH",
+    "name": "User application hardening",
+    "framework_text_summary": "ML1: browsers do not process Java or web ads from the internet; IE11 disabled or removed; users cannot change browser security settings.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page (wording mentions Flash, which ASD dropped years ago).",
+    "gap": "Browser policy is not in any verified dataprint.",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"User application hardening\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text."
+  },
+  {
+    "id": "E8-RB",
+    "name": "Regular backups",
+    "framework_text_summary": "ML1: backups of data, applications and settings performed and retained per business criticality; restoration tested as part of DR exercises; unprivileged accounts cannot access other accounts' backups or delete/modify their own.",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Monitoring only; retention, restore testing and backup access restrictions not evidenced.",
+    "source": "ASD Essential Eight Maturity Model (November 2023), Maturity Level One, \"Regular backups\". https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight/essential-eight-maturity-model ; ML1 thresholds paraphrased from memory, Unverified against the current model text.",
+    "proposed_checks": [
+      "backupRecency",
+      "backupProtect"
+    ]
+  }
+]

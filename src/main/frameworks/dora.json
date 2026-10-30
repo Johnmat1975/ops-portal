@@ -1,0 +1,246 @@
+[
+  {
+    "id": "Art 5",
+    "name": "Governance and organisation",
+    "framework_text_summary": "Management body defines, approves and oversees the ICT risk management framework.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question (security policy maps to Art 5(2)).",
+    "gap": "Governance.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 5. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_5.html Scope rationale:."
+  },
+  {
+    "id": "Art 6",
+    "name": "ICT risk management framework",
+    "framework_text_summary": "A sound, documented ICT risk management framework, reviewed at least yearly; digital operational resilience strategy.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question (risk assessment maps to Art 6(8)).",
+    "gap": "Governance.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 6. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_6.html Scope rationale:."
+  },
+  {
+    "id": "Art 7",
+    "name": "ICT systems, protocols and tools",
+    "framework_text_summary": "Use and maintain up-to-date, reliable ICT systems with sufficient capacity and resilience.",
+    "rating": "partial",
+    "checks": [
+      "os"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "Capacity and resilience are not tested. Not mapped on the page today.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 7. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_7.html Scope rationale:."
+  },
+  {
+    "id": "Art 8(1)",
+    "name": "Identify and classify ICT-supported business functions and assets",
+    "framework_text_summary": "Identify, classify and document functions, roles, information and ICT assets and dependencies; review yearly.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Business-function classification is a document.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 8. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_8.html Scope rationale:."
+  },
+  {
+    "id": "Art 8(4)",
+    "name": "Identify all information and ICT assets and map critical ones",
+    "framework_text_summary": "Identify all information and ICT assets, including remote sites, network resources and hardware; map critical ones.",
+    "rating": "partial",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "Unmanaged-device detection, not the inventory or criticality mapping.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 8. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_8.html Scope rationale:."
+  },
+  {
+    "id": "Art 8(7)",
+    "name": "Yearly ICT risk assessment on legacy ICT systems",
+    "framework_text_summary": "Non-microenterprises assess risk on all legacy ICT systems at least yearly.",
+    "rating": "partial",
+    "checks": [
+      "os"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "Identifies the legacy (out-of-support) systems; the risk assessment is a document. The page maps the OS check to Art 9(2) instead.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 8. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_8.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(2)",
+    "name": "ICT security policies, procedures, protocols and tools for resilience, continuity and availability",
+    "framework_text_summary": "Design and implement ICT security measures ensuring resilience, continuity and availability, and data security at rest, in use and in transit.",
+    "rating": "partial",
+    "checks": [
+      "malware",
+      "hostFw"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent. Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints.",
+    "gap": "Generic article; these checks are illustrative technical measures, not proof of the policy set.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(3)",
+    "name": "Secure data transfer; minimise data loss, unauthorised access and administration risk",
+    "framework_text_summary": "ICT solutions that secure data transfer and protect against poor administration and human error.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "TLS findings and DLP policies where collected.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(4)(a)",
+    "name": "Information security policy",
+    "framework_text_summary": "Develop and document an information security policy.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "Document.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(4)(b)",
+    "name": "Network and infrastructure management, with ability to isolate and segment",
+    "framework_text_summary": "Risk-based network and infrastructure management; connections can be severed or segmented.",
+    "rating": "partial",
+    "checks": [
+      "boundary"
+    ],
+    "tested": "Firewall inspectors that could be read, failed if any row is \"bad\" (for example support or security subscription expired, HA not configured, health errors, warranty ended). It does not read rules, admin exposure or admin credentials.",
+    "gap": "Segmentation and isolation capability are not tested. The page maps boundary to 9(4)(c), which is access control.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(4)(c)",
+    "name": "Limit physical and logical access; sound administration of access rights",
+    "framework_text_summary": "Limit access to what is required; policies and controls for access rights.",
+    "rating": "partial",
+    "checks": [
+      "leavers",
+      "stale",
+      "adminAcct"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web). Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed. Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Physical access not seen; policy is a document.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(4)(d)",
+    "name": "Strong authentication and protection of cryptographic keys; encryption by data classification",
+    "framework_text_summary": "Strong authentication mechanisms and protection of cryptographic keys; encryption based on classification and risk assessment.",
+    "rating": "partial",
+    "checks": [
+      "privMfa",
+      "mfa",
+      "encrypt"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement. Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "MFA registration; disk encryption alert-based; key management not seen. The page maps encryption to 9(4)(c).",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(4)(e)",
+    "name": "ICT change management",
+    "framework_text_summary": "Documented, risk-based change management for software, hardware, firmware and security parameters.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Process; Liongard change detection (Change pulse page) can support it.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 9(4)(f)",
+    "name": "Patches and updates",
+    "framework_text_summary": "Appropriate and comprehensive documented policies for patches and updates.",
+    "rating": "partial",
+    "checks": [
+      "patch"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware.",
+    "gap": "No severity or age; Windows only. The page maps patching to 9(2). Detail in RTS (EU) 2024/1774 Art 10 (Unverified wording).",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 9. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_9.html Scope rationale:."
+  },
+  {
+    "id": "Art 10",
+    "name": "Detection",
+    "framework_text_summary": "Mechanisms to promptly detect anomalous activities, network performance issues and ICT incidents.",
+    "rating": "partial",
+    "checks": [
+      "edrAll"
+    ],
+    "tested": "Managed endpoints with a non-Defender EDR product reported. Devices whose EDR tool does not list devices are \"to confirm\".",
+    "gap": "EDR presence, not that alerts are generated and handled. The page also maps Liongard inspector freshness here, which is not detection of anomalies.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 10. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_10.html Scope rationale:.",
+    "proposed_checks": [
+      "siemHealth"
+    ]
+  },
+  {
+    "id": "Art 11",
+    "name": "Response and recovery",
+    "framework_text_summary": "ICT business continuity policy, response and recovery plans, tested.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question (incident response plan).",
+    "gap": "Documents and tests.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 11. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_11.html Scope rationale:."
+  },
+  {
+    "id": "Art 12",
+    "name": "Backup policies, restoration and recovery procedures",
+    "framework_text_summary": "Backup policies and procedures; restoration tested; segregated backup systems; recovery objectives.",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Monitoring only; restoration testing (12(2)) is a question; segregation and RTO/RPO not tested.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 12. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_12.html Scope rationale:.",
+    "proposed_checks": [
+      "backupRecency",
+      "backupOffsite"
+    ]
+  },
+  {
+    "id": "Art 13",
+    "name": "Learning and evolving",
+    "framework_text_summary": "Post-incident reviews, lessons learned, awareness programmes, monitoring of technology developments.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Process.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 13. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_13.html Scope rationale:."
+  },
+  {
+    "id": "Art 13(6)",
+    "name": "ICT security awareness programmes and digital operational resilience training for all staff",
+    "framework_text_summary": "Awareness programmes and resilience training as compulsory modules for all employees and senior management.",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "Enrolment, not completion; senior management not distinguished.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 13. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_13.html Scope rationale:."
+  },
+  {
+    "id": "Art 14",
+    "name": "Communication",
+    "framework_text_summary": "Crisis communication plans for disclosure of major ICT incidents.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Document.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 14. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_14.html Scope rationale:."
+  },
+  {
+    "id": "Art 15",
+    "name": "Further harmonisation of ICT risk management tools (RTS)",
+    "framework_text_summary": "Mandate for regulatory technical standards specifying the ICT risk management elements (adopted as Delegated Regulation (EU) 2024/1774).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "A mandate article; the RTS detail should be used to refine Arts 9-12 mappings.",
+    "source": "Regulation (EU) 2022/2554 (DORA), Article 15. https://eur-lex.europa.eu/eli/reg/2022/2554/oj ; text checked via https://www.digital-operational-resilience-act.com/Article_15.html Scope rationale:."
+  }
+]

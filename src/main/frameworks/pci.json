@@ -1,0 +1,464 @@
+[
+  {
+    "id": "1",
+    "name": "Install and Maintain Network Security Controls",
+    "framework_text_summary": "Network security controls (firewalls and equivalents) are defined, configured and maintained.",
+    "rating": "partial",
+    "checks": [
+      "hostFw",
+      "boundary"
+    ],
+    "tested": "Roll-up of 1.2.1 and 1.5.1.",
+    "gap": "Rule-set review, CDE segmentation and inbound/outbound restriction are not tested. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "1.2.1",
+    "name": "Configuration standards for NSC rule sets are defined, implemented and maintained",
+    "framework_text_summary": "NSC configuration standards are defined, implemented and maintained.",
+    "rating": "partial",
+    "checks": [
+      "boundary"
+    ],
+    "tested": "Firewall inspectors that could be read, failed if any row is \"bad\" (for example support or security subscription expired, HA not configured, health errors, warranty ended). It does not read rules, admin exposure or admin credentials.",
+    "gap": "The check reads support, licence and health, not rule sets or configuration standards.",
+    "source": "PCI DSS v4.0.1, Requirement 1.2.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "fwInboundDefault"
+    ],
+    "level": "sub",
+    "parent": "1"
+  },
+  {
+    "id": "1.5.1",
+    "name": "Security controls on computing devices that connect to both untrusted networks and the CDE",
+    "framework_text_summary": "Personal firewall or equivalent on devices (for example laptops) that connect to untrusted networks and the CDE, not alterable by users.",
+    "rating": "partial",
+    "checks": [
+      "hostFw"
+    ],
+    "tested": "Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints.",
+    "gap": "On/off only; \"cannot be altered by users\" is not tested; macOS not read. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 1.5.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "1"
+  },
+  {
+    "id": "2",
+    "name": "Apply Secure Configurations to All System Components",
+    "framework_text_summary": "Secure configurations; vendor defaults changed; unnecessary functions removed.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Default accounts (2.2.2) and hardening baselines (Senteon) are collectable but unused.",
+    "source": "PCI DSS v4.0.1, Requirement 2. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "guestAcct",
+      "defaultAdmin",
+      "hardeningBaseline"
+    ],
+    "rating_with_proposed": "partial",
+    "level": "requirement"
+  },
+  {
+    "id": "2.2.2",
+    "name": "Vendor default accounts are managed",
+    "framework_text_summary": "Vendor default accounts are removed/disabled or their passwords changed.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD DefaultGuestAccountEnabled / DefaultAdministratorEnabled and Windows Guest state are collected but unused; default passwords are invisible.",
+    "source": "PCI DSS v4.0.1, Requirement 2.2.2. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "guestAcct",
+      "defaultAdmin"
+    ],
+    "rating_with_proposed": "partial",
+    "level": "sub",
+    "parent": "2"
+  },
+  {
+    "id": "3",
+    "name": "Protect Stored Account Data",
+    "framework_text_summary": "Stored account data (PAN, SAD) is protected; PAN rendered unreadable.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page maps disk encryption to 3.5.1, which concerns rendering PAN unreadable wherever stored.",
+    "gap": "Liongard cannot see cardholder data or where it is stored. Disk-level encryption only counts for PAN under 3.5.1.2 (removable media) conditions.",
+    "source": "PCI DSS v4.0.1, Requirement 3. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "4",
+    "name": "Protect Cardholder Data with Strong Cryptography During Transmission",
+    "framework_text_summary": "Strong cryptography protects PAN over open, public networks.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "TLS/SSL inspector shows endpoint protocol support but cannot confirm cardholder data flows (PCI skill control-map.md:43-48).",
+    "source": "PCI DSS v4.0.1, Requirement 4. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "5",
+    "name": "Protect All Systems and Networks from Malicious Software",
+    "framework_text_summary": "Anti-malware deployed, kept current, active; anti-phishing mechanisms.",
+    "rating": "partial",
+    "checks": [
+      "malware",
+      "dmarc"
+    ],
+    "tested": "Roll-up of 5.2.1 and 5.4.1.",
+    "gap": "Signature currency (5.3.1) and periodic scans (5.3.2) are not tested. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 5. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "5.2.1",
+    "name": "Anti-malware deployed on all system components (except those evaluated as not at risk)",
+    "framework_text_summary": "Anti-malware solution deployed on all system components except those periodically evaluated as not at risk.",
+    "rating": "partial",
+    "checks": [
+      "malware"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Windows managed endpoints only; the \"not at risk\" evaluation is an attestation. The page also maps edrAll here; PCI does not require EDR. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 5.2.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "macAv"
+    ],
+    "level": "sub",
+    "parent": "5"
+  },
+  {
+    "id": "5.3.1",
+    "name": "Anti-malware kept current via automatic updates",
+    "framework_text_summary": "Anti-malware solution is kept current via automatic updates.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Signature age and update status are collected but unused.",
+    "source": "PCI DSS v4.0.1, Requirement 5.3.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "avSignatures"
+    ],
+    "rating_with_proposed": "full",
+    "level": "sub",
+    "parent": "5"
+  },
+  {
+    "id": "5.4.1",
+    "name": "Processes and automated mechanisms to detect and protect personnel against phishing",
+    "framework_text_summary": "Automated mechanisms detect and protect personnel against phishing attacks.",
+    "rating": "partial",
+    "checks": [
+      "dmarc"
+    ],
+    "tested": "Inspected domains that are spoofable (no enforcing DMARC or failing SPF for sending domains; no reject policy and -all SPF for non-sending domains).",
+    "gap": "DMARC/SPF protect against spoofing of the client's own domains (commonly cited for 5.4.1); inbound mail filtering is not read. Not currently mapped on the page.",
+    "source": "PCI DSS v4.0.1, Requirement 5.4.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "5"
+  },
+  {
+    "id": "6",
+    "name": "Develop and Maintain Secure Systems and Software",
+    "framework_text_summary": "Security vulnerabilities identified and addressed; patches installed.",
+    "rating": "partial",
+    "checks": [
+      "patch"
+    ],
+    "tested": "Roll-up of 6.3.3.",
+    "gap": "Bespoke software, web application protection (6.4) and vulnerability ranking (6.3.1) are not assessed.",
+    "source": "PCI DSS v4.0.1, Requirement 6. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "6.3.3",
+    "name": "Critical security patches installed within one month of release",
+    "framework_text_summary": "Applicable patches installed; critical ones within one month of release.",
+    "rating": "partial",
+    "checks": [
+      "patch"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware.",
+    "gap": "No criticality or age, so the one-month rule cannot be applied; Windows OS only. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 6.3.3. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "critPatch14d"
+    ],
+    "rating_with_proposed": "partial",
+    "level": "sub",
+    "parent": "6"
+  },
+  {
+    "id": "7",
+    "name": "Restrict Access to System Components and Cardholder Data by Business Need to Know",
+    "framework_text_summary": "Access granted on least privilege and need to know.",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Roll-up of 7.2.2.",
+    "gap": "Need-to-know cannot be judged without the client's role definitions.",
+    "source": "PCI DSS v4.0.1, Requirement 7. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "7.2.2",
+    "name": "Access assigned based on job classification and least privilege",
+    "framework_text_summary": "Access, including privileged, is assigned by job classification and least privilege.",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Shows where top-level admin roles sit; does not test least privilege. 7.2.4 (six-monthly account review) is an attestation.",
+    "source": "PCI DSS v4.0.1, Requirement 7.2.2. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "privReview"
+    ],
+    "level": "sub",
+    "parent": "7"
+  },
+  {
+    "id": "8",
+    "name": "Identify Users and Authenticate Access to System Components",
+    "framework_text_summary": "Unique IDs, account lifecycle, strong authentication and MFA.",
+    "rating": "partial",
+    "checks": [
+      "leavers",
+      "stale",
+      "privMfa",
+      "mfa"
+    ],
+    "tested": "Roll-up of 8.2.5, 8.2.6, 8.4.1, 8.4.2.",
+    "gap": "Password length (8.3.6) and lockout (8.3.4) are collectable from AD but unused.",
+    "source": "PCI DSS v4.0.1, Requirement 8. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "pwdPolicy",
+      "lockout"
+    ],
+    "level": "requirement"
+  },
+  {
+    "id": "8.2.5",
+    "name": "Access for terminated users immediately revoked",
+    "framework_text_summary": "Access for terminated users is immediately revoked.",
+    "rating": "partial",
+    "checks": [
+      "leavers"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web).",
+    "gap": "Cannot see termination dates, so \"immediately\" is not testable.",
+    "source": "PCI DSS v4.0.1, Requirement 8.2.5. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "8"
+  },
+  {
+    "id": "8.2.6",
+    "name": "Inactive user accounts removed or disabled within 90 days",
+    "framework_text_summary": "Inactive accounts are removed or disabled within 90 days of inactivity.",
+    "rating": "partial",
+    "checks": [
+      "stale"
+    ],
+    "tested": "Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "The 90-day threshold matches; partial only because CDE membership is unknown and accounts with no sign-in data cannot be judged. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 8.2.6. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "8"
+  },
+  {
+    "id": "8.4.1",
+    "name": "MFA for all non-console access into the CDE for administrative personnel",
+    "framework_text_summary": "MFA for all non-console administrative access into the CDE.",
+    "rating": "partial",
+    "checks": [
+      "privMfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off).",
+    "gap": "Registration, not per-session enforcement; CDE unknown. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 8.4.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "8"
+  },
+  {
+    "id": "8.4.2",
+    "name": "MFA for all access into the CDE",
+    "framework_text_summary": "MFA for all (non-console) access into the CDE.",
+    "rating": "partial",
+    "checks": [
+      "mfa"
+    ],
+    "tested": "Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "Measures MFA across all identities, which is a superset proxy; cannot show the CDE access path enforces it. Liongard does not know which systems are in the cardholder data environment (CDE); results cover every system Liongard sees, which the QSA must reconcile to the CDE.",
+    "source": "PCI DSS v4.0.1, Requirement 8.4.2. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "8"
+  },
+  {
+    "id": "8.4.3",
+    "name": "MFA for all remote network access that could reach the CDE",
+    "framework_text_summary": "MFA for all remote network access originating outside the entity's network.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "VPN MFA settings are collected for some firewall vendors but unused.",
+    "source": "PCI DSS v4.0.1, Requirement 8.4.3. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "vpnMfa"
+    ],
+    "rating_with_proposed": "partial",
+    "level": "sub",
+    "parent": "8"
+  },
+  {
+    "id": "9",
+    "name": "Restrict Physical Access to Cardholder Data",
+    "framework_text_summary": "Physical access controls.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Physical; invisible to Liongard.",
+    "source": "PCI DSS v4.0.1, Requirement 9. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "10",
+    "name": "Log and Monitor All Access to System Components and Cardholder Data",
+    "framework_text_summary": "Audit logs, review, retention, time sync, detection of critical control failures.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page maps Liongard inspector freshness to 10.7.1, which was a service-provider-only requirement superseded by 10.7.2 on 31 March 2025, and in any case concerns the entity's security control systems, not Liongard.",
+    "gap": "With a SIEM inspector, log collection and health become partial evidence; AD time offset can support 10.6.",
+    "source": "PCI DSS v4.0.1, Requirement 10. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through). Supersession verified: https://pcisecuritystandards.org/faq/articles/Frequently_Asked_Question/how-should-pci-dss-v4-x-requirements-noted-as-superseded-by-another-requirement-be-reported-after-31-march-2025",
+    "proposed_checks": [
+      "siemHealth"
+    ],
+    "rating_with_proposed": "partial",
+    "level": "requirement"
+  },
+  {
+    "id": "11",
+    "name": "Test Security of Systems and Networks Regularly",
+    "framework_text_summary": "Vulnerability scans (internal, ASV), penetration testing, IDS/IPS, change detection.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Scans and tests are performed by others; Liongard is not a scanner. Upload the reports as evidence.",
+    "source": "PCI DSS v4.0.1, Requirement 11. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "12",
+    "name": "Support Information Security with Organizational Policies and Programs",
+    "framework_text_summary": "Policy, risk analysis, inventory, awareness, third-party management, incident response.",
+    "rating": "partial",
+    "checks": [
+      "assets",
+      "training"
+    ],
+    "tested": "Roll-up of 12.5.1 and 12.6.3; the rest are policy questions.",
+    "gap": "Mostly attestation (12.1.1, 12.3.1, 12.8.1, 12.10.1 are on the page as questions).",
+    "source": "PCI DSS v4.0.1, Requirement 12. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "requirement"
+  },
+  {
+    "id": "12.3.4",
+    "name": "Hardware and software technologies reviewed at least every 12 months",
+    "framework_text_summary": "Technologies are reviewed for continued vendor support and end-of-life plans.",
+    "rating": "partial",
+    "checks": [
+      "os"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "OS end-of-support only; the review itself is an attestation. The page maps the OS check to 6.3.3 instead.",
+    "source": "PCI DSS v4.0.1, Requirement 12.3.4. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "12"
+  },
+  {
+    "id": "12.5.1",
+    "name": "Inventory of system components in scope for PCI DSS maintained",
+    "framework_text_summary": "Inventory of in-scope system components, with function/use, is maintained.",
+    "rating": "partial",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "Flags unmanaged devices; does not establish which components are in PCI scope.",
+    "source": "PCI DSS v4.0.1, Requirement 12.5.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "assetInventory"
+    ],
+    "level": "sub",
+    "parent": "12"
+  },
+  {
+    "id": "12.6.3",
+    "name": "Personnel receive security awareness training on hire and at least every 12 months",
+    "framework_text_summary": "Training upon hire and at least once every 12 months; personnel acknowledge the policy.",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "Enrolment, not completion or acknowledgement. The page maps training to 12.6.1 (the programme), which is the policy half.",
+    "source": "PCI DSS v4.0.1, Requirement 12.6.3. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "proposed_checks": [
+      "trainingCompletion"
+    ],
+    "level": "sub",
+    "parent": "12"
+  },
+  {
+    "id": "12.1.1",
+    "name": "Information security policy established, published, maintained and disseminated",
+    "framework_text_summary": "An overall information security policy.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "Document.",
+    "source": "PCI DSS v4.0.1, Requirement 12.1.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "12"
+  },
+  {
+    "id": "12.3.1",
+    "name": "Targeted risk analysis for requirements with flexible frequency",
+    "framework_text_summary": "Targeted risk analyses for requirements that allow flexible frequency.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page (\"risk assessment in the last 12 months\").",
+    "gap": "This is a narrower requirement than a general risk assessment; the question wording should say so.",
+    "source": "PCI DSS v4.0.1, Requirement 12.3.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "12"
+  },
+  {
+    "id": "12.8.1",
+    "name": "List of third-party service providers maintained",
+    "framework_text_summary": "TPSPs with which account data is shared, or that could affect its security, are listed.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "Document.",
+    "source": "PCI DSS v4.0.1, Requirement 12.8.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "12"
+  },
+  {
+    "id": "12.10.1",
+    "name": "Incident response plan exists and is ready to be activated",
+    "framework_text_summary": "An incident response plan is in place.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question on the page.",
+    "gap": "Document.",
+    "source": "PCI DSS v4.0.1, Requirement 12.10.1. https://www.pcisecuritystandards.org/document_library/ (PCI DSS v4.0.1, June 2024). Wording paraphrased; exact text Unverified (licence click-through).",
+    "level": "sub",
+    "parent": "12"
+  }
+]

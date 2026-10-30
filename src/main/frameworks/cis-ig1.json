@@ -1,0 +1,714 @@
+[
+  {
+    "id": "1.1",
+    "name": "Establish and Maintain Detailed Enterprise Asset Inventory",
+    "framework_text_summary": "Maintain an accurate, detailed inventory of all enterprise assets that store or process data; review twice a year.",
+    "rating": "partial",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "The check tests unmanaged devices, not the inventory. Liongard's Asset Inventory (union of endpoint, RMM and discovery sources) is the inventory itself but its completeness and review are not tested.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 1.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "assetInventory"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "1.2",
+    "name": "Address Unauthorized Assets",
+    "framework_text_summary": "Ensure a process exists to address unauthorised assets weekly (remove, deny access or quarantine).",
+    "rating": "partial",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "Detects candidate unauthorised assets; does not evidence that they were addressed or the weekly cadence. The remediation list on the page can show the follow-up.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 1.2, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "2.1",
+    "name": "Establish and Maintain a Software Inventory",
+    "framework_text_summary": "Maintain a detailed inventory of all licensed software; review twice a year.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Windows Software[] and macOS Applications[] give a per-host inventory but the page does not use it.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 2.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "swInventory"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "2.2",
+    "name": "Ensure Authorized Software is Currently Supported",
+    "framework_text_summary": "Only currently supported software is designated authorised; unsupported software is flagged and documented as an exception.",
+    "rating": "partial",
+    "checks": [
+      "os"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "Operating systems only. Application support state needs an end-of-life feed Liongard does not carry. Insider Preview and Evaluation editions should also fail (safeguard-map.md:101).",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 2.2, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "appSupport"
+    ]
+  },
+  {
+    "id": "2.3",
+    "name": "Address Unauthorized Software",
+    "framework_text_summary": "Remove unauthorised software or document an exception; review monthly.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "ThreatLocker deniedLast7Days / applicationPolicies evidence enforcement where deployed; otherwise there is nothing to read. The page asks it only as the E8 \"Application control\" question.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 2.3, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "appControl"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "3.1",
+    "name": "Establish and Maintain a Data Management Process",
+    "framework_text_summary": "Document a data management process covering sensitivity, owner, handling, retention and disposal.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 3.1, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "3.2",
+    "name": "Establish and Maintain a Data Inventory",
+    "framework_text_summary": "Maintain a data inventory based on the data management process.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document. File shares and SQL databases are locations, not a classified inventory.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 3.2, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "3.3",
+    "name": "Configure Data Access Control Lists",
+    "framework_text_summary": "Configure data access control lists based on need to know, for local and remote file systems, databases and applications.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Windows Server Shares[] and AD group membership are collected; share-level ACL detail is thin. Unverified per tenant.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 3.3, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "3.4",
+    "name": "Enforce Data Retention",
+    "framework_text_summary": "Retain data according to the documented process, with minimum and maximum timelines.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document. Backup retention is a recovery setting, not data retention.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 3.4, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "3.5",
+    "name": "Securely Dispose of Data",
+    "framework_text_summary": "Securely dispose of data as defined in the data management process.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 3.5, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "3.6",
+    "name": "Encrypt Data on End-User Devices",
+    "framework_text_summary": "Encrypt data on end-user devices containing sensitive data (BitLocker, FileVault, dm-crypt).",
+    "rating": "partial",
+    "checks": [
+      "encrypt"
+    ],
+    "tested": "Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Absence of an alert is treated as encrypted, so a device with no alert rule or a Windows Home edition passes silently. Liongard holds the real state (Windows Drives[].BitlockerStatus / ProtectionStatus, macOS File Vault Encryption Status) which would make this full.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 3.6, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "encryptStatus"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "4.1",
+    "name": "Establish and Maintain a Secure Configuration Process",
+    "framework_text_summary": "Document and maintain a secure configuration process for enterprise assets and software; review annually.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document. Where a hardening platform inspector is present (Senteon), its baseline compliance is direct evidence (safeguard-map.md:131).",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 4.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "hardeningBaseline"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "4.2",
+    "name": "Establish and Maintain a Secure Configuration Process for Network Infrastructure",
+    "framework_text_summary": "Document and maintain a secure configuration process for network devices; review annually.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Running-vs-startup config drift (HP ProCurve, Cisco IOS) evidences drift, not the process.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 4.2, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "4.3",
+    "name": "Configure Automatic Session Locking on Enterprise Assets",
+    "framework_text_summary": "Lock sessions after inactivity: 15 minutes on general-purpose OS, 2 minutes on mobile.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Only available where GPO/LocalPolicy is collected; often absent from Workstation dataprints.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 4.3, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "4.4",
+    "name": "Implement and Manage a Firewall on Servers",
+    "framework_text_summary": "Implement and manage a firewall on servers where supported.",
+    "rating": "partial",
+    "checks": [
+      "hostFw"
+    ],
+    "tested": "Windows Firewall on for every profile, on agent-reporting Windows Servers (the hostFw check covers all managed endpoints, servers included; the page maps it only to 4.5).",
+    "gap": "On/off only; rules are not assessed. Linux server firewalls not read.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 4.4, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "4.5",
+    "name": "Implement and Manage a Firewall on End-User Devices",
+    "framework_text_summary": "Host-based firewall or port filtering on end-user devices with a default-deny rule.",
+    "rating": "partial",
+    "checks": [
+      "hostFw"
+    ],
+    "tested": "Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints.",
+    "gap": "Default-deny is not tested; macOS firewall state is collected but not used.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 4.5, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "macFw"
+    ]
+  },
+  {
+    "id": "4.6",
+    "name": "Securely Manage Enterprise Assets and Software",
+    "framework_text_summary": "Manage assets through version-controlled IaC and secure protocols (SSH, HTTPS); avoid Telnet and HTTP.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Firewall admin-plane exposure (HTTP admin ports, trusted hosts) and AWS OpenToWorld are collected per vendor but not used.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 4.6, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "fwAdminExposure"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "4.7",
+    "name": "Manage Default Accounts on Enterprise Assets and Software",
+    "framework_text_summary": "Manage default accounts such as root, administrator and vendor accounts: disable or make unusable.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD DefaultGuestAccountEnabled / DefaultAdministratorEnabled and Windows \"Guest Account Disabled\" are collected (real booleans in AD) but unused.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 4.7, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "guestAcct",
+      "defaultAdmin"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "5.1",
+    "name": "Establish and Maintain an Inventory of Accounts",
+    "framework_text_summary": "Inventory all accounts (user and admin) with name, username, start/stop dates and department; validate quarterly.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Identity & access already builds a cross-system account inventory; Compliance does not test it. Start/stop dates and department are not in Liongard.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 5.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "idInventory"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "5.2",
+    "name": "Use Unique Passwords",
+    "framework_text_summary": "Use unique passwords: 8+ characters with MFA, 14+ without.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD Minimum Password Length is collected but unused; uniqueness itself is not observable.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 5.2, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "pwdPolicy"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "5.3",
+    "name": "Disable Dormant Accounts",
+    "framework_text_summary": "Delete or disable dormant accounts after 45 days of inactivity, where supported.",
+    "rating": "partial",
+    "checks": [
+      "stale"
+    ],
+    "tested": "Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "The page uses 90 days (identity.js:7); CIS says 45. Accounts inactive 45-89 days pass.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 5.3, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "stale45"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "5.4",
+    "name": "Restrict Administrator Privileges to Dedicated Administrator Accounts",
+    "framework_text_summary": "Admin privileges only on dedicated admin accounts; daily work from a non-privileged account.",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Only top-level roles; local administrator group membership per device is frequently not obtainable (safeguard-map.md:151).",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 5.4, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "6.1",
+    "name": "Establish an Access Granting Process",
+    "framework_text_summary": "Establish and follow a process for granting access on new hire, rights grant or role change.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 6.1, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "6.2",
+    "name": "Establish an Access Revoking Process",
+    "framework_text_summary": "Establish and follow a process for revoking access promptly on termination, rights revocation or role change.",
+    "rating": "partial",
+    "checks": [
+      "leavers"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web).",
+    "gap": "Evidences revocation hygiene (the consequence), not the process.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 6.2, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "6.3",
+    "name": "Require MFA for Externally-Exposed Applications",
+    "framework_text_summary": "Require MFA for all externally-exposed enterprise or third-party applications.",
+    "rating": "partial",
+    "checks": [
+      "mfa"
+    ],
+    "tested": "Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "Registration not enforcement; only applications with an identity inspector are seen.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 6.3, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "condAccess"
+    ]
+  },
+  {
+    "id": "6.4",
+    "name": "Require MFA for Remote Network Access",
+    "framework_text_summary": "Require MFA for remote network access.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page currently maps the user-MFA check here, which does not test VPN or remote network access.",
+    "gap": "Fortigate VPNSSLSettings force-two-factor-auth, Duo enrolment and per-vendor VPN config are collected where present (safeguard-map.md:162).",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 6.4, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "vpnMfa"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "6.5",
+    "name": "Require MFA for Administrative Access",
+    "framework_text_summary": "Require MFA for all administrative access accounts, where supported, on all assets.",
+    "rating": "partial",
+    "checks": [
+      "privMfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off).",
+    "gap": "Network-device admin MFA (network.js collects it) is not included; registration not enforcement.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 6.5, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "fwAdminMfa"
+    ]
+  },
+  {
+    "id": "7.1",
+    "name": "Establish and Maintain a Vulnerability Management Process",
+    "framework_text_summary": "Document a vulnerability management process; review annually.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 7.1, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "7.2",
+    "name": "Establish and Maintain a Remediation Process",
+    "framework_text_summary": "Risk-based remediation strategy with monthly or more frequent reviews.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document. The page's remediation list is supporting material, not proof of the process.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 7.2, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "7.3",
+    "name": "Perform Automated Operating System Patch Management",
+    "framework_text_summary": "Automated OS updates on enterprise assets, monthly or more frequently.",
+    "rating": "partial",
+    "checks": [
+      "patch"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware.",
+    "gap": "Automation is not tested (auto-update settings are collected but unused); macOS updates not read.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 7.3, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "autoUpdate",
+      "critPatch14d"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "7.4",
+    "name": "Perform Automated Application Patch Management",
+    "framework_text_summary": "Automated application updates, monthly or more frequently.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored. The page maps the Windows Update check here, which does not cover third-party applications.",
+    "gap": "RMM patch-policy branches and software versions are thin evidence; the page's \"Applications are patched within a month\" question is an attestation.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 7.4, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "appPatch"
+    ]
+  },
+  {
+    "id": "8.1",
+    "name": "Establish and Maintain an Audit Log Management Process",
+    "framework_text_summary": "Document an audit log management process; review annually.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 8.1, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "8.2",
+    "name": "Collect Audit Logs",
+    "framework_text_summary": "Collect audit logs; ensure logging is enabled across enterprise assets.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "With a SIEM inspector, connector health evidences collection; without one only audit-policy settings exist. Liongard's own alerting is not the client's log pipeline.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 8.2, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "siemHealth"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "8.3",
+    "name": "Ensure Adequate Audit Log Storage",
+    "framework_text_summary": "Ensure logging destinations have adequate storage.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "SIEM log size where present; usually unknown.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 8.3, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "9.1",
+    "name": "Ensure Use of Only Fully Supported Browsers and Email Clients",
+    "framework_text_summary": "Only fully supported browsers and email clients run, using the latest vendor version.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Browsers and mail clients are in Windows Software[] / macOS Applications[] and can be version-checked; not done.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 9.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "browserSupport"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "9.2",
+    "name": "Use DNS Filtering Services",
+    "framework_text_summary": "Use DNS filtering services on all end-user devices to block malicious domains.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Cisco Umbrella roamingComputers[].status and Webroot DNSP evidence it per device where deployed.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 9.2, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "webProtect"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "10.1",
+    "name": "Deploy and Maintain Anti-Malware Software",
+    "framework_text_summary": "Deploy and maintain anti-malware software on all enterprise assets.",
+    "rating": "full",
+    "checks": [
+      "malware"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Population: managed Windows endpoints; macOS and Linux not tested. The page also maps edrAll here, which double-counts one fact and fails devices that have compliant AV.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 10.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "macAv"
+    ]
+  },
+  {
+    "id": "10.2",
+    "name": "Configure Automatic Anti-Malware Signature Updates",
+    "framework_text_summary": "Configure automatic signature updates for anti-malware on all assets.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AVs[].State.updateStatus and Defender AntivirusSignatureAge are collected; coverage.js already computes sigOld but Compliance ignores it.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 10.2, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "avSignatures"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "10.3",
+    "name": "Disable Autorun and Autoplay for Removable Media",
+    "framework_text_summary": "Disable autorun and autoplay for removable media.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "GPO/LocalPolicy only where collected; usually absent.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 10.3, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "11.1",
+    "name": "Establish and Maintain a Data Recovery Process",
+    "framework_text_summary": "Document a data recovery process (scope, prioritisation, security of backup data); review annually.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored. The page maps the backup check here; a monitored backup is not a documented process.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 11.1, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "11.2",
+    "name": "Perform Automated Backups",
+    "framework_text_summary": "Automated backups of in-scope assets, weekly or more frequently based on sensitivity.",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Per-job recency is not tested: a job reading \"Success\" with a last run years ago passes if no finding fires (see memory note on stale evidence; safeguard-map.md:238).",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 11.2, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "backupRecency"
+    ],
+    "rating_with_proposed": "full"
+  },
+  {
+    "id": "11.3",
+    "name": "Protect Recovery Data",
+    "framework_text_summary": "Protect recovery data with controls equivalent to the original data (encryption, separation).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Axcient is_password_protected and repository encryption where exposed; vendor-specific.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 11.3, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "backupProtect"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "11.4",
+    "name": "Establish and Maintain an Isolated Instance of Recovery Data",
+    "framework_text_summary": "Keep an isolated instance of recovery data (offline, cloud or off-site).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Axcient Jobs[].offsite and Veeam Backup Copy jobs evidence it where present.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 11.4, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "backupOffsite"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "12.1",
+    "name": "Ensure Network Infrastructure is Up-to-Date",
+    "framework_text_summary": "Keep network infrastructure up to date: latest stable OS, supported offerings; review monthly.",
+    "rating": "partial",
+    "checks": [
+      "boundary"
+    ],
+    "tested": "Firewalls whose support, firmware-update or security subscriptions have ended fail the boundary check. Firewall inspectors that could be read, failed if any row is \"bad\" (for example support or security subscription expired, HA not configured, health errors, warranty ended). It does not read rules, admin exposure or admin credentials.",
+    "gap": "Firmware version currency (installed vs available, for example Fortigate Firmware.available[]) is not tested; switches and access points are not in the check. The page maps boundary to 4.4 instead, which is the server-firewall safeguard.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 12.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "fwFirmwareCurrent"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "14.1",
+    "name": "Establish and Maintain a Security Awareness Program",
+    "framework_text_summary": "Run a security awareness programme; train on hire and at least annually; review annually.",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "KnowBe4 only. Completion status (Passed / Not Started / Past Due / In Progress) and module currency are not tested.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.1, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "trainingCompletion"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "14.2",
+    "name": "Train Workforce Members to Recognize Social Engineering Attacks",
+    "framework_text_summary": "Train staff to recognise phishing, pre-texting and tailgating.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "KnowBe4 PhishingTests[] (phish-prone %, clicked, reported) is collected but unused.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.2, IG1. https://www.cisecurity.org/controls/v8-1",
+    "proposed_checks": [
+      "phishSim"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "14.3",
+    "name": "Train Workforce Members on Authentication Best Practices",
+    "framework_text_summary": "Train on MFA, password composition and credential management.",
+    "rating": "attest",
+    "checks": [
+      "training"
+    ],
+    "tested": "Supporting only: enrolment in the awareness platform (training check). Topic coverage is not visible.",
+    "gap": "Training content is a programme decision; matching module names to topics is inference. Report the enrolment once (14.1), not as six separate scores.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.3, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "14.4",
+    "name": "Train Workforce on Data Handling Best Practices",
+    "framework_text_summary": "Train on identifying, storing, transferring, archiving and destroying sensitive data.",
+    "rating": "attest",
+    "checks": [
+      "training"
+    ],
+    "tested": "Supporting only: enrolment in the awareness platform (training check). Topic coverage is not visible.",
+    "gap": "Training content is a programme decision; matching module names to topics is inference. Report the enrolment once (14.1), not as six separate scores.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.4, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "14.5",
+    "name": "Train Workforce Members on Causes of Unintentional Data Exposure",
+    "framework_text_summary": "Train on mis-delivery, losing devices and over-publishing data.",
+    "rating": "attest",
+    "checks": [
+      "training"
+    ],
+    "tested": "Supporting only: enrolment in the awareness platform (training check). Topic coverage is not visible.",
+    "gap": "Training content is a programme decision; matching module names to topics is inference. Report the enrolment once (14.1), not as six separate scores.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.5, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "14.6",
+    "name": "Train Workforce Members on Recognizing and Reporting Security Incidents",
+    "framework_text_summary": "Train staff to recognise and report a potential incident.",
+    "rating": "attest",
+    "checks": [
+      "training"
+    ],
+    "tested": "Supporting only: enrolment in the awareness platform (training check). Topic coverage is not visible.",
+    "gap": "Training content is a programme decision; matching module names to topics is inference. Report the enrolment once (14.1), not as six separate scores.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.6, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "14.7",
+    "name": "Train Workforce on How to Identify and Report if Their Enterprise Assets are Missing Security Updates",
+    "framework_text_summary": "Train staff to verify and report out-of-date software and failed updates.",
+    "rating": "attest",
+    "checks": [
+      "training"
+    ],
+    "tested": "Supporting only: enrolment in the awareness platform (training check). Topic coverage is not visible.",
+    "gap": "Training content is a programme decision; matching module names to topics is inference. Report the enrolment once (14.1), not as six separate scores.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.7, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "14.8",
+    "name": "Train Workforce on the Dangers of Connecting to and Transmitting Enterprise Data Over Insecure Networks",
+    "framework_text_summary": "Train on the dangers of insecure networks, including home networks.",
+    "rating": "attest",
+    "checks": [
+      "training"
+    ],
+    "tested": "Supporting only: enrolment in the awareness platform (training check). Topic coverage is not visible.",
+    "gap": "Training content is a programme decision; matching module names to topics is inference. Report the enrolment once (14.1), not as six separate scores.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 14.8, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "15.1",
+    "name": "Establish and Maintain an Inventory of Service Providers",
+    "framework_text_summary": "Inventory service providers with classification and an enterprise contact; review annually.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Liongard's launchpoint list names providers that have an inspector; useful prompt, incomplete inventory.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 15.1, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "17.1",
+    "name": "Designate Personnel to Manage Incident Handling",
+    "framework_text_summary": "Designate one key person and a backup to manage incident handling.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document. Answered on the page as \"An incident response plan is written and tested\".",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 17.1, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "17.2",
+    "name": "Establish and Maintain Contact Information for Reporting Security Incidents",
+    "framework_text_summary": "Keep contact information for parties to be told of incidents; verify annually.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 17.2, IG1. https://www.cisecurity.org/controls/v8-1"
+  },
+  {
+    "id": "17.3",
+    "name": "Establish and Maintain an Enterprise Process for Reporting Incidents",
+    "framework_text_summary": "Document how staff report incidents: timeframe, who, mechanism, minimum information.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Governance or process: the client or MSP answers it with a document.",
+    "source": "CIS Critical Security Controls v8.1 (June 2024), Safeguard 17.3, IG1. https://www.cisecurity.org/controls/v8-1"
+  }
+]

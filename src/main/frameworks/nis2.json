@@ -1,0 +1,123 @@
+[
+  {
+    "id": "21(2)(a)",
+    "name": "Policies on risk analysis and information system security",
+    "framework_text_summary": "Risk analysis and information system security policies.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy questions on the page (risk assessment, security policy).",
+    "gap": "Documents.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 1-2 (section numbering from secondary sources, Unverified against the Official Journal).",
+    "note": "NIS2 obligations apply through each Member State's transposing law; check the national law for the client's country and whether it is an essential or important entity."
+  },
+  {
+    "id": "21(2)(b)",
+    "name": "Incident handling",
+    "framework_text_summary": "Incident handling.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question (incident response plan).",
+    "gap": "Process. National reporting duties (Art 23) are separate.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 3 (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(c)",
+    "name": "Business continuity: backup management, disaster recovery, crisis management",
+    "framework_text_summary": "Business continuity, such as backup management and disaster recovery, and crisis management.",
+    "rating": "partial",
+    "checks": [
+      "backup"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests.",
+    "gap": "Backup monitoring only; restore testing is a question; DR and crisis plans are documents.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 4 (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(d)",
+    "name": "Supply chain security",
+    "framework_text_summary": "Security of relationships with direct suppliers and service providers.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Policy question (suppliers).",
+    "gap": "Contracts and assessments.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 5 (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(e)",
+    "name": "Security in acquisition, development and maintenance, including vulnerability handling",
+    "framework_text_summary": "Security in network and information systems acquisition, development and maintenance, including vulnerability handling and disclosure.",
+    "rating": "partial",
+    "checks": [
+      "os",
+      "patch",
+      "hostFw",
+      "boundary",
+      "malware"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date. Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware. Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints. Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Patching has no age or severity; boundary check reads licence/support only. Per the Implementing Regulation, malware protection (Annex 6.9) sits here, not under (g).",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 6 (6.6 patching, 6.7 network security, 6.9 malicious software) (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(f)",
+    "name": "Policies and procedures to assess effectiveness",
+    "framework_text_summary": "Policies and procedures to assess the effectiveness of cybersecurity risk-management measures.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored. The page maps Liongard inspector freshness here; that measures Liongard's evidence quality, not the entity's effectiveness assessment.",
+    "gap": "This report and its trend can be cited as an input.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 7 (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(g)",
+    "name": "Basic cyber hygiene practices and cybersecurity training",
+    "framework_text_summary": "Basic cyber hygiene practices and cybersecurity training.",
+    "rating": "partial",
+    "checks": [
+      "training"
+    ],
+    "tested": "Licensed users not enrolled in KnowBe4 and KnowBe4 seats never used. KnowBe4 only.",
+    "gap": "KnowBe4 only; completion not tested. The page also maps malware, EDR and DMARC here; the Implementing Regulation places those under (e).",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 8 (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(h)",
+    "name": "Cryptography and, where appropriate, encryption",
+    "framework_text_summary": "Policies and procedures on cryptography and encryption.",
+    "rating": "partial",
+    "checks": [
+      "encrypt"
+    ],
+    "tested": "Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Endpoint disk encryption only, alert-based; policy is a document; TLS not read.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 9 (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(i)",
+    "name": "Human resources security, access control policies and asset management",
+    "framework_text_summary": "HR security, access control policies and asset management.",
+    "rating": "partial",
+    "checks": [
+      "leavers",
+      "stale",
+      "adminAcct",
+      "assets"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web). Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed. Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account. Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "HR vetting and policies are documents; the inventory itself is not tested.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 10-12 (section numbering from secondary sources, Unverified against the Official Journal)."
+  },
+  {
+    "id": "21(2)(j)",
+    "name": "MFA or continuous authentication, secured communications, secured emergency communications",
+    "framework_text_summary": "Use of MFA or continuous authentication, secured voice/video/text and secured emergency communications where appropriate.",
+    "rating": "partial",
+    "checks": [
+      "privMfa",
+      "mfa"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement.",
+    "gap": "Secured communications are not assessed; MFA is registration.",
+    "source": "Directive (EU) 2022/2555, Article 21(2). https://eur-lex.europa.eu/eli/dir/2022/2555/oj Detail for digital-infrastructure and ICT-service entities: Commission Implementing Regulation (EU) 2024/2690, Annex section 11.7 (section numbering from secondary sources, Unverified against the Official Journal)."
+  }
+]

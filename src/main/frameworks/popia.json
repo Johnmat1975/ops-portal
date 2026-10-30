@@ -1,0 +1,383 @@
+[
+  {
+    "id": "s8",
+    "name": "Accountability: responsible party ensures the conditions are met",
+    "framework_text_summary": "The responsible party must ensure the conditions for lawful processing, and the measures that give effect to them, are complied with when the purpose and means are decided and during processing.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. This evidence pack supports accountability for Condition 7 only.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 8 (Condition 1). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF).",
+    "note": "POPIA evidence is limited to Condition 7 technical safeguards on systems connected to Liongard. The client must scope which systems hold personal information. The earlier POPIA dashboard did this with a \"Compliance Basis\" widget, and Ops Portal needs the same declaration. The MSP is usually an operator (s20-21) for the client, so the s21 contract and s21(2) notification duty apply to the MSP itself."
+  },
+  {
+    "id": "s9",
+    "name": "Lawfulness of processing",
+    "framework_text_summary": "Personal information must be processed lawfully and in a reasonable manner that does not infringe privacy.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 9 (Condition 2). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s10",
+    "name": "Minimality",
+    "framework_text_summary": "Processing must be adequate, relevant and not excessive given the purpose.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. Liongard does not see data content.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 10 (Condition 2). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s11",
+    "name": "Consent, justification and objection",
+    "framework_text_summary": "Processing needs consent or another ground in s11(1); data subjects may object and withdraw consent.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 11 (Condition 2). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s12",
+    "name": "Collection directly from the data subject",
+    "framework_text_summary": "Collect directly from the data subject unless an exception in s12(2) applies.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 12 (Condition 2). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s13",
+    "name": "Collection for a specific purpose",
+    "framework_text_summary": "Collect for a specific, explicitly defined, lawful purpose and make the data subject aware of it.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 13 (Condition 3). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s14(1)",
+    "name": "Retention no longer than necessary",
+    "framework_text_summary": "Records must not be kept longer than needed for the purpose unless an exception in s14(1)(a)-(d) applies.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. Backup retention settings are a recovery setting, not a retention policy, and are not used as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 14(1) (Condition 3). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s14(4)-(5)",
+    "name": "Destruction, deletion or de-identification that prevents reconstruction",
+    "framework_text_summary": "Destroy, delete or de-identify records as soon as reasonably practicable once retention is no longer authorised, so they cannot be reconstructed.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. Device disposal and media sanitisation are invisible once a device leaves Liongard's inventory.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 14(4)-(5) (Condition 3). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s15",
+    "name": "Further processing compatible with the purpose",
+    "framework_text_summary": "Further processing must be compatible with the original purpose, assessed against s15(2).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 15 (Condition 4). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s16",
+    "name": "Quality of information",
+    "framework_text_summary": "Take reasonably practicable steps to keep personal information complete, accurate, not misleading and updated.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. Directory and HR data quality is not assessed; Identity & access source disagreements are about accounts, not personal information quality.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 16 (Condition 5). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s17",
+    "name": "Documentation of processing operations",
+    "framework_text_summary": "Maintain documentation of all processing operations (as in PAIA s14 or s51).",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. The Customer stack page lists systems that may process personal information; it is a prompt, not the record.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 17 (Condition 6). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s18",
+    "name": "Notification to the data subject when collecting",
+    "framework_text_summary": "Make the data subject aware of the information collected, the responsible party, purpose, recipients, rights and the Regulator's details.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 18 (Condition 6). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "19(1)(a)",
+    "name": "Measures to prevent loss of, damage to or unauthorised destruction of personal information",
+    "framework_text_summary": "Secure integrity and confidentiality with appropriate, reasonable technical and organisational measures to prevent loss, damage or unauthorised destruction.",
+    "rating": "partial",
+    "checks": [
+      "backup",
+      "malware"
+    ],
+    "tested": "Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests. Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Technical measures on the systems Liongard sees. Restore testing, offsite or immutable copies and physical protection are not evidenced; organisational measures are attested. Liongard sees systems, not personal information: it cannot tell which systems hold personal information. The client scopes that (the earlier POPIA dashboard's \"Compliance Basis\" widget).",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 19(1)(a) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF).",
+    "proposed_checks": [
+      "backupRecency",
+      "backupOffsite"
+    ]
+  },
+  {
+    "id": "19(1)(b)",
+    "name": "Measures to prevent unlawful access to or processing of personal information",
+    "framework_text_summary": "Appropriate, reasonable technical and organisational measures to prevent unlawful access to or processing of personal information.",
+    "rating": "partial",
+    "checks": [
+      "privMfa",
+      "mfa",
+      "leavers",
+      "stale",
+      "adminAcct",
+      "encrypt"
+    ],
+    "tested": "Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement. Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web). Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed. Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account. Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted.",
+    "gap": "Access controls on inspected identity systems and endpoints. Application-level permissions on the systems that hold personal information, and data-level access, are not seen. MFA is registration; encryption is alert-based. Liongard sees systems, not personal information: it cannot tell which systems hold personal information. The client scopes that (the earlier POPIA dashboard's \"Compliance Basis\" widget).",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 19(1)(b) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF).",
+    "proposed_checks": [
+      "condAccess",
+      "encryptStatus"
+    ]
+  },
+  {
+    "id": "19(2)(a)",
+    "name": "Identify all reasonably foreseeable internal and external risks",
+    "framework_text_summary": "Take reasonable measures to identify all reasonably foreseeable internal and external risks to personal information in the responsible party's possession or control.",
+    "rating": "partial",
+    "checks": [
+      "os",
+      "patch",
+      "assets",
+      "dmarc"
+    ],
+    "tested": "Technical risks Liongard finds on inspected systems: unsupported operating systems, missing updates, unmanaged devices on the network and spoofable email domains. Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date. Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware. Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent. Inspected domains that are spoofable (no enforcing DMARC or failing SPF for sending domains; no reject policy and -all SPF for non-sending domains).",
+    "gap": "Technical risks only, on systems connected to Liongard. People, process, supplier and physical risks, and the risk assessment itself, are the client's (the page's \"risk assessment\" policy question). Liongard sees systems, not personal information: it cannot tell which systems hold personal information. The client scopes that (the earlier POPIA dashboard's \"Compliance Basis\" widget).",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 19(2)(a) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "19(2)(b)",
+    "name": "Establish and maintain appropriate safeguards against the risks identified",
+    "framework_text_summary": "Establish and maintain appropriate safeguards against the identified risks.",
+    "rating": "partial",
+    "checks": [
+      "malware",
+      "hostFw",
+      "boundary",
+      "encrypt",
+      "privMfa",
+      "mfa",
+      "adminAcct",
+      "backup",
+      "patch"
+    ],
+    "tested": "Whether core technical safeguards are in place and maintained on inspected systems. Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent. Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints. Open BitLocker or \"not encrypted\" alerts on Windows devices, plus any current encryption-off finding from other tools. A device with no alert counts as encrypted. Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off). Backup inspectors (by stack capability or product name) that are fresh, plus current job findings that read failed, missed or stale. Does not test per-job recency, offsite copies or restore tests. Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware.",
+    "gap": "Shows technical safeguards exist and are maintained; does not show they are \"appropriate\" to the client's risks (that is a judgement tied to 19(2)(a) and 19(3)). Organisational safeguards (policies, contracts, training content) are attested. Liongard sees systems, not personal information: it cannot tell which systems hold personal information. The client scopes that (the earlier POPIA dashboard's \"Compliance Basis\" widget).",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 19(2)(b) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "19(2)(c)",
+    "name": "Regularly verify that safeguards are effectively implemented",
+    "framework_text_summary": "Take reasonable measures to regularly verify that the safeguards are effectively implemented.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "That Liongard re-inspects the systems on a schedule and its data is current, so the technical safeguards above are being verified regularly. Each saved snapshot (compliance-history.json) is a dated verification. Share of active Liongard inspectors whose data is current against their own schedule. This is the quality of Liongard's own evidence, not a client control.",
+    "gap": "Automated verification of technical configuration only. Verification of organisational safeguards, and independent testing (penetration tests, audits), are attested. This is the one place the \"evidence\" check is a genuine control mapping.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 19(2)(c) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "19(2)(d)",
+    "name": "Continually update safeguards in response to new risks or deficiencies",
+    "framework_text_summary": "Ensure safeguards are continually updated in response to new risks or deficiencies in earlier safeguards.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Supporting only: the remediation list (marked done, verified fixed, reopened) and the trend between snapshots show deficiencies being closed.",
+    "gap": "Updating safeguards is a management process; the remediation record supports the attestation but is not itself a safeguard check.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 19(2)(d) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF).",
+    "proposed_checks": [
+      "remediationClosure"
+    ],
+    "rating_with_proposed": "partial"
+  },
+  {
+    "id": "19(3)",
+    "name": "Due regard to generally accepted information security practices",
+    "framework_text_summary": "Have due regard to generally accepted information security practices and procedures, including industry or professional rules.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored directly.",
+    "gap": "The client names the practice it follows (for example CIS Controls v8.1 or ISO/IEC 27001). That framework's catalogue in this folder then shows what Liongard evidences against it. The Information Regulator's Dis-Chem enforcement notice relied on s19 (secondary source: https://inforegulator.org.za/wp-content/uploads/2020/07/DIS-CHEM-ENFORCEMENT-NOTICE.pdf, not read in full).",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 19(3) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s20",
+    "name": "Operator processes only with authorisation and keeps information confidential",
+    "framework_text_summary": "An operator, or anyone processing for the responsible party or operator, must process only with the responsible party's knowledge or authorisation and treat the information as confidential.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "The MSP is usually an operator for its client. The MSP attests to its own conduct; MSP account controls (MSP accounts without MFA on Identity & access) are supporting technical evidence, not scored here.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 20 (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF).",
+    "proposed_checks": [
+      "mspMfa"
+    ]
+  },
+  {
+    "id": "21(1)",
+    "name": "Written contract requiring the operator to maintain section 19 measures",
+    "framework_text_summary": "The responsible party must, by written contract, ensure each operator establishes and maintains the s19 security measures.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored. The page's \"suppliers' security risk is reviewed\" question is related but not the same.",
+    "gap": "Contracts are documents. Add a POPIA-specific question: \"Written operator agreements requiring s19 measures are in place with every operator, including the MSP\".",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 21(1) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "21(2)",
+    "name": "Operator notifies the responsible party immediately of suspected compromise",
+    "framework_text_summary": "The operator must notify the responsible party immediately where there are reasonable grounds to believe personal information was accessed or acquired by an unauthorised person.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Process and contract term. Directly relevant to the MSP as operator.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 21(2) (Condition 7). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "22(1)-(2)",
+    "name": "Notify the Regulator and data subjects of a security compromise as soon as reasonably possible",
+    "framework_text_summary": "On reasonable grounds to believe personal information was accessed or acquired by an unauthorised person, notify the Regulator and (subject to s22(3)) the data subject, as soon as reasonably possible after discovery.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored. The page's incident response plan question is supporting.",
+    "gap": "A breach-notification procedure is a document and a record. Any fixed hour count (for example \"72 hours\") is guidance, not in the Act. The Regulator's prescribed notification form and portal channel are Unverified.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 22(1)-(2). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "22(3)",
+    "name": "Delay of data-subject notification only on direction",
+    "framework_text_summary": "Delay notifying data subjects only if a public body or the Regulator determines notification would impede a criminal investigation.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 22(3). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "22(4)-(5)",
+    "name": "Form and content of the data-subject notification",
+    "framework_text_summary": "Notification in writing by mail, email, prominent website notice, news media or as the Regulator directs; with consequences, measures taken, recommended steps and, if known, the identity of the unauthorised person.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. A template notice in the incident response plan is the usual evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 22(4)-(5). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s23",
+    "name": "Data subject access to personal information",
+    "framework_text_summary": "Data subjects may request confirmation and a record of personal information held, including third parties with access.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 23 (Condition 8). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s24",
+    "name": "Correction or deletion of personal information",
+    "framework_text_summary": "Data subjects may request correction, deletion or destruction of their personal information.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 24 (Condition 8). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s55(1)",
+    "name": "Information Officer duties",
+    "framework_text_summary": "The Information Officer encourages compliance with the conditions, deals with requests, works with the Regulator on investigations, and otherwise ensures compliance.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 55(1). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "s55(2)",
+    "name": "Information Officer registered with the Regulator",
+    "framework_text_summary": "Information Officers take up their duties only after the responsible party has registered them with the Regulator.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. The registration confirmation is the evidence.",
+    "source": "Protection of Personal Information Act 4 of 2013 (Government Gazette 37067, 26 Nov 2013), section 55(2). https://www.gov.za/sites/default/files/gcis_document/201409/3706726-11act4of2013protectionofpersonalinforcorrect.pdf (text read from the gazette PDF)."
+  },
+  {
+    "id": "reg4(1)(a)",
+    "name": "Compliance framework developed, implemented, monitored and maintained",
+    "framework_text_summary": "The Information Officer must ensure a compliance framework is developed, implemented, monitored and maintained.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. This pack can be cited as the technical-monitoring part of the framework.",
+    "source": "Regulations relating to the Protection of Personal Information, 2018 (GN R1383, 14 Dec 2018), regulation 4(1)(a), in force 1 May 2021. Wording from secondary sources (https://inforegulator.org.za/popia/ ; https://www.golegal.co.za/popia-regulations-compliance/), Unverified against the Gazette."
+  },
+  {
+    "id": "reg4(1)(b)",
+    "name": "Personal information impact assessment",
+    "framework_text_summary": "Ensure a personal information impact assessment is done so that adequate measures and standards exist to comply with the conditions.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. The 19(2)(a) technical risk findings are an input to it, not the assessment.",
+    "source": "Regulations relating to the Protection of Personal Information, 2018 (GN R1383, 14 Dec 2018), regulation 4(1)(b), in force 1 May 2021. Wording from secondary sources (https://inforegulator.org.za/popia/ ; https://www.golegal.co.za/popia-regulations-compliance/), Unverified against the Gazette."
+  },
+  {
+    "id": "reg4(1)(c)",
+    "name": "PAIA manual developed, monitored, maintained and made available",
+    "framework_text_summary": "Ensure a manual (PAIA s14/s51) is developed, monitored, maintained and made available.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Regulations relating to the Protection of Personal Information, 2018 (GN R1383, 14 Dec 2018), regulation 4(1)(c), in force 1 May 2021. Wording from secondary sources (https://inforegulator.org.za/popia/ ; https://www.golegal.co.za/popia-regulations-compliance/), Unverified against the Gazette."
+  },
+  {
+    "id": "reg4(1)(d)",
+    "name": "Internal measures and systems to process requests",
+    "framework_text_summary": "Develop internal measures and adequate systems to process requests for information or access.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence.",
+    "source": "Regulations relating to the Protection of Personal Information, 2018 (GN R1383, 14 Dec 2018), regulation 4(1)(d), in force 1 May 2021. Wording from secondary sources (https://inforegulator.org.za/popia/ ; https://www.golegal.co.za/popia-regulations-compliance/), Unverified against the Gazette."
+  },
+  {
+    "id": "reg4(1)(e)",
+    "name": "Internal awareness sessions",
+    "framework_text_summary": "Conduct internal awareness sessions on POPIA, the regulations, codes of conduct and information from the Regulator.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored. The KnowBe4 training check is generic security awareness and is not mapped: it does not show POPIA-specific sessions.",
+    "gap": "Organisational measure; the responsible party (the client) attests, with the document or record as evidence. A KnowBe4 POPIA module, if used, could be supporting evidence.",
+    "source": "Regulations relating to the Protection of Personal Information, 2018 (GN R1383, 14 Dec 2018), regulation 4(1)(e), in force 1 May 2021. Wording from secondary sources (https://inforegulator.org.za/popia/ ; https://www.golegal.co.za/popia-regulations-compliance/), Unverified against the Gazette."
+  }
+]

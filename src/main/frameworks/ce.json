@@ -1,0 +1,534 @@
+[
+  {
+    "id": "A2.R1",
+    "name": "Scope covers the whole IT infrastructure or a defined sub-set, including end-user devices",
+    "framework_text_summary": "Define the scope boundary (business unit, network boundary, location). A scope without end-user devices is not acceptable; excluded parts must be justified.",
+    "rating": "attest",
+    "checks": [
+      "assets"
+    ],
+    "tested": "Supporting only: endpoints seen by discovery tools with no RMM, EDR or agent, which may be in scope but unmanaged. Endpoints seen by discovery tools that have no RMM, EDR or Liongard agent.",
+    "gap": "Scope is a declaration agreed with the Certification Body. Liongard cannot tell which devices the client declared in scope, mobile phones and BYOD are not seen, and an unmanaged device is not proof of an out-of-scope device.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section D \"Scope\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A2"
+  },
+  {
+    "id": "A2.R2",
+    "name": "Cloud services are in scope and cannot be excluded",
+    "framework_text_summary": "If organisational data or services are hosted on cloud services (IaaS, PaaS, SaaS), they must be in scope. New in v3.3: cloud services cannot be excluded.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored. The Customer stack page lists cloud services that have a Liongard inspector (for example Microsoft 365), which is a useful prompt for the scope list.",
+    "gap": "Cloud services with no Liongard inspector are invisible. The applicant must list every cloud service and, where the provider implements a control, hold the contractual commitment.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section D(iv) \"Cloud services\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "cloudInventory"
+    ],
+    "iasme_section": "A2"
+  },
+  {
+    "id": "A2.R3",
+    "name": "BYOD, home and remote working devices, and third-party accounts are in scope",
+    "framework_text_summary": "User-owned devices that access organisational data or services, home/remote devices and supplied routers are in scope; accounts used by third parties (for example the MSP) are covered by the controls.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Liongard does not see personal devices or home routers. Third-party (MSP) accounts are partly visible: see A7.R9.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section D(i), D(ii), D(v). https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A2"
+  },
+  {
+    "id": "A4.R1",
+    "name": "Every in-scope device is protected by a correctly configured firewall",
+    "framework_text_summary": "Protect every device in scope with a correctly configured boundary firewall, network device with firewall function, or software firewall (cloud: data flow policies).",
+    "rating": "partial",
+    "checks": [
+      "hostFw",
+      "boundary"
+    ],
+    "tested": "Windows Firewall on for the domain, private and public profiles on agent-reporting Windows endpoints. Firewall inspectors that could be read, failed if any row is \"bad\" (for example support or security subscription expired, HA not configured, health errors, warranty ended). It does not read rules, admin exposure or admin credentials.",
+    "gap": "Tests that a firewall exists and is on, not that it is \"correctly configured\". macOS, Linux and mobile firewalls are not read by the page; cloud data-flow policies (Azure NSG, AWS security groups) are not read. The boundary check fails on licence, HA and warranty items that are not CE requirements.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.1 \"Firewalls\", Requirements. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "macFw",
+      "cloudNsg"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A4"
+  },
+  {
+    "id": "A4.R2",
+    "name": "Default administrative passwords on firewalls changed (or remote admin disabled)",
+    "framework_text_summary": "Change default administrative passwords to a strong, unique password, or disable remote administrative access entirely.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "No inspector can see whether a password is a vendor default. The MSP attests, ideally with the password-vault record.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.1, bullet 1. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A4"
+  },
+  {
+    "id": "A4.R3",
+    "name": "Firewall admin interface not reachable from the internet, unless needed and protected by MFA or an IP allow list",
+    "framework_text_summary": "Prevent internet access to the firewall administrative interface unless there is a documented business need and it is protected by MFA, or an IP allow list plus managed password authentication.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored today.",
+    "gap": "Liongard collects firewall admin accounts and their authentication level (src/main/panels/network.js:9-10, 70, 73) and, per vendor, WAN management exposure (skills/cyber-essentials-dashboard/references/firewall-vendors.md), but Compliance does not use either.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.1, bullet 2. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "fwAdminMfa",
+      "fwAdminExposure"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A4"
+  },
+  {
+    "id": "A4.R4",
+    "name": "Unauthenticated inbound connections blocked by default",
+    "framework_text_summary": "Block unauthenticated inbound connections by default.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Rule sets are readable for some vendors (for example WatchGuard AccessRules) but vary per vendor and are not parsed. Unverified per vendor.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.1, bullet 3. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "fwInboundDefault"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A4"
+  },
+  {
+    "id": "A4.R5",
+    "name": "Inbound firewall rules approved and documented with the business need",
+    "framework_text_summary": "Inbound firewall rules are approved and documented by an authorised person, including the business need.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Approval and documentation are process records held by the client or MSP.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.1, bullet 4. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A4"
+  },
+  {
+    "id": "A4.R6",
+    "name": "Unnecessary firewall rules removed or disabled",
+    "framework_text_summary": "Remove or disable unnecessary firewall rules when they are no longer needed.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Whether a rule is \"needed\" is a judgement. A rule count or rule-change history from the firewall inspector could support the attestation.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.1, bullet 5. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A4"
+  },
+  {
+    "id": "A4.R7",
+    "name": "Software firewall on devices used on untrusted networks",
+    "framework_text_summary": "Use a software firewall on devices used on untrusted networks such as public wifi.",
+    "rating": "partial",
+    "checks": [
+      "hostFw"
+    ],
+    "tested": "Windows Firewall on all three profiles (domain, private, public) on Windows endpoints with the Liongard agent.",
+    "gap": "macOS and Linux firewalls aren’t checked, and Liongard can’t tell which devices are used on untrusted networks. Devices not reporting are listed, not passed.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.1, final paragraph. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "macFw"
+    ],
+    "iasme_section": "A4"
+  },
+  {
+    "id": "A5.R1",
+    "name": "Unnecessary user accounts removed or disabled (guest and unused admin accounts)",
+    "framework_text_summary": "Regularly remove and disable unnecessary user accounts, such as guest accounts and administrative accounts that won't be used.",
+    "rating": "partial",
+    "checks": [
+      "stale"
+    ],
+    "tested": "Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "Tests unused directory and SaaS accounts. Does not test local Guest accounts or built-in Administrator, although Liongard has them (Windows Workstation metric \"Guest Account Disabled\"; AD \"Default Guest Account Enabled\").",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2 \"Secure Configuration\", Requirements, bullet 1. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "guestAcct",
+      "defaultAdmin"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A5.R2",
+    "name": "Default or guessable account passwords changed",
+    "framework_text_summary": "Change any default or guessable account passwords.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Password values are never visible to Liongard (and must not be).",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2, bullet 2. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A5.R3",
+    "name": "Unnecessary software removed or disabled",
+    "framework_text_summary": "Remove or disable unnecessary software, including applications, system utilities and network services.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Liongard holds the installed software list per device (Windows \"List of Installed Software\", macOS \"List of Applications\"), but \"unnecessary\" needs a client-approved list. With an approved list this becomes partial.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2, bullet 3. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "swInventory"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A5.R4",
+    "name": "Auto-run disabled",
+    "framework_text_summary": "Disable any auto-run feature which allows file execution without user authorisation.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AutoRun settings appear only in Windows LocalPolicy / AD GroupPolicies where collected; absent from Workstation dataprints in tenants tested (CIS skill safeguard-map.md:223).",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2, bullet 4. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A5.R5",
+    "name": "Users authenticated before access to organisational data or services",
+    "framework_text_summary": "Ensure users are authenticated before allowing access to organisational data or services.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "True by construction for directory and SaaS accounts; anonymous shares or kiosk logins are not visible.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2, bullet 5. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A5.R6",
+    "name": "Device locking: a credential (biometric, password or PIN) before access",
+    "framework_text_summary": "Where a device needs physical presence, a biometric, password or PIN must be in place before access.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Screen-lock and sign-in requirements are not reliably in the Windows Workstation dataprint; mobile devices are not seen.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2 \"Device unlocking credentials\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A5.R7",
+    "name": "Brute-force protection on device unlocking (throttle to 10 guesses in 5 minutes, or lock after 10)",
+    "framework_text_summary": "Protect the unlock method against brute force by throttling or locking after no more than 10 failed attempts.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "For domain-joined Windows, AD \"Account Lockout Threshold\" is collected (Liongard AD inspector summary) but not used. Note the value can be a sentence such as \"Infinite Bad Logins Allowed\", which is a fail.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2 \"Device unlocking credentials\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "lockout"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A5.R8",
+    "name": "Unlock PIN or password at least 6 characters",
+    "framework_text_summary": "Use technical controls to manage credential quality: minimum 6 characters where the credential only unlocks the device.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD \"Minimum Password Length\" is collected but not used; local and mobile PIN policy is not seen.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.2 \"Device unlocking credentials\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "pwdPolicy"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A5"
+  },
+  {
+    "id": "A6.R1",
+    "name": "All software licensed and supported; unsupported software removed or isolated",
+    "framework_text_summary": "All software on in-scope devices must be licensed and supported, and removed when unsupported (or moved to a sub-set with no internet access).",
+    "rating": "partial",
+    "checks": [
+      "os"
+    ],
+    "tested": "Every endpoint seen (managed and unmanaged) whose operating system is past its vendor end-of-support date.",
+    "gap": "Operating systems only. Applications, browsers, firewall and router firmware support status are not tested; licensing is not tested.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.3 \"Security Update Management\", Requirements, bullets 1-2. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "appSupport",
+      "fwFirmwareSupport"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A6"
+  },
+  {
+    "id": "A6.R2",
+    "name": "Automatic updates enabled where possible",
+    "framework_text_summary": "Have automatic updates enabled where possible.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Collected but unused: Windows Workstation \"Windows Auto-Update Settings\", Windows Server WindowsUpdateConfig, macOS UpdateSettings (CE skill control-map.md:279-280).",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.3, bullet 3. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "autoUpdate"
+    ],
+    "rating_with_proposed": "full",
+    "iasme_section": "A6"
+  },
+  {
+    "id": "A6.R3",
+    "name": "High-risk or critical OS and firmware updates installed within 14 days",
+    "framework_text_summary": "Install updates within 14 days of release where they fix vendor-rated critical or high-risk vulnerabilities, CVSS v3 7 or above, or the vendor gives no severity. Vendor summaries say this question (A6.4) is auto-fail under Danzell (Unverified).",
+    "rating": "partial",
+    "checks": [
+      "patch"
+    ],
+    "tested": "Agent-reporting Windows endpoints with any update waiting in Windows Update (AvailableUpdates). No severity, no age, no third-party applications, no firmware.",
+    "gap": "No severity and no age, so the 14-day rule cannot be applied: one optional update waiting fails a device, and a critical update waiting 40 days counts the same. Firewall and router firmware are not tested. Windows only.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.3, bullet 4. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "critPatch14d",
+      "fwFirmwareCurrent"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A6"
+  },
+  {
+    "id": "A6.R4",
+    "name": "High-risk or critical application updates installed within 14 days",
+    "framework_text_summary": "The same 14-day rule for applications, including associated files and extensions (vendor summaries cite question A6.5, auto-fail under Danzell, Unverified).",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Windows Update data does not cover third-party applications. Installed-software versions exist but there is no release-date or CVE feed to judge them.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.3, bullet 4. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "appPatch"
+    ],
+    "iasme_section": "A6"
+  },
+  {
+    "id": "A7.R1",
+    "name": "A process to create and approve user accounts",
+    "framework_text_summary": "Have in place a process to create and approve user accounts.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Process. Liongard change alerts (for example AD \"Change to Active Users\") can support it but do not prove approval.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4 \"User Access Control\", Requirements, bullet 1. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R2",
+    "name": "Users authenticated with unique credentials",
+    "framework_text_summary": "Authenticate users with unique credentials before granting access to applications or devices.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Shared accounts are partly visible (Identity & access flags shared mailboxes on network gear, network.js:116) but not scored.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4, bullet 2. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "sharedAcct"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R3",
+    "name": "Accounts removed or disabled when no longer required (leavers, inactivity)",
+    "framework_text_summary": "Remove or disable user accounts when no longer required, for example when a user leaves or after a defined period of inactivity.",
+    "rating": "partial",
+    "checks": [
+      "leavers",
+      "stale"
+    ],
+    "tested": "Accounts disabled in at least one system but still present or holding admin rights in another inspected tool (excluding AD, Microsoft 365, KnowBe4, dark web). Enabled accounts with no sign-in for 90+ days or reported stale by a source; accounts with no sign-in data are named, not passed.",
+    "gap": "Liongard cannot see HR leaver dates, so a leaver still enabled everywhere looks like an active user. The inactivity period is fixed at 90 days, not the client's \"defined period\".",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4, bullet 3. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R4",
+    "name": "MFA wherever available; cloud services must always use MFA",
+    "framework_text_summary": "Implement MFA where available; authentication to cloud services must always use MFA. Under v3.3 MFA available but not enabled on a cloud service is an automatic fail (vendor summary; the v3.3 requirement text says \"must always use MFA\").",
+    "rating": "partial",
+    "checks": [
+      "mfa",
+      "privMfa"
+    ],
+    "tested": "Share of enabled people and admin accounts with MFA reported in every system they exist in. Pass at 98% or more, partial at 80% or more. Registration, not enforcement. Enabled accounts with admin rights in any inspected identity system, and whether each has MFA reported in every system it exists in (Identity & access \"Admins without MFA\"). MFA here is registration as reported by the source (for Microsoft 365, isMFARegistered, which needs Entra ID P1 and stays \"Enabled\" after MFA is switched off).",
+    "gap": "Registration, not enforcement: Conditional Access and security defaults are not read. Microsoft 365 per-user MFA needs Entra ID P1. Cloud services without an inspector are unseen. The 98% pass threshold is weaker than \"always\".",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4, bullet 4 and \"Multi-factor authentication (MFA)\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "condAccess"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R5",
+    "name": "Separate accounts for administrative activities only",
+    "framework_text_summary": "Use separate accounts to perform administrative activities only (no email, browsing or standard user activity).",
+    "rating": "partial",
+    "checks": [
+      "adminAcct"
+    ],
+    "tested": "Enabled personal accounts that hold a top-level admin role (global admin, super admin, owner, domain admin) instead of a separate admin account.",
+    "gap": "Only top-level roles on personal accounts are tested. Whether admin accounts are used for email or browsing is not visible (a licensed mailbox on an admin account is a usable proxy, not yet used).",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4, bullet 5. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "adminMailbox"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R6",
+    "name": "Special access privileges removed when no longer required",
+    "framework_text_summary": "Remove or disable special access privileges when no longer required, for example on a role change.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Liongard lists who holds privileged roles today (AD privileged users, M365 roles) but cannot know who should. A periodic privileged-access review signed by the client is the evidence.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4, bullet 6. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "privReview"
+    ],
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R7",
+    "name": "Password-based authentication protected against brute force",
+    "framework_text_summary": "Protect passwords against guessing by at least one of: MFA, throttling (no more than 10 guesses in 5 minutes), or locking after no more than 10 failed attempts.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD \"Account Lockout Threshold\" is collected but unused; MFA coverage from A7.R4 can satisfy this for the accounts that have it.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4 \"Password-based authentication\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "lockout"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R8",
+    "name": "Password quality managed by MFA, or 12+ characters, or 8+ characters with a deny list",
+    "framework_text_summary": "Technical controls manage password quality: MFA, or minimum 12 characters, or minimum 8 characters with automatic blocking of common passwords. The NCSC advises not enforcing expiry or complexity.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "AD \"Minimum Password Length\" is collected but unused. A deny list (Entra Password Protection) is not visible. Note Liongard's AD alert \"Password Complexity Not Activated\" runs against CE guidance and must not be scored as a CE fail.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4 \"Password-based authentication\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "pwdPolicy"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R9",
+    "name": "Third-party (for example MSP support) accounts controlled",
+    "framework_text_summary": "Third-party accounts, such as those used by support services, are under the same control.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored on Compliance.",
+    "gap": "Identity & access already finds MSP accounts without MFA (src/main/panels/identity.js:270, 284) but Compliance does not use it.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4, Requirements, introduction. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "mspMfa"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A7.R10",
+    "name": "Process to change passwords promptly when compromise is known or suspected",
+    "framework_text_summary": "Have an established process to change passwords promptly if a password or account is known or suspected to be compromised.",
+    "rating": "attest",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Process. Dark web findings on Identity & access can prompt it but are not evidence of the process.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.4 \"Password-based authentication\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "iasme_section": "A7"
+  },
+  {
+    "id": "A8.R1",
+    "name": "A malware protection mechanism active on every in-scope device",
+    "framework_text_summary": "At least one of anti-malware software or application allow listing must be active on every device in scope.",
+    "rating": "full",
+    "checks": [
+      "malware"
+    ],
+    "tested": "Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Population: managed Windows endpoints. macOS (SecurityProducts, XProtect), Linux and mobile are not tested. EDR is not required by CE: the separate edrAll check must not count toward CE.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.5 \"Malware protection\", Requirements. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "macAv"
+    ],
+    "iasme_section": "A8"
+  },
+  {
+    "id": "A8.R2",
+    "name": "Anti-malware kept up to date in line with the vendor",
+    "framework_text_summary": "Anti-malware software must be updated in line with vendor recommendations.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Defender signature age and third-party AV update status are collected (coverage.js:158 flags old Defender signatures; AVs[].State.updateStatus) but the malware check ignores them. AntivirusSignatureAge 4294967295 means \"not reporting\".",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.5, anti-malware bullet 1. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "avSignatures"
+    ],
+    "rating_with_proposed": "full",
+    "iasme_section": "A8"
+  },
+  {
+    "id": "A8.R3",
+    "name": "Anti-malware prevents malware and malicious code from running",
+    "framework_text_summary": "Anti-malware must be configured to prevent malware running and the execution of malicious code.",
+    "rating": "partial",
+    "checks": [
+      "malware"
+    ],
+    "tested": "Real-time protection on (Defender) or an EDR product present. Managed endpoints (Windows agent, RMM or EDR seen) with an EDR product reported, or Microsoft Defender antivirus and real-time protection on. Fails on any endpoint where protection is off or absent.",
+    "gap": "Third-party product configuration (block vs detect-only) is not read; Defender tamper protection and attack-surface settings are collected but unused.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.5, anti-malware bullets 2-3. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "edrMode"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A8"
+  },
+  {
+    "id": "A8.R4",
+    "name": "Anti-malware prevents connections to malicious websites",
+    "framework_text_summary": "Anti-malware must prevent connections to malicious websites over the internet.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Defender network protection preference and DNS-filter clients (Cisco Umbrella roamingComputers, Webroot DNSP) are collected where deployed but unused.",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.5, anti-malware bullet 4. https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "webProtect"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A8"
+  },
+  {
+    "id": "A8.R5",
+    "name": "Application allow listing (where used instead of anti-malware)",
+    "framework_text_summary": "Only approved, code-signed applications execute; applications are actively approved and a current list is maintained.",
+    "rating": "not_assessed",
+    "checks": [],
+    "tested": "Nothing scored.",
+    "gap": "Only needed for devices that rely on allow listing instead of anti-malware. ThreatLocker computers[].mode and applicationPolicies evidence it where deployed (CE skill control-map.md:42).",
+    "source": "NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026), section E.5, \"Application allow listing\". https://www.ncsc.gov.uk/files/cyber-essentials-requirements-for-it-infrastructure-v3-3.pdf Requirement numbering (R1, R2...) is the order of the NCSC bullets in this section, not IASME question numbers; Danzell question numbers are Unverified.",
+    "proposed_checks": [
+      "appControl"
+    ],
+    "rating_with_proposed": "partial",
+    "iasme_section": "A8"
+  }
+]
