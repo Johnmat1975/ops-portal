@@ -43,10 +43,10 @@ window.VIEWS.licences = {
       ${m.missing.length ? `<p class="sub">Not available for this client: ${esc(m.missing.join(', '))}. Licence data from the client’s other tools is listed at the bottom of the page.</p>` : ''}
       <div class="kpis">${kpiStrip(m.kpis)}</div>
       <h3>Subscriptions</h3>
-      <p class="sub no-print msp">Add what each seat costs (per month) to see what the spare and stale seats are costing the client. Prices are saved on this computer only.</p>
-      <div class="tw"><table id="subTable"><thead><tr><th>Product</th><th>Source</th><th class="c">Purchased</th><th class="c">In use</th><th class="c">Spare</th><th class="c no-print msp">Price / seat / month${mspCurrency() ? ` (${esc(mspCurrency())})` : ''}</th><th class="c">Spare cost / month</th><th>Status</th><th>Why</th></tr></thead><tbody>
-        ${m.subs.map((s, i) => `<tr><td><b>${esc(s.product)}</b></td><td>${src(s.source)}</td><td class="c mono">${s.buy != null ? esc(s.buy) : '<span class="sub">Not reported</span>'}</td><td class="c mono">${esc(s.use)}</td><td class="c mono">${s.buy == null ? '–' : s.buy - s.use}</td>
-          <td class="c no-print msp"><input class="price" data-i="${i}" inputmode="decimal" aria-label="Price per seat for ${esc(s.product)}" placeholder="Price / seat"></td><td class="c mono" id="cost${i}">–</td><td>${CHIP[s.sev]}</td><td class="wrap">${esc(s.note)}</td></tr>`).join('')}
+      <p class="sub no-print msp">Every product this client's inspectors report, found automatically: a new tool appears here after its next refresh. Add what each seat costs per month to see what the client pays for seats in use and for spare ones. Prices are one list for every client, saved on this computer.</p>
+      <div class="tw"><table id="subTable"><thead><tr><th style="min-width:190px">Product</th><th class="c">Purchased</th><th class="c">In use</th><th class="c">Spare</th><th class="c no-print msp" style="white-space:normal">Price / seat / month${mspCurrency() ? ` (${esc(mspCurrency())})` : ''}</th><th class="c" style="white-space:normal">Cost / month</th><th class="c" style="white-space:normal">Spare cost / month</th><th>Status</th><th>Why</th></tr></thead><tbody>
+        ${m.subs.map((s, i) => `<tr${s.auto ? ' data-auto="1"' : ''}><td data-csv="${esc(s.product)} (${esc(s.source)})"><b>${esc(s.product)}</b><div class="sub" style="margin:0">${src(s.source)}${s.unit ? ` · per ${esc(s.unit)}` : ''}${s.how ? ` · counted from “${esc(String(s.how).replace(/^[^:]+:\s*/, ''))}”` : ''}</div></td><td class="c mono">${s.buy != null ? esc(s.buy) : '<span class="sub">Not reported</span>'}</td><td class="c mono">${esc(s.use)}</td><td class="c mono">${s.buy == null ? '–' : s.buy - s.use}</td>
+          <td class="c no-print msp"><input class="price" data-i="${i}" inputmode="decimal" style="width:86px" aria-label="Price per ${esc(s.unit || 'seat')} for ${esc(s.product)}" placeholder="Price / ${esc(s.unit || 'seat')}"></td><td class="c mono" id="use${i}">–</td><td class="c mono" id="cost${i}">–</td><td>${CHIP[s.sev]}</td><td class="wrap" style="min-width:180px">${esc(s.note)}</td></tr>`).join('')}
       </tbody></table></div>
       <div class="two">
         <div class="card flag warn"><h3>What to do</h3><ul class="plain">${m.actions.map(x => `<li><i class="tick t-${x.sev === 'bad' ? 'bad' : 'warn'}" style="flex:none">${x.sev === 'bad' ? '✕' : '!'}</i><div><b>${esc(x.a)}</b><div class="sub" style="margin:0">${esc(x.b)}</div></div></li>`).join('') || '<li>Nothing to do.</li>'}</ul></div>
@@ -96,11 +96,12 @@ window.VIEWS.licences = {
     const money = v => fmtMoney(v, cur);   // Settings › Defaults › Currency
     const staleSeats = m.dormant.filter(r => r.verdict === 'bad');
     const paint = () => {
-      let spareCost = 0, priced = 0;
+      let spareCost = 0, priced = 0, useCost = 0;
       m.subs.forEach((s, i) => {
         const p0 = parsePrice(prices[s.product]), p = p0 == null ? NaN : p0; const sp = s.buy == null ? 0 : Math.max(0, s.buy - s.use);
-        if (!isNaN(p)) { priced++; spareCost += p * sp; }
+        if (!isNaN(p)) { priced++; spareCost += p * sp; if (typeof s.use === 'number') useCost += p * s.use; }
         const c = $(`cost${i}`); if (c) c.textContent = isNaN(p) || s.buy == null ? '–' : money(p * sp);
+        const u = $(`use${i}`), n = typeof s.use === 'number' ? s.use : NaN; if (u) u.textContent = isNaN(p) || isNaN(n) ? '–' : money(p * n);
       });
       const spare = m.subs.filter(s => s.buy != null && s.buy - s.use > 0 && !/\bfree\b|trial/i.test(s.product));   // free and trial SKUs cost nothing
       const lines = [
@@ -109,10 +110,10 @@ window.VIEWS.licences = {
           return `${m.subs.length} subscription${m.subs.length === 1 ? '' : 's'} checked: ${t ? `${t} spare paid Microsoft 365 seat${t === 1 ? '' : 's'}` : 'no spare paid Microsoft 365 seats'}${on ? `, plus ${on} spare in ${[...new Set(other.map(s => s.source))].join(', ')}` : ''}.`; })(),
         staleSeats.length ? `${staleSeats.length} licensed ${staleSeats.length === 1 ? 'person hasn’t' : 'people haven’t'} used their licence in ${m.thresholds.DORMANT_DAYS}+ days: ${staleSeats.slice(0, 4).map(r => r.name).join(', ')}${staleSeats.length > 4 ? ' and more' : ''}.` : 'Every licensed person is active.',
         m.actions.length ? `${m.actions.length} change${m.actions.length === 1 ? '' : 's'} to make, ${m.actions.filter(a => a.sev === 'bad').length} urgent.` : '',
-        priced ? `Spare seats cost about ${money(spareCost)} a month (${money(spareCost * 12)} a year) at the prices entered.` : 'Add seat prices below to see what spare seats cost.',
+        priced ? `Seats in use cost about ${money(useCost)} a month (${money(useCost * 12)} a year) across the ${priced} priced product${priced === 1 ? '' : 's'}; spare seats cost about ${money(spareCost)} a month (${money(spareCost * 12)} a year).` : 'Add seat prices below to see what the client’s seats cost.',
       ].filter(Boolean);
       // The currency hint is for the MSP only, never printed for the client.
-      $('licSummary').innerHTML = lines.map(l => `<li><span>${esc(l)}${priced && !cur && /^Spare seats cost/.test(l) ? ' <span class="msp no-print">(set your currency in Settings › Defaults)</span>' : ''}</span></li>`).join('');
+      $('licSummary').innerHTML = lines.map(l => `<li><span>${esc(l)}${priced && !cur && /^Seats in use cost/.test(l) ? ' <span class="msp no-print">(set your currency in Settings › Defaults)</span>' : ''}</span></li>`).join('');
     };
     // ---------- Licences per person ----------
     // A seat's monthly cost: free SKUs and usage-billed products cost nothing per seat; unpriced seats are left out of totals.
