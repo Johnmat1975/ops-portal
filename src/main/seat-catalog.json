@@ -1,0 +1,876 @@
+{
+  "3CX": {
+    "product": "3CX Phone System",
+    "unit": "user",
+    "used": {
+      "q": "SystemExtensions | length(@)",
+      "metric": "3CX: Total Extensions Count"
+    },
+    "purchased": null,
+    "caveat": "Counts extensions. 3CX itself is licensed per phone system by simultaneous calls"
+  },
+  "3CX (Legacy)": {
+    "product": "3CX Phone System (v16 and earlier)",
+    "unit": "user",
+    "used": {
+      "q": "Extensions[] | length(@)",
+      "metric": "3CX: Total Extensions Count"
+    },
+    "purchased": null,
+    "caveat": "Counts extensions. 3CX itself is licensed per phone system by simultaneous calls"
+  },
+  "Acronis Cyber Cloud": {
+    "product": "Acronis Cyber Protect Cloud",
+    "unit": "device",
+    "used": {
+      "q": "Resources[?type==`resource.machine`] | length(@)",
+      "metric": "Acronis Cyber Cloud: Count of Machines"
+    },
+    "purchased": null,
+    "caveat": "Counts protected workloads. Acronis can also bill per GB, depending on the edition"
+  },
+  "Active Directory": {
+    "product": "Windows Server Active Directory (user CALs)",
+    "unit": "user",
+    "used": {
+      "q": "Users[?UserStatus==`Active` && (contains(MemberOfStr, `RoarExclude`) == `false`|| !MemberOfStr)] | length(@)",
+      "metric": "Active Directory: Active Users Count (Exclusions Supported)"
+    },
+    "purchased": null
+  },
+  "Addigy": {
+    "product": "Addigy MDM",
+    "unit": "device",
+    "used": {
+      "q": "length(Devices)",
+      "metric": "Addigy: Device Count"
+    },
+    "purchased": null
+  },
+  "Addigy (Legacy)": {
+    "product": "Addigy MDM",
+    "unit": "device",
+    "used": {
+      "q": "Devices[] | length(@)",
+      "metric": "Addigy: Device Count"
+    },
+    "purchased": null
+  },
+  "Admin By Request": {
+    "product": "Admin By Request (Workstation)",
+    "unit": "device",
+    "used": {
+      "q": "SystemInfo.WorkstationSeatUsage",
+      "metric": "Admin by Request: Workstation Seats In Use"
+    },
+    "purchased": null
+  },
+  "Amazon Web Services": {
+    "product": "Amazon Web Services",
+    "unit": "none"
+  },
+  "Anthropic": {
+    "product": "Anthropic Claude (Console organisation)",
+    "unit": "user",
+    "used": {
+      "q": "Users | length(@)",
+      "metric": "Anthropic: Total Users Count"
+    },
+    "purchased": null,
+    "caveat": "Billed on usage for the API; the member count matters only on seat-based plans"
+  },
+  "Arctic Wolf": {
+    "product": "Arctic Wolf MDR",
+    "unit": "none",
+    "used": null,
+    "purchased": null
+  },
+  "Autotask": {
+    "product": "Autotask PSA",
+    "unit": "none"
+  },
+  "Auvik": {
+    "product": "Auvik Network Management",
+    "unit": "device",
+    "used": {
+      "q": "length(Devices[?contains([`switch`,`l3Switch`,`router`,`firewall`,`stack`], attributes.deviceType)])"
+    },
+    "purchased": null,
+    "caveat": "Counts billable network devices (switches, routers, firewalls). Access points and servers are free"
+  },
+  "Axcient x360Recover": {
+    "product": "Axcient x360Recover",
+    "unit": "device",
+    "used": {
+      "q": "length(Devices)"
+    },
+    "purchased": null,
+    "caveat": "Counts protected servers and workstations together; they're often priced differently"
+  },
+  "Azure": {
+    "product": "Microsoft Azure",
+    "unit": "none"
+  },
+  "Azure Active Directory": {
+    "product": "Microsoft Entra ID",
+    "unit": "none",
+    "why": "Entra licences are bought as Microsoft 365 plans and counted on those rows"
+  },
+  "Barracuda Firewall": {
+    "product": "Barracuda CloudGen Firewall subscriptions",
+    "unit": "appliance",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null
+  },
+  "BitLyft": {
+    "product": "BitLyft AIR",
+    "unit": "none",
+    "used": null,
+    "purchased": null
+  },
+  "Bitdefender GravityZone": {
+    "product": "Bitdefender GravityZone",
+    "unit": "device",
+    "used": {
+      "q": "License.usedSlots",
+      "metric": "Bitdefender GravityZone: Used Licenses"
+    },
+    "purchased": {
+      "q": "License.totalSlots"
+    },
+    "caveat": "Purchased is empty on monthly subscriptions"
+  },
+  "Box.com": {
+    "product": "Box",
+    "unit": "user",
+    "used": {
+      "q": "length(Members[?Status=='active'])"
+    },
+    "purchased": null
+  },
+  "CIPP": {
+    "product": "CIPP (M365 management)",
+    "unit": "none"
+  },
+  "Cisco ASA": {
+    "product": "Cisco ASA",
+    "unit": "none"
+  },
+  "Cisco IOS": {
+    "product": "Cisco IOS device",
+    "unit": "none"
+  },
+  "Cisco Meraki": {
+    "product": "Cisco Meraki",
+    "unit": "device",
+    "used": {
+      "q": "NumberOfDevices"
+    },
+    "purchased": {
+      "q": "\"License.Count\""
+    },
+    "caveat": "Purchased includes Systems Manager seats, so it won't match the network devices in use"
+  },
+  "Cisco Small Business Switch": {
+    "product": "Cisco Small Business Switch",
+    "unit": "none"
+  },
+  "Cisco Umbrella": {
+    "product": "Cisco Umbrella",
+    "unit": "device",
+    "used": {
+      "q": "(roamingComputers || `[]`)[?status != `Uninstalled` && lastSyncStatus != `Uninstalled`] | length(@)",
+      "metric": "Cisco Umbrella: Active Roaming Computers Count"
+    },
+    "purchased": null,
+    "caveat": "Counts roaming computers, the closest match to Umbrella's per-user licence"
+  },
+  "Cloudflare": {
+    "product": "Cloudflare",
+    "unit": "none"
+  },
+  "ConnectWise Asio": {
+    "product": "ConnectWise Asio (RMM)",
+    "unit": "device",
+    "used": {
+      "q": "length(Devices || `[]`)",
+      "metric": "ConnectWise Asio: Managed Endpoint Count"
+    },
+    "purchased": null
+  },
+  "ConnectWise Automate": {
+    "product": "ConnectWise Automate",
+    "unit": "device",
+    "used": {
+      "q": "length(Computers || `[]`)"
+    },
+    "purchased": null,
+    "caveat": "Agent licences are pooled across the MSP, so there's no purchased number per client"
+  },
+  "ConnectWise Manage": {
+    "product": "ConnectWise PSA",
+    "unit": "none"
+  },
+  "Continuum RMM": {
+    "product": "ConnectWise Continuum RMM",
+    "unit": "device",
+    "used": {
+      "q": "length(AgentDetails.AgentDetails || `[]`)",
+      "metric": "Continuum RMM: Total Agents Count"
+    },
+    "purchased": null
+  },
+  "ControlMap": {
+    "product": "ControlMap compliance platform",
+    "unit": "none"
+  },
+  "Corero": {
+    "product": "Corero SmartWall DDoS protection",
+    "unit": "appliance",
+    "used": {
+      "q": "length(devices || `[]`)",
+      "metric": "Appliance Count"
+    },
+    "purchased": null
+  },
+  "Cove Data Protection": {
+    "product": "N-able Cove Data Protection",
+    "unit": "device",
+    "used": {
+      "q": "length((Devices || `[]`)[?Type == `BackupManager`])"
+    },
+    "purchased": null
+  },
+  "CrowdStrike EDR": {
+    "product": "CrowdStrike Falcon",
+    "unit": "device",
+    "used": {
+      "q": "length(DevicesDetails)",
+      "metric": "CrowdStrike: Total Enrolled Devices"
+    },
+    "purchased": null,
+    "caveat": "Counts every enrolled sensor, including offline ones"
+  },
+  "Dark Web Monitoring": {
+    "product": "Liongard Identity (Dark Web) Monitoring",
+    "unit": "user",
+    "used": {
+      "q": "length(Users)",
+      "metric": "Identity Monitoring: Total Monitored Users Count"
+    },
+    "purchased": null,
+    "caveat": "Counts monitored identities. It matters only if you resell monitoring per identity"
+  },
+  "Datto BCDR": {
+    "product": "Datto SIRIS/ALTO BCDR",
+    "unit": "appliance",
+    "used": {
+      "q": "length([SystemInfo][?serialNumber != null])"
+    },
+    "purchased": null,
+    "caveat": "Billed per appliance and service plan"
+  },
+  "Datto Networking": {
+    "product": "Datto Networking (cloud-managed APs/switches)",
+    "unit": "device",
+    "used": {
+      "q": "sum([length(AccessPoints || `[]`), length(Switches || `[]`)])"
+    },
+    "purchased": null
+  },
+  "Datto RMM": {
+    "product": "Datto RMM",
+    "unit": "device",
+    "used": {
+      "q": "length((Devices || `[]`)[?suspended != `true` && deleted != `true`])"
+    },
+    "purchased": null
+  },
+  "DigitalOcean": {
+    "product": "DigitalOcean cloud",
+    "unit": "none"
+  },
+  "Domotz": {
+    "product": "Domotz Pro network monitoring",
+    "unit": "site",
+    "used": {
+      "q": "length([Agent][?id != null])"
+    },
+    "purchased": null,
+    "caveat": "Licensed per collector (site). Device-tier plans also count monitored devices"
+  },
+  "Duo Security": {
+    "product": "Cisco Duo",
+    "unit": "user",
+    "used": {
+      "q": "SystemInfo.user_count"
+    },
+    "purchased": null
+  },
+  "ESET Licensing": {
+    "product": "ESET PROTECT (MSP licensing)",
+    "unit": "device",
+    "used": {
+      "q": "sum((Licenses || `[]`)[?State_r != 'Suspend' && State_r != 'Obsolete' && trial != `true`].usage)"
+    },
+    "purchased": {
+      "q": "sum((Licenses || `[]`)[?State_r != 'Suspend' && State_r != 'Obsolete' && trial != `true`].quantity)"
+    },
+    "caveat": "Adds up seats across ESET products, which can use different units"
+  },
+  "Egnyte": {
+    "product": "Egnyte",
+    "unit": "user",
+    "used": {
+      "q": "UserSummary.PowerUsers",
+      "metric": "Egnyte: Power User Count"
+    },
+    "purchased": null,
+    "caveat": "Counts employee (power) users. External collaborators usually aren't billed"
+  },
+  "EnGenius": {
+    "product": "EnGenius Cloud",
+    "unit": "none"
+  },
+  "Fortinet FortiManager": {
+    "product": "FortiGate (via FortiManager) FortiGuard bundle",
+    "unit": "appliance",
+    "used": {
+      "q": "length([Licensing][?antivirus.status == 'licensed' || ips.status == 'licensed' || web_filtering.status == 'licensed'])"
+    },
+    "purchased": null,
+    "caveat": "One FortiGate and its FortiGuard bundle per row"
+  },
+  "Fortinet Fortigate": {
+    "product": "Fortinet FortiGate FortiGuard subscription",
+    "unit": "appliance",
+    "used": {
+      "q": "length([Licensing][?antivirus.status == 'licensed' || ips.status == 'licensed' || web_filtering.status == 'licensed'])"
+    },
+    "purchased": null,
+    "caveat": "Billed per appliance and FortiGuard bundle"
+  },
+  "GitHub Copilot": {
+    "product": "GitHub Copilot Business/Enterprise",
+    "unit": "user",
+    "used": {
+      "q": "billing.seat_breakdown.active_this_cycle",
+      "metric": "Active Seats This Cycle"
+    },
+    "purchased": {
+      "q": "billing.seat_breakdown.total",
+      "metric": "Total Seats"
+    },
+    "caveat": "Every assigned seat is billed, active or not"
+  },
+  "GoDaddy": {
+    "product": "GoDaddy domains/hosting",
+    "unit": "none"
+  },
+  "Google Drive": {
+    "product": "Google Drive (part of Google Workspace)",
+    "unit": "none"
+  },
+  "Google Workspace": {
+    "product": "Google Workspace",
+    "unit": "user",
+    "used": {
+      "q": "sum((Subscriptions || `[]`)[?plan.planName != 'FREE' && plan.planName != 'TRIAL'].seats.licensedNumberOfSeats)"
+    },
+    "purchased": {
+      "q": "sum((Subscriptions || `[]`)[?plan.planName != 'FREE' && plan.planName != 'TRIAL'].seats.numberOfSeats)"
+    },
+    "caveat": "Purchased is only reported on annual plans; flexible plans bill what's in use"
+  },
+  "HP Procurve": {
+    "product": "HP/Aruba ProCurve switch",
+    "unit": "none"
+  },
+  "HaloPSA": {
+    "product": "HaloPSA",
+    "unit": "none"
+  },
+  "HubSpot": {
+    "product": "HubSpot CRM",
+    "unit": "none"
+  },
+  "Huntress": {
+    "product": "Huntress Managed EDR",
+    "unit": "device",
+    "used": {
+      "q": "Organization.actual_usages.edr.billable_agents_count"
+    },
+    "purchased": null,
+    "caveat": "Huntress's own billable agent count. Identity (ITDR) seats are billed separately"
+  },
+  "Hyper-V": {
+    "product": "Microsoft Hyper-V host",
+    "unit": "none"
+  },
+  "IT Glue": {
+    "product": "IT Glue",
+    "unit": "none"
+  },
+  "ImmyBot": {
+    "product": "ImmyBot",
+    "unit": "none",
+    "why": "Liongard only has an MSP-wide total for this product, not a per-client count"
+  },
+  "Internet Domain/DNS": {
+    "product": "Domain/DNS",
+    "unit": "none"
+  },
+  "Iru (Kandji)": {
+    "product": "Kandji (Iru) Apple device management",
+    "unit": "device",
+    "used": {
+      "q": "summary.device_count",
+      "metric": "iru.tenant.device_count"
+    },
+    "purchased": null
+  },
+  "Jamf Pro": {
+    "product": "Jamf Pro",
+    "unit": "device",
+    "used": {
+      "q": "computers.totalCount",
+      "metric": "jamf.instance.managed_computers"
+    },
+    "purchased": null,
+    "caveat": "Counts computers only. Mobile devices are billed separately"
+  },
+  "JumpCloud": {
+    "product": "JumpCloud Directory Platform",
+    "unit": "user",
+    "used": {
+      "q": "length((Users || `[]`)[?suspended != `true`])"
+    },
+    "purchased": null
+  },
+  "Junos OS - Juniper Networks": {
+    "product": "Juniper Junos device",
+    "unit": "none"
+  },
+  "Kaseya BMS": {
+    "product": "Kaseya BMS (PSA)",
+    "unit": "user",
+    "used": {
+      "q": "length(Users[?IsActive])",
+      "metric": "Kaseya BMS: Active User Count"
+    },
+    "purchased": null,
+    "caveat": "Your own PSA, billed per technician, not per client"
+  },
+  "Kaseya VSA": {
+    "product": "Kaseya VSA (RMM)",
+    "unit": "device",
+    "used": {
+      "q": "Agents[] | length(@)",
+      "metric": "Kaseya VSA: Agent Count"
+    },
+    "purchased": null,
+    "caveat": "Counts agents, including offline machines"
+  },
+  "KnowBe4": {
+    "product": "KnowBe4 Security Awareness Training",
+    "unit": "user",
+    "used": {
+      "q": "length((Users || `[]`)[?status == 'active'])"
+    },
+    "purchased": {
+      "q": "AccountInfo.number_of_seats",
+      "metric": "KnowBe4: Total Number of Seats"
+    }
+  },
+  "Lexful": {
+    "product": "Lexful IT documentation",
+    "unit": "none",
+    "why": "Liongard only has an MSP-wide total for this product, not a per-client count"
+  },
+  "Linux": {
+    "product": "Linux server",
+    "unit": "none"
+  },
+  "LogicMonitor": {
+    "product": "LogicMonitor",
+    "unit": "device",
+    "used": {
+      "q": "length(Devices || `[]`)",
+      "metric": "LogicMonitor: Total Devices Count"
+    },
+    "purchased": null,
+    "caveat": "Counts every monitored resource, including cloud resources"
+  },
+  "Microsoft 365": {
+    "product": "Microsoft 365 licences",
+    "unit": "user",
+    "used": {
+      "q": "sum(Licensing[?!contains(skuPartNumber, 'FREE') && capabilityStatus == 'Enabled'].consumedUnits)"
+    },
+    "purchased": {
+      "q": "sum(Licensing[?!contains(skuPartNumber, 'FREE') && capabilityStatus == 'Enabled'].prepaidUnits.enabled)"
+    }
+  },
+  "N-able N-central": {
+    "product": "N-able N-central",
+    "unit": "device",
+    "used": {
+      "q": "length(Devices[?Licensemode == 'Professional'])"
+    },
+    "purchased": null,
+    "caveat": "Professional and Essential devices are priced differently"
+  },
+  "N-able RMM": {
+    "product": "N-able N-sight RMM",
+    "unit": "device",
+    "used": {
+      "q": "length([Servers || `[]`, Workstations || `[]`][])"
+    },
+    "purchased": null,
+    "caveat": "Servers and workstations are priced differently"
+  },
+  "Nerdio": {
+    "product": "Nerdio Manager for MSP",
+    "unit": "none",
+    "used": null,
+    "purchased": null
+  },
+  "Network Discovery": {
+    "product": "Liongard Network Discovery",
+    "unit": "none"
+  },
+  "Network IP": {
+    "product": "Network IP / WAN",
+    "unit": "none"
+  },
+  "Nimblr": {
+    "product": "Nimblr Security Awareness Training",
+    "unit": "none",
+    "why": "Liongard only has an MSP-wide total for this product, not a per-client count"
+  },
+  "NinjaOne": {
+    "product": "NinjaOne RMM",
+    "unit": "device",
+    "used": {
+      "q": "length(Devices || `[]`)"
+    },
+    "purchased": null
+  },
+  "OneLogin": {
+    "product": "OneLogin",
+    "unit": "user",
+    "used": {
+      "q": "Users[?status==`1`] | length(@)",
+      "metric": "OneLogin: Active Users Count"
+    },
+    "purchased": null
+  },
+  "OpenAI": {
+    "product": "OpenAI API Platform",
+    "unit": "none"
+  },
+  "PFSense": {
+    "product": "pfSense firewall",
+    "unit": "none"
+  },
+  "Palo Alto": {
+    "product": "Palo Alto NGFW security subscriptions",
+    "unit": "appliance",
+    "used": {
+      "q": "length((SystemInfo.licenses || `[]`)[?expired == 'no']) > `0` && `1` || `0`"
+    },
+    "purchased": null,
+    "caveat": "Security subscriptions are per firewall"
+  },
+  "Palo Alto Panorama": {
+    "product": "Palo Alto Panorama",
+    "unit": "appliance",
+    "used": {
+      "q": "Counts.NumManagedFirewalls",
+      "metric": "Palo Alto Panorama: Managed Firewall Count"
+    },
+    "purchased": null,
+    "caveat": "Licensed by the number of managed firewalls (capacity tiers)"
+  },
+  "Qualys": {
+    "product": "Qualys VMDR",
+    "unit": "device",
+    "used": {
+      "q": "TotalHosts",
+      "metric": "Qualys: Total Hosts"
+    },
+    "purchased": null,
+    "caveat": "Counts licensed assets"
+  },
+  "QuickBooks": {
+    "product": "QuickBooks Online",
+    "unit": "none"
+  },
+  "Roar": {
+    "product": "Liongard",
+    "unit": "none",
+    "why": "Liongard only has an MSP-wide total for this product, not a per-client count"
+  },
+  "Roar Reporting": {
+    "product": "Liongard reporting",
+    "unit": "none"
+  },
+  "SQL Server": {
+    "product": "Microsoft SQL Server",
+    "unit": "none"
+  },
+  "Salesforce": {
+    "product": "Salesforce",
+    "unit": "user",
+    "used": {
+      "q": "sum(UserLicenses[].UsedLicenses)",
+      "metric": "Salesforce: Assigned User License Count"
+    },
+    "purchased": null,
+    "caveat": "Adds up all licence types, including free ones"
+  },
+  "Senteon": {
+    "product": "Senteon",
+    "unit": "device",
+    "used": {
+      "q": "status.totalEndpoints",
+      "metric": "Senteon: Total Endpoints"
+    },
+    "purchased": null
+  },
+  "SentinelOne": {
+    "product": "SentinelOne Singularity",
+    "unit": "device",
+    "used": {
+      "q": "SystemInfo.activeLicenses"
+    },
+    "purchased": {
+      "q": "SystemInfo.totalLicenses"
+    }
+  },
+  "Shodan": {
+    "product": "Shodan Monitor",
+    "unit": "none"
+  },
+  "Slack": {
+    "product": "Slack",
+    "unit": "user",
+    "used": {
+      "q": "length(values(BillableInfo || `{}`)[?billing_active == `true`])"
+    },
+    "purchased": null,
+    "caveat": "Slack's own billable-member count, which is what it invoices"
+  },
+  "Slide": {
+    "product": "Slide BCDR",
+    "unit": "appliance",
+    "used": {
+      "q": "length(Devices[?service_status=='active'])",
+      "metric": "Slide: Active Slide Box Count"
+    },
+    "purchased": null,
+    "caveat": "Billed per appliance, by storage tier"
+  },
+  "SonicWall": {
+    "product": "SonicWall security services (per firewall)",
+    "unit": "appliance",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "Security services are per firewall"
+  },
+  "Sonicwall Capture Client": {
+    "product": "SonicWall Capture Client",
+    "unit": "device",
+    "used": {
+      "q": "Endpoints[?isActive] | length(@)",
+      "metric": "Sonicwall Capture Client: Count of Active Endpoints"
+    },
+    "purchased": null
+  },
+  "Sophos Central": {
+    "product": "Sophos Central Endpoint/Server",
+    "unit": "device",
+    "used": {
+      "q": "length(Endpoints)",
+      "metric": "Sophos Central: Total Managed Endpoints"
+    },
+    "purchased": null,
+    "caveat": "Workstation and server licences are priced differently"
+  },
+  "Sophos Firewall": {
+    "product": "Sophos Firewall subscription (per appliance)",
+    "unit": "appliance",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "Subscriptions are per firewall"
+  },
+  "Sophos SG": {
+    "product": "Sophos UTM (SG) subscription (per appliance)",
+    "unit": "appliance",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "Subscriptions are per appliance"
+  },
+  "StorageCraft SPX": {
+    "product": "StorageCraft ShadowProtect SPX",
+    "unit": "device",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "One licence per protected machine"
+  },
+  "Syncro": {
+    "product": "Syncro RMM/PSA",
+    "unit": "none"
+  },
+  "Synology NAS": {
+    "product": "Synology NAS",
+    "unit": "none"
+  },
+  "TLS/SSL": {
+    "product": "TLS/SSL certificate",
+    "unit": "none"
+  },
+  "ThreatLocker": {
+    "product": "ThreatLocker Protect",
+    "unit": "device",
+    "used": {
+      "q": "length(computers || `[]`)",
+      "metric": "ThreatLocker: Total Computers Installed"
+    },
+    "purchased": null
+  },
+  "Ubiquiti UniFi (Site Manager)": {
+    "product": "UniFi Site Manager",
+    "unit": "none"
+  },
+  "Ubiquiti Unifi": {
+    "product": "Ubiquiti UniFi Controller",
+    "unit": "none"
+  },
+  "VMware ESXi": {
+    "product": "VMware vSphere (host licence)",
+    "unit": "device",
+    "used": {
+      "q": "to_number(SystemInfo.Licensing.Used)"
+    },
+    "purchased": {
+      "q": "to_number(SystemInfo.Licensing.Total)"
+    },
+    "caveat": "Licensed per CPU socket or per core, depending on the licence key"
+  },
+  "Vade": {
+    "product": "Vade for M365",
+    "unit": "mailbox",
+    "used": {
+      "q": "sum(Licenses[].userCount)",
+      "metric": "Vade: Total Per User Licenses"
+    },
+    "purchased": null,
+    "caveat": "Counts protected Microsoft 365 users, which is what Vade bills"
+  },
+  "Veeam Availability Console": {
+    "product": "Veeam Availability Console (VCSP workloads)",
+    "unit": "device",
+    "used": {
+      "q": "sum([LicensingBackupServerUsage || `[]`, LicensingAvailabilityConsoleUsage || `[]`, LicensingCloudConnectUsage || `[]`][][].usedCount)"
+    },
+    "purchased": null,
+    "caveat": "Billed per workload; VMs and agents can be priced differently"
+  },
+  "Veeam SPC": {
+    "product": "Veeam Service Provider Console (VCSP workloads)",
+    "unit": "device",
+    "used": {
+      "q": "sum(CompanyUsage[0].counters[?type == 'managedVms' || type == 'managedServerAgents' || type == 'managedWorkstationAgents'].value || `[]`)"
+    },
+    "purchased": null,
+    "caveat": "Billed per workload; cloud backup is billed separately"
+  },
+  "Watchguard": {
+    "product": "WatchGuard security subscription (per appliance)",
+    "unit": "appliance",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "Total or Basic Security is per appliance"
+  },
+  "Watchman Monitoring": {
+    "product": "Watchman Monitoring",
+    "unit": "device",
+    "used": {
+      "q": "SystemInfo.ComputerCount",
+      "metric": "Watchman Monitoring: Total Computers"
+    },
+    "purchased": null,
+    "caveat": "Counts monitored computers, including some that have stopped reporting"
+  },
+  "Webroot": {
+    "product": "Webroot SecureAnywhere Endpoint",
+    "unit": "device",
+    "used": {
+      "q": "Endpoints[?Deactivated == `false`]| length(@)",
+      "metric": "Webroot: Active Endpoint Count"
+    },
+    "purchased": {
+      "q": "SiteInfo.DevicesAllowed"
+    },
+    "caveat": "Counts active endpoints; deactivated ones aren't counted"
+  },
+  "Windows Server": {
+    "product": "Windows Server (managed server)",
+    "unit": "device",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "Counts managed servers, for per-server pricing. Not a Microsoft licence count"
+  },
+  "Windows Workstation": {
+    "product": "Windows Workstation (managed endpoint)",
+    "unit": "device",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "Counts managed workstations, for per-device pricing"
+  },
+  "WithSecure": {
+    "product": "WithSecure Elements",
+    "unit": "device",
+    "used": {
+      "q": "SystemInfo.NumDevices",
+      "metric": "WithSecure: Device Count"
+    },
+    "purchased": null
+  },
+  "iboss": {
+    "product": "iboss Zero Trust SSE",
+    "unit": "user",
+    "used": {
+      "q": "length(ProxyUsers || `[]`)",
+      "metric": "iboss: Proxy User Count"
+    },
+    "purchased": null,
+    "caveat": "Counts proxy users, which may include unlicensed ones"
+  },
+  "macOS": {
+    "product": "macOS (managed endpoint)",
+    "unit": "device",
+    "used": {
+      "q": "`1`"
+    },
+    "purchased": null,
+    "caveat": "Counts managed Macs, for per-device pricing"
+  }
+}
